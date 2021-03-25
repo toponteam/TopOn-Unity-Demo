@@ -19,6 +19,7 @@
 -(void) trackInterstitialAdDidFailToPlayVideo:(NSError*)error;
 -(void) trackInterstitialAdClick;
 -(void) trackInterstitialAdClose;
+-(void) trackInterstitialAdDeeplinkOrJumpResult:(BOOL)success;
 
 -(NSDictionary*)delegateExtra;
 -(ATNativeADSourceType) adSourceType;

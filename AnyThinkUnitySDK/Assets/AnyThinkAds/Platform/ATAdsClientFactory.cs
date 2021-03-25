@@ -114,9 +114,6 @@ namespace AnyThinkAds
         public void setGDPRLevel(int level){ }
         public void showGDPRAuth(){ }
         public void addNetworkGDPRInfo(int networkType, string mapJson){ }
-        public void setPurchaseFlag(){ }
-        public bool purchaseFlag(){ return false; }
-        public void clearPurchaseFlag(){ }
         public void setChannel(string channel){ }
         public void setSubChannel(string subchannel){ }
         public void initCustomMap(string cutomMap){ }
@@ -141,11 +138,17 @@ namespace AnyThinkAds
        {
             this.listener = listener;
        }
+
+       public string checkAdStatus(string unitId) { return ""; }
        
        public void showBannerAd(string unitId, string position){ }
+
+       public void showBannerAd(string unitId, string position, string mapJson){ }
        
        public void showBannerAd(string unitId, ATRect rect){ }
-    
+
+       public void showBannerAd(string unitId, ATRect rect, string mapJson){ }
+
        public  void cleanBannerAd(string unitId){ }
       
        public void hideBannerAd(string unitId){ }
@@ -189,13 +192,17 @@ namespace AnyThinkAds
        }
 
        public bool hasAdReady(string unitId) { return false; }
-        
+
+       public string checkAdStatus(string unitId) { return ""; }
+
        public void setListener(ATNativeAdListener listener){
             this.listener = listener;
        }
         
        public void renderAdToScene(string unitId, ATNativeAdView anyThinkNativeAdView){}
-                   
+
+       public void renderAdToScene(string unitId, ATNativeAdView anyThinkNativeAdView, string mapJson){}
+
        public void cleanAdView(string unitId, ATNativeAdView anyThinkNativeAdView){}
        
        public void onApplicationForces(string unitId, ATNativeAdView anyThinkNativeAdView){}
@@ -246,16 +253,7 @@ namespace AnyThinkAds
 
         public string checkAdStatus(string unitId) { return ""; }
 
-        public void setUserData(string unitId, string userId, string customData){}
-
         public void showAd(string unitId, string mapJson){}
 
-        public void cleanAd(string unitId){}
-
-        public void onApplicationForces(string unitId){}
-
-        public void onApplicationPasue(string unitId){}
-
-        public void addsetting(string unitId, string json){}
     }
 }

@@ -27,6 +27,8 @@ extern NSString *const kATNativeSplashShowingExtraStyleLandscape;
 -(void) didShowNativeSplashAdForPlacementID:(NSString*)placementID extra:(NSDictionary *)extra;
 -(void) didClickNaitveSplashAdForPlacementID:(NSString*)placementID extra:(NSDictionary *)extra;
 -(void) didCloseNativeSplashAdForPlacementID:(NSString*)placementID extra:(NSDictionary *)extra;
+- (void)didNativeSplashDeeplinkOrJumpForPlacementID:(NSString*)placementID extra:(NSDictionary *)extra result:(BOOL)success;
+
 @end
 
 @interface ATNativeSplashWrapper : NSObject

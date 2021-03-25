@@ -87,20 +87,6 @@ namespace AnyThinkAds.Android
             return adStatusJsonString;
         }
 
-        public void setUserData(string placementId, string userId, string customData)
-        {
-			Debug.Log("ATRewardedVideoAdClient : setUserData  " );
-
-			try{
-                if (videoHelperMap.ContainsKey(placementId)) {
-                    this.videoHelperMap[placementId].Call ("setUserData",userId,customData);
-				}
-			}catch(System.Exception e){
-				System.Console.WriteLine("Exception caught: {0}", e);
-				Debug.Log ("ATRewardedVideoAdClient :  error."+e.Message);
-			}
-        }
-
         public void showAd(string placementId, string scenario)
         {
 			Debug.Log("ATRewardedVideoAdClient : showAd " );
@@ -116,59 +102,6 @@ namespace AnyThinkAds.Android
 			}
         }
 
-		public void addsetting (string placementId,string json){
-			Debug.Log("ATRewardedVideoAdClient : addsetting" );
-
-			try{
-				if (videoHelperMap.ContainsKey(placementId)) {
-					this.videoHelperMap[placementId].Call ("addsetting",json);
-				}
-			}catch(System.Exception e){
-				System.Console.WriteLine("Exception caught: {0}", e);
-				Debug.Log ("ATRewardedVideoAdClient :  error."+e.Message);
-			}
-		}
-
-        public void cleanAd(string placementId)
-        {
-			
-			Debug.Log("ATRewardedVideoAdClient : clean" );
-
-			try{
-                if (videoHelperMap.ContainsKey(placementId)) {
-                    this.videoHelperMap[placementId].Call ("clean");
-				}
-			}catch(System.Exception e){
-				System.Console.WriteLine("Exception caught: {0}", e);
-				Debug.Log ("ATRewardedVideoAdClient :  error."+e.Message);
-			}
-        }
-
-        public void onApplicationForces(string placementId)
-        {
-			Debug.Log ("onApplicationForces.... ");
-			try{
-				if (videoHelperMap.ContainsKey(placementId)) {
-					this.videoHelperMap[placementId].Call ("onResume");
-				}
-			}catch(System.Exception e){
-				System.Console.WriteLine("Exception caught: {0}", e);
-				Debug.Log ("ATRewardedVideoAdClient :  error."+e.Message);
-			}
-        }
-
-        public void onApplicationPasue(string placementId)
-        {
-			Debug.Log ("onApplicationPasue.... ");
-			try{
-				if (videoHelperMap.ContainsKey(placementId)) {
-					this.videoHelperMap[placementId].Call ("onPause");
-				}
-			}catch(System.Exception e){
-				System.Console.WriteLine("Exception caught: {0}", e);
-				Debug.Log ("ATRewardedVideoAdClient :  error."+e.Message);
-			}
-        }
 
         //广告加载成功
         public void onRewardedVideoAdLoaded(string placementId)

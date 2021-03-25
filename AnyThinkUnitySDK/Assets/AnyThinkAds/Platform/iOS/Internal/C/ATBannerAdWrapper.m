@@ -47,25 +47,29 @@ static NSString *kATBannerAdLoadingExtraInlineAdaptiveOrientationKey = @"inline_
     NSString *selector = dict[@"selector"];
     NSArray<NSString*>* arguments = dict[@"arguments"];
     NSString *firstObject = @"";
+    NSString *secondObject = @"";
     NSString *lastObject = @"";
     if (![ATUnityUtilities isEmpty:arguments]) {
         for (int i = 0; i < arguments.count; i++) {
             if (i == 0) { firstObject = arguments[i]; }
+            else if (i == 1) { secondObject = arguments[i]; }
             else { lastObject = arguments[i]; }
         }
     }
     
     if ([selector isEqualToString:@"loadBannerAdWithPlacementID:customDataJSONString:callback:"]) {
-        [self loadBannerAdWithPlacementID:firstObject customDataJSONString:lastObject callback:callback];
-    } else if ([selector isEqualToString:@"showBannerAdWithPlacementID:rect:"]) {
-        [self showBannerAdWithPlacementID:firstObject rect:lastObject];
+        [self loadBannerAdWithPlacementID:firstObject customDataJSONString:secondObject callback:callback];
+    } else if ([selector isEqualToString:@"showBannerAdWithPlacementID:rect:extraJsonString:"]) {
+        [self showBannerAdWithPlacementID:firstObject rect:secondObject extraJsonString:lastObject];
     } else if ([selector isEqualToString:@"removeBannerAdWithPlacementID:"]) {
         [self removeBannerAdWithPlacementID:firstObject];
     } else if ([selector isEqualToString:@"showBannerAdWithPlacementID:"]) {
         [self showBannerAdWithPlacementID:firstObject];
     } else if ([selector isEqualToString:@"hideBannerAdWithPlacementID:"]) {
         [self hideBannerAdWithPlacementID:firstObject];
-    } else if ([selector isEqualToString:@"clearCache"]) {
+    } else if ([selector isEqualToString:@"checkAdStatus:"]) {
+        return [self checkAdStatus:firstObject];
+    }   else if ([selector isEqualToString:@"clearCache"]) {
         [self clearCache];
     }
     return nil;
@@ -110,17 +114,29 @@ static NSString *kATBannerAdLoadingExtraInlineAdaptiveOrientationKey = @"inline_
     [[ATAdManager sharedManager] loadADWithPlacementID:placementID extra:extra delegate:self];
 }
 
+-(NSString*) checkAdStatus:(NSString *)placementID {
+    ATCheckLoadModel *checkLoadModel = [[ATAdManager sharedManager] checkBannerLoadStatusForPlacementID:placementID];
+    NSMutableDictionary *statusDict = [NSMutableDictionary dictionary];
+    statusDict[@"isLoading"] = @(checkLoadModel.isLoading);
+    statusDict[@"isReady"] = @(checkLoadModel.isReady);
+    statusDict[@"adInfo"] = checkLoadModel.adOfferInfo;
+    NSLog(@"ATBannerAdWrapper::statusDict = %@", statusDict);
+    return statusDict.jsonString;
+}
+
 UIEdgeInsets SafeAreaInsets_ATUnityBanner() {
     return ([[UIApplication sharedApplication].keyWindow respondsToSelector:@selector(safeAreaInsets)] ? [UIApplication sharedApplication].keyWindow.safeAreaInsets : UIEdgeInsetsZero);
 }
 
--(void) showBannerAdWithPlacementID:(NSString*)placementID rect:(NSString*)rect {
+-(void) showBannerAdWithPlacementID:(NSString*)placementID rect:(NSString*)rect extraJsonString:(NSString*)extraJsonString {
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([rect isKindOfClass:[NSString class]] && [rect dataUsingEncoding:NSUTF8StringEncoding] != nil) {
+            NSDictionary *extraDict = ([extraJsonString isKindOfClass:[NSString class]] && [extraJsonString dataUsingEncoding:NSUTF8StringEncoding] != nil) ? [NSJSONSerialization JSONObjectWithData:[extraJsonString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil] : nil;
+            
             NSDictionary *rectDict = [NSJSONSerialization JSONObjectWithData:[rect dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
             NSLog(@"rectDict = %@", rectDict);
             CGFloat scale = [rectDict[kATBannerSizeUsesPixelFlagKey] boolValue] ? [UIScreen mainScreen].nativeScale : 1.0f;
-            ATBannerView *bannerView = [[ATAdManager sharedManager] retrieveBannerViewForPlacementID:placementID];
+            ATBannerView *bannerView = [[ATAdManager sharedManager] retrieveBannerViewForPlacementID:placementID scene:extraDict[kATUnityUtilitiesAdShowingExtraScenarioKey]];
             bannerView.delegate = self;
             UIButton *bannerCointainer = [UIButton buttonWithType:UIButtonTypeCustom];
             [bannerCointainer addTarget:self action:@selector(noop) forControlEvents:UIControlEventTouchUpInside];

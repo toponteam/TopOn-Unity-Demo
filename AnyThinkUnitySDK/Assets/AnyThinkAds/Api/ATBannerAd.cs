@@ -75,6 +75,11 @@ namespace AnyThinkAds.Api
 			
 		}
 
+        public string checkAdStatus(string placementId)
+        {
+            return client.checkAdStatus(placementId);
+        }
+
 		public void setListener(ATBannerAdListener listener)
         {
             client.setListener(listener);
@@ -82,12 +87,22 @@ namespace AnyThinkAds.Api
 
         public void showBannerAd(string placementId, ATRect rect)
         {
-            client.showBannerAd(placementId, rect);
+            client.showBannerAd(placementId, rect, "");
+        }
+
+        public void showBannerAd(string placementId, ATRect rect, Dictionary<string,string> pairs)
+        {
+            client.showBannerAd(placementId, rect, Json.Serialize(pairs));
         }
 
         public void showBannerAd(string placementId, string position)
         {
-            client.showBannerAd(placementId, position);
+            client.showBannerAd(placementId, position, "");
+        }
+
+        public void showBannerAd(string placementId, string position, Dictionary<string,string> pairs)
+        {
+            client.showBannerAd(placementId, position, Json.Serialize(pairs));
         }
 
         public void showBannerAd(string placementId)

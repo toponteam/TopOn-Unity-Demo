@@ -1,0 +1,5 @@
+<dependencies>
+    <androidPackages>
+        <androidPackage spec="com.my.target:mytarget-sdk:5.11.9"/>
+    </androidPackages>
+</dependencies>

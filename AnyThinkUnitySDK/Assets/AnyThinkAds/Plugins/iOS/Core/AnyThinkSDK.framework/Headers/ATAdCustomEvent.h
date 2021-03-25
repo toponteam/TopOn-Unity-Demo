@@ -48,5 +48,5 @@ extern NSString *const kATAdAssetsAppIDKey;
 +(NSInteger) calculateAdPriority:(id<ATAd>)ad;
 
 @property (nonatomic, assign) NSString *networkUnitId;
-
+@property (nonatomic) NSDictionary *networkCustomInfo;
 @end

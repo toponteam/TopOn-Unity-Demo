@@ -23,15 +23,31 @@ namespace AnyThinkAds.iOS {
 			ATBannerAdWrapper.loadBannerAd(placementId, mapJson);
 	    }
 
+	    public string checkAdStatus(string placementId) {
+            Debug.Log("Unity: ATBannerAdClient::checkAdStatus()");
+            return ATBannerAdWrapper.checkAdStatus(placementId);
+        }
+
 	    public void showBannerAd(string placementId, ATRect rect) {
 			Debug.Log("Unity: ATBannerAdClient::showBannerAd()");
 			ATBannerAdWrapper.showBannerAd(placementId, rect);
+	    }
+
+	    public void showBannerAd(string placementId, ATRect rect, string mapJson) {
+			Debug.Log("Unity: ATBannerAdClient::showBannerAd()");
+			ATBannerAdWrapper.showBannerAd(placementId, rect, mapJson);
 	    }
 
         public void showBannerAd(string placementId, string position)
         {
             Debug.Log("Unity: ATBannerAdClient::showBannerAd()");
             ATBannerAdWrapper.showBannerAd(placementId, position);
+        }
+
+        public void showBannerAd(string placementId, string position, string mapJson)
+        {
+            Debug.Log("Unity: ATBannerAdClient::showBannerAd()");
+            ATBannerAdWrapper.showBannerAd(placementId, position, mapJson);
         }
 
         public void cleanBannerAd(string placementId) {

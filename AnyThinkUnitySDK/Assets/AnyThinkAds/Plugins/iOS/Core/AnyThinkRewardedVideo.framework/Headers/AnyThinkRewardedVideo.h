@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AnyThinkSDK/AnyThinkSDK.h>
-#import "ATAdManager+RewardedVideo.h"
-#import "ATRewardedVideoDelegate.h"
-#import "ATRewardedVideoCustomEvent.h"
-#import "ATAdManager+RewardedVideo.h"
 
+#import <AnyThinkSDK/AnyThinkSDK.h>
+#import <AnyThinkRewardedVideo/ATAdManager+RewardedVideo.h>
+#import <AnyThinkRewardedVideo/ATRewardedVideoDelegate.h>
+#import <AnyThinkRewardedVideo/ATRewardedVideoCustomEvent.h>
 
 //! Project version number for AnyThinkRewardedVideo.
 FOUNDATION_EXPORT double AnyThinkRewardedVideoVersionNumber;

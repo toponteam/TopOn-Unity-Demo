@@ -33,8 +33,10 @@
 @property(nonatomic) ATRewardedVideoCustomEvent *customEvent;
 @property(nonatomic, readonly) NSString *appID;
 @property(nonatomic) BOOL defaultPlayIfRequired;
-@property(nonatomic) NSString *scene;
+@property(nonatomic, copy) NSString *scene;
 @property(nonatomic, readonly) NSString *price;
+@property(nonatomic, readonly) NSString *bidId;
 @property(nonatomic, readonly, weak) ATWaterfall *finalWaterfall;
 @property(nonatomic, readonly) NSInteger autoReqType;
+
 @end

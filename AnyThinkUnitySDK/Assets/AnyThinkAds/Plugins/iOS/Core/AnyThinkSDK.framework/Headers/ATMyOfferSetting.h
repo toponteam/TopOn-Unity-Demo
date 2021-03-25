@@ -12,12 +12,6 @@
 -(instancetype) initWithDictionary:(NSDictionary *)dictionary placementID:(NSString*)placementID;
 
 @property(nonatomic, readwrite) NSTimeInterval resourceCacheTime;
-//setting for banner
-@property(nonatomic, readwrite) NSString *bannerSize;
-@property(nonatomic, readwrite) BOOL showBannerCloseBtn;
-@property(nonatomic, readwrite) NSInteger splashCountDownTime;
-@property(nonatomic, readwrite) BOOL skipable;
-@property(nonatomic, readwrite) NSInteger splashOrientation;
 
 +(instancetype) mockSetting;
 @end

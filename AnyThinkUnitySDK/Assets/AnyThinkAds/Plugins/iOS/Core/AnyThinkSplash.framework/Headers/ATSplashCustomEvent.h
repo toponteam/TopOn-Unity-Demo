@@ -21,7 +21,12 @@ extern NSString *const kATSplashExtraRequestIDKey;
 -(void) trackClickWithoutWaterfall;
 -(void) trackSplashAdClosed;
 -(void) trackSplashAdLoaded:(id)splashAd;
+-(void) trackSplashAdLoaded:(id)splashAd adExtra:(NSDictionary *)adExtra;
 -(void) trackSplashAdShow;
 -(void) trackSplashAdClick;
 -(void) trackSplashAdLoadFailed:(NSError*)error;
+-(void) trackSplashAdZoomOutViewClick;
+-(void) trackSplashAdZoomOutViewClosed;
+-(void) trackSplashAdDeeplinkOrJumpResult:(BOOL)success;
+
 @end

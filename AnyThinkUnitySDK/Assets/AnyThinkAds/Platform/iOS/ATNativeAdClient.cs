@@ -24,6 +24,11 @@ namespace AnyThinkAds.iOS {
 			return ATNativeAdWrapper.isNativeAdReady(placementId);
         }
 
+        public string checkAdStatus(string placementId) {
+            Debug.Log("Unity: ATNativeAdClient::checkAdStatus()");
+            return ATNativeAdWrapper.checkAdStatus(placementId);
+        }
+
         public void setListener(ATNativeAdListener listener) {
             Debug.Log("Unity:ATNativeAdClient::setListener()");
             mlistener = listener;
@@ -32,6 +37,11 @@ namespace AnyThinkAds.iOS {
 		public void renderAdToScene(string placementId, ATNativeAdView anyThinkNativeAdView) {	
             Debug.Log("Unity:ATNativeAdClient::renderAdToScene()");
             ATNativeAdWrapper.showNativeAd(placementId, anyThinkNativeAdView.toJSON());
+        }
+
+        public void renderAdToScene(string placementId, ATNativeAdView anyThinkNativeAdView, string mapJson) {  
+            Debug.Log("Unity:ATNativeAdClient::renderAdToScene()");
+            ATNativeAdWrapper.showNativeAd(placementId, anyThinkNativeAdView.toJSON(), mapJson);
         }
 
         public void cleanAdView(string placementId, ATNativeAdView anyThinkNativeAdView) {

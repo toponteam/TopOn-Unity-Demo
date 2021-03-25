@@ -52,19 +52,39 @@ namespace AnyThinkAds.Android
 			return isready;   
         }
 
+        public string checkAdStatus(string placementId)
+        {
+            string adStatusJsonString = "";
+            Debug.Log("ATNativeAdClient : checkAdStatus....");
+            try
+            {
+                if (nativeAdHelperMap.ContainsKey(placementId))
+                {
+                    adStatusJsonString = nativeAdHelperMap[placementId].Call<string>("checkAdStatus");
+                }
+            }
+            catch (System.Exception e)
+            {
+                System.Console.WriteLine("Exception caught: {0}", e);
+                Debug.Log("ATNativeAdClient :  error." + e.Message);
+            }
+
+            return adStatusJsonString;
+        }
+
         public void setListener(ATNativeAdListener listener)
         {
             mlistener = listener;
         }
 
-		public void renderAdToScene(string placementId, ATNativeAdView anyThinkNativeAdView)
+		public void renderAdToScene(string placementId, ATNativeAdView anyThinkNativeAdView, string mapJson)
         {	
 			string showconfig = anyThinkNativeAdView.toJSON ();
             //暂未实现 show
 			Debug.Log ("renderAdToScene....showconfig >>>:"+showconfig);
 			try{
                 if (nativeAdHelperMap.ContainsKey(placementId)) {
-                    nativeAdHelperMap[placementId].Call ("show",showconfig);
+                    nativeAdHelperMap[placementId].Call ("show",showconfig, mapJson);
 				}
 			}catch(System.Exception e){
 				Debug.Log ("ATNativeAdClient :  error."+e.Message);

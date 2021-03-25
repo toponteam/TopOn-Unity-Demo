@@ -21,5 +21,9 @@ extern NSString *const kATSplashDelegateExtraPriority;
 -(void)splashDidShowForPlacementID:(NSString*)placementID extra:(NSDictionary *) extra;
 -(void)splashDidClickForPlacementID:(NSString*)placementID extra:(NSDictionary *) extra;
 -(void)splashDidCloseForPlacementID:(NSString*)placementID extra:(NSDictionary *) extra;
+-(void)splashDeepLinkOrJumpForPlacementID:(NSString*)placementID extra:(NSDictionary*)extra result:(BOOL)success;
+
+-(void)splashZoomOutViewDidClickForPlacementID:(NSString*)placementID extra:(NSDictionary *) extra;
+-(void)splashZoomOutViewDidCloseForPlacementID:(NSString*)placementID extra:(NSDictionary *) extra;
 @end
 #endif /* ATSplashDelegate_h */

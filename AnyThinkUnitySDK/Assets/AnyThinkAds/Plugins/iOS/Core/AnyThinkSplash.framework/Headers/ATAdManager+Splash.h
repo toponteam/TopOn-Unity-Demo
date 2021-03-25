@@ -15,6 +15,7 @@ extern NSString *const kATSplashExtraBackgroundColorKey;
 extern NSString *const kATSplashExtraSkipButtonCenterKey;
 extern NSString *const kATSplashExtraCustomSkipButtonKey;
 extern NSString *const kATSplashExtraCanClickFlagKey;
+extern NSString *const kATSplashExtraShowDirectionKey;//Supported by KS Splash, defaults to Vertical, 1 to Horizontal
 
 extern NSString *const kATSplashExtraPlacementIDKey;
 extern NSString *const kATSplashExtraNetworkFirmID;
@@ -31,6 +32,7 @@ extern NSString *const kATSplashExtraGDTUnitID;
 extern NSString *const kATSplashExtraAppID;
 extern NSString *const kATSplashExtraSlotID;
 extern NSString *const kATSplashExtraPersonalizedTemplateFlag;
+extern NSString *const kATSplashExtraZoomOutKey;
 #pragma mark - Baidu
 extern NSString *const kATSplashExtraBaiduAppID;
 extern NSString *const kATSplashExtraBaiduAdPlaceID;
@@ -42,10 +44,28 @@ extern NSString *const kATSplashExtraSigmobPlacementID;
 extern NSString *const kATSplashExtraAdmobAppID;
 extern NSString *const kATSplashExtraAdmobUnitID;
 extern NSString *const kATSplashExtraAdmobOrientation;
+#pragma mark - KuaiShou
+extern NSString *const kATSplashExtraKSAppID ;
+extern NSString *const kATSplashExtraKSPosID;
+
+extern NSString *const kATAdLoadingExtraSplashAdSizeKey;
+
+#pragma mark - Mobrain
+extern NSString *const kATSplashExtraMobrainAdnTypeKey;
+extern NSString *const kATSplashExtraMobrainAppKeyKey;
+extern NSString *const kATSplashExtraAppIDKey;
+extern NSString *const kATSplashExtraRIDKey;
+extern NSString *const kATSplashExtraRootViewControllerKey;
+
 
 @protocol ATSplashDelegate;
 @interface ATAdManager (Splash)
--(void) loadADWithPlacementID:(NSString*)placementID extra:(NSDictionary*)extra customData:(NSDictionary*)customData delegate:(id<ATSplashDelegate>)delegate window:(UIWindow*)window containerView:(UIView*)containerView;
--(void) loadADWithPlacementID:(NSString*)placementID extra:(NSDictionary*)extra customData:(NSDictionary*)customData delegate:(id<ATSplashDelegate>)delegate window:(UIWindow*)window windowScene:(UIWindowScene *)windowScene containerView:(UIView*)containerView API_AVAILABLE(ios(13.0));
--(void) checkAdSourceList:(NSString*)placementID;
+- (void)loadADWithPlacementID:(NSString *)placementID extra:(NSDictionary *)extra delegate:(id<ATSplashDelegate>)delegate containerView:(UIView *)containerView;
+- (void)checkAdSourceList:(NSString*)placementID;
+- (void)showSplashWithPlacementID:(NSString*)placementID window:(UIWindow*)window delegate:(id<ATSplashDelegate>)delegate;
+- (void)showSplashWithPlacementID:(NSString*)placementID window:(UIWindow*)window windowScene:(UIWindowScene *)windowScene delegate:(id<ATSplashDelegate>)delegate API_AVAILABLE(ios(13.0));
+- (BOOL)splashReadyForPlacementID:(NSString *)placementID;
+- (BOOL)splashReadyForPlacementID:(NSString *)placementID sendTK:(BOOL)send;
+
+- (ATCheckLoadModel*)checkSplashLoadStatusForPlacementID:(NSString *)placementID;
 @end

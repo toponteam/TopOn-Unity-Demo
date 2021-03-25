@@ -11,11 +11,5 @@
 @interface ATADXPlacementSetting : ATOfferSetting
 -(instancetype) initWithPlacementDictionary:(NSDictionary *)placementDictionary infoDictionary:(NSDictionary *)infoDictionary  placementID:(NSString*)placementID;
 
-@property(nonatomic, readwrite) ATClickMode clickMode;
-@property(nonatomic, readwrite) ATLoadType loadType;
-@property(nonatomic, readwrite) ATUserAgentType impressionUAType;
-@property(nonatomic, readwrite) ATUserAgentType clickUAType;
-
-
 +(instancetype) mockSetting;
 @end

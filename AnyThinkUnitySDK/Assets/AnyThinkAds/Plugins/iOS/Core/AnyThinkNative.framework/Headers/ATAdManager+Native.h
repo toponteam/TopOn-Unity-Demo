@@ -30,5 +30,9 @@ typedef NS_ENUM(NSInteger, ATGDTNativeAdType) {
  2) adds it to a superView and returns the super view instead(for network Mopub).
  * To retrieve the instance of the class you specify as the rendering view class, cast the returned view to ATNativeADView and call its embededAdView method(the view returned might not be of class ATNativeADView).
  */
--(__kindof UIView*) retriveAdViewWithPlacementID:(NSString*)placementID configuration:(ATNativeADConfiguration*)configuration;
+- (__kindof UIView*) retriveAdViewWithPlacementID:(NSString*)placementID configuration:(ATNativeADConfiguration*)configuration;
+- (__kindof UIView*) retriveAdViewWithPlacementID:(NSString*)placementID configuration:(ATNativeADConfiguration*)configuration scene:(NSString *)scene;
+
+- (ATCheckLoadModel*)checkNativeLoadStatusForPlacementID:(NSString*)placementID;
+
 @end

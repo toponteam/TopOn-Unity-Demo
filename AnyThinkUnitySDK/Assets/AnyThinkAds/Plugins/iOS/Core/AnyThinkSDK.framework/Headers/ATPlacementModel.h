@@ -30,6 +30,12 @@ typedef NS_ENUM(NSInteger, ATAdFormat) {
     ATAdFormatInterstitial = 3,
     ATAdFormatSplash = 4
 };
+
+typedef NS_ENUM(NSInteger, ATRevenueToPlatform) {
+    ATRevenueToPlatformAdjust = 1,
+    ATRevenueToPlatformAppsflyer = 2,
+    ATRevenueToPlatformTenjin
+};
 extern NSString *const kPlacementModelCacheDateKey;
 extern NSString *const kPlacementModelCustomDataKey;
 @interface ATPlacementModelExtra:ATModel
@@ -40,6 +46,16 @@ extern NSString *const kPlacementModelCustomDataKey;
 @property(nonatomic, readonly) NSInteger countdown;
 @property(nonatomic, readonly) BOOL allowsSkip;
 @property(nonatomic, readonly) BOOL closeAfterCountdownElapsed;
+@end
+
+@interface ATPlatfromInfo : NSObject
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+@property(nonatomic) ATRevenueToPlatform platform;
+@property(nonatomic) NSInteger dataType;
+@property(nonatomic, copy) NSString *token;
+
 @end
 
 @interface ATPlacementModel : ATModel
@@ -111,9 +127,37 @@ extern NSString *const kPlacementModelCustomDataKey;
 //extra
 @property(nonatomic, readonly) NSDictionary *callback;
 
+@property(nonatomic, readonly) NSInteger FBHBTimeOut;
+
 @property(nonatomic, readonly) NSDictionary* adxSettingDict;
 @property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* adxUnitGroups;
 
+@property(nonatomic, readonly) NSDictionary* olApiSettingDict;
+@property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* olApiUnitGroups;
+
+@property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* inhouseUnitGroups;
+
+@property(nonatomic, readonly) NSString *currency;
+@property(nonatomic, readonly) NSString *exchangeRate;
+
+// v5.7.10
+@property(nonatomic, readonly) NSString *campaign;
 
 -(Class) adManagerClass;
+
+- (NSDictionary *)revenueToPlatforms;
+
+/**
+ In order to solve the problem of inconsistency in legal tender. If the current ecpm currency is USD, this method returns NO.
+ */
+//- (BOOL)needConvertPrice;
+
+/**
+ If the current legal currency of ecpm is not USD, this method will calculate the corresponding price according to the latest exchange rate.
+ */
+//- (NSString *)convertedPrice:(NSString *)price;
+
+//todo: just for in-house list. It's not a good solution.
+@property(nonatomic, copy) NSArray<ATUnitGroupModel*>* waterfallA;
+
 @end

@@ -35,9 +35,5 @@ namespace AnyThinkAds.Common
 		 * 显示广告
 		 */
         void showInterstitialAd(string placementId, string mapJson);
-		/***
-		 * 清理缓存
-		 */ 
-        void cleanCache(string placementId);
     }
 }

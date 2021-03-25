@@ -1,5 +1,5 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec="com.startapp:inapp-sdk:4.6.0"/>
+        <androidPackage spec="com.startapp:inapp-sdk:4.6.3"/>
     </androidPackages>
 </dependencies>

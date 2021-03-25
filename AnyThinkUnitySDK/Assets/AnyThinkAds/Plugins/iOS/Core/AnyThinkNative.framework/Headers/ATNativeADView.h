@@ -27,7 +27,7 @@
 -(void) makeConstraintsForSubviews;
 
 /**
- * During ad refreshing, the media view might be removed from it's superview and recreated and added; so the layout logic for media view might be called multiple times with diference media views. You're recommended to use frame-based technique here.
+ * During ad refreshing, the media view might be removed from it's superview and recreated and added; so the layout logic for media view might be called multiple times with different media views. You're recommended to use frame-based technique here.
  */
 -(void) layoutMediaView;
 

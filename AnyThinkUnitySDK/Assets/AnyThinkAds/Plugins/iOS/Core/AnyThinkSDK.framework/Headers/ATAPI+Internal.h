@@ -63,6 +63,8 @@ extern NSString *const kATADLoadingNotificationUserInfoExtraKey;
 
 @interface ATAPI(Internal)
 +(BOOL)logEnabled;
++(BOOL)adLogoVisible;
++(BOOL)isOfm;
 -(void) setVersion:(NSString*)version forNetwork:(NSString*)network;
 -(NSDictionary*)networkVersions;
 -(NSString*)versionForNetworkFirmID:(NSInteger)networkFirmID;
@@ -70,6 +72,8 @@ extern NSString *const kATADLoadingNotificationUserInfoExtraKey;
 -(void) setInitFlagForNetwork:(NSString*)networkName;
 -(void) inspectInitFlagForNetwork:(NSString*)networkName usingBlock:(NSInteger(^)(NSInteger currentValue))block;
 -(void) setInitFlag:(NSInteger)flag forNetwork:(NSString*)networkName;
+-(BOOL) startWithAppID:(NSString*)appID appKey:(NSString*)appKey error:(NSError**)error isOfm:(BOOL) isOfm shouldUpdateOfm:(BOOL)shouldUpdateOfm completion:(void (^)(NSDictionary *, NSError *)) completion;
+-(void) applyAppSettingWithCompletion:(void (^)(NSDictionary * setting, NSError * error)) completion shouldUpdateOfm:(BOOL)shouldUpdateOfm;
 @property(nonatomic, readonly) NSString *userAgent;
 @end
 

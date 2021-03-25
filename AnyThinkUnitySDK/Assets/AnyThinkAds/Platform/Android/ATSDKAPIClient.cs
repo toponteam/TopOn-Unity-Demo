@@ -170,31 +170,17 @@ namespace AnyThinkAds.Android
             }
         }
 
-
-
-        public void setPurchaseFlag() {
-        
-        }
-
-        public void clearPurchaseFlag() {
-
-        }
-
-        public bool purchaseFlag() {
-            return false;
-        }
-
         public void addNetworkGDPRInfo(int networkType, string mapJson)
         {
-			Debug.Log ("addNetworkGDPRInfo...." + networkType + "mapjson:"+mapJson);
-			try{
-				if (this.sdkInitHelper != null) {
-					this.sdkInitHelper.Call ("addNetworkGDPRInfo",networkType,mapJson);
-				}
-			}catch(System.Exception e){
-				System.Console.WriteLine("Exception caught: {0}", e);
-				Debug.Log ("ATSDKAPIClient :  error."+e.Message);
-			}
+//			Debug.Log ("addNetworkGDPRInfo...." + networkType + "mapjson:"+mapJson);
+//			try{
+//				if (this.sdkInitHelper != null) {
+//					this.sdkInitHelper.Call ("addNetworkGDPRInfo",networkType,mapJson);
+//				}
+//			}catch(System.Exception e){
+//				System.Console.WriteLine("Exception caught: {0}", e);
+//				Debug.Log ("ATSDKAPIClient :  error."+e.Message);
+//			}
 
         }
 

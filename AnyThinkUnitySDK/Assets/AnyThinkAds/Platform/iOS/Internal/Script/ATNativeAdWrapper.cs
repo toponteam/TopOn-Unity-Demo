@@ -52,9 +52,19 @@ public class ATNativeAdWrapper:ATAdWrapper {
     	return ATUnityCBridge.SendMessageToC(CMessageReceiverClass, "isNativeAdReadyForPlacementID:", new object[]{placementID});
     }
 
+    static public string checkAdStatus(string placementID) {
+        Debug.Log("Unity: ATNativeAdWrapper::checkAdStatus(" + placementID + ")");
+        return ATUnityCBridge.GetStringMessageFromC(CMessageReceiverClass, "checkAdStatus:", new object[]{placementID});
+    }
+
     static public void showNativeAd(string placementID, string metrics) {
 	    Debug.Log("Unity: ATNativeAdWrapper::showNativeAd(" + placementID + ")");
-    	ATUnityCBridge.SendMessageToC(CMessageReceiverClass, "showNativeAdWithPlacementID:metricsJSONString:", new object[]{placementID, metrics});
+    	ATUnityCBridge.SendMessageToC(CMessageReceiverClass, "showNativeAdWithPlacementID:metricsJSONString:extraJsonString:", new object[]{placementID, metrics, null});
+    }
+
+    static public void showNativeAd(string placementID, string metrics, string mapJson) {
+        Debug.Log("Unity: ATNativeAdWrapper::showNativeAd(" + placementID + ")");
+        ATUnityCBridge.SendMessageToC(CMessageReceiverClass, "showNativeAdWithPlacementID:metricsJSONString:extraJsonString:", new object[]{placementID, metrics, mapJson});
     }
 
     static public void removeNativeAdView(string placementID) {

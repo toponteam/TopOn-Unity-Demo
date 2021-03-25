@@ -50,12 +50,21 @@ namespace AnyThinkAds.Api
             return client.hasAdReady(placementId);
         }
 
+       public string checkAdStatus(string placementId)
+        {
+            return client.checkAdStatus(placementId);
+        }
+
         public void setListener(ATNativeAdListener listener){
             client.setListener(listener);
         }
 
         public void renderAdToScene(string placementId, ATNativeAdView anyThinkNativeAdView){
-            client.renderAdToScene(placementId, anyThinkNativeAdView);
+            client.renderAdToScene(placementId, anyThinkNativeAdView, "");
+        }
+
+        public void renderAdToScene(string placementId, ATNativeAdView anyThinkNativeAdView, Dictionary<string,string> pairs){
+            client.renderAdToScene(placementId, anyThinkNativeAdView, Json.Serialize(pairs));
         }
 
         public void cleanAdView(string placementId, ATNativeAdView anyThinkNativeAdView){

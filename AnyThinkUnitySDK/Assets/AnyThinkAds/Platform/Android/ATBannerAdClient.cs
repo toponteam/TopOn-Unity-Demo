@@ -46,13 +46,33 @@ namespace AnyThinkAds.Android
 
         }
 
+        public string checkAdStatus(string placementId)
+        {
+            string adStatusJsonString = "";
+            Debug.Log("ATBannerAdClient : checkAdStatus....");
+            try
+            {
+                if (bannerHelperMap.ContainsKey(placementId))
+                {
+                    adStatusJsonString = bannerHelperMap[placementId].Call<string>("checkAdStatus");
+                }
+            }
+            catch (System.Exception e)
+            {
+                System.Console.WriteLine("Exception caught: {0}", e);
+                Debug.Log("ATBannerAdClient :  error." + e.Message);
+            }
+
+            return adStatusJsonString;
+        }
+
         public void setListener(ATBannerAdListener listener)
         {
             anyThinkListener = listener;
         }
 
 
-        public void showBannerAd(string placementId, string position)
+        public void showBannerAd(string placementId, string position, string mapJson)
         {
             Debug.Log("ATBannerAdClient : showBannerAd by position" );
             //todo
@@ -60,7 +80,7 @@ namespace AnyThinkAds.Android
             {
                 if (bannerHelperMap.ContainsKey(placementId))
                 {
-                    this.bannerHelperMap[placementId].Call("showBannerAd", position);
+                    this.bannerHelperMap[placementId].Call("showBannerAd", position, mapJson);
                 }
             }
             catch (System.Exception e)
@@ -73,13 +93,13 @@ namespace AnyThinkAds.Android
        
 
 		
-        public void showBannerAd(string placementId, ATRect rect)
+        public void showBannerAd(string placementId, ATRect rect, string mapJson)
         {
             Debug.Log("ATBannerAdClient : showBannerAd " );
 
 			try{
                 if (bannerHelperMap.ContainsKey(placementId)) {
-                    this.bannerHelperMap[placementId].Call ("showBannerAd", rect.x, rect.y, rect.width, rect.height);
+                    this.bannerHelperMap[placementId].Call ("showBannerAd", rect.x, rect.y, rect.width, rect.height, mapJson);
 				}
 			}catch(System.Exception e){
 				System.Console.WriteLine("Exception caught: {0}", e);

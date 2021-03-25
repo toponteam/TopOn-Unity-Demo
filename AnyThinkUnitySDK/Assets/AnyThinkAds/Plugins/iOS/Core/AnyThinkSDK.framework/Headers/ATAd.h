@@ -33,6 +33,8 @@
 @property(nonatomic, readonly) id customObject;
 @property(nonatomic, readonly) NSString *unitID;
 @property(nonatomic, readonly) NSString *appID;
+- (NSString *)ecpm;
+
 @optional
 -(BOOL) expired;
 -(BOOL) ready;
@@ -42,6 +44,7 @@
 @property(nonatomic) BOOL defaultPlayIfRequired;
 @property(nonatomic, readonly) BOOL renewed;
 @property(nonatomic, readonly) NSString *price;
+@property(nonatomic, readonly) NSString *bidId;
 @property(nonatomic, readonly, weak) ATWaterfall *finalWaterfall;
 @property(nonatomic, readonly) NSInteger autoReqType;
 @end

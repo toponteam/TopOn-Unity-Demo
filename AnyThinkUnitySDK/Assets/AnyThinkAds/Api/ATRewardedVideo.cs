@@ -34,9 +34,7 @@ namespace AnyThinkAds.Api
 		 */
         public void loadVideoAd(string placementId, Dictionary<string,string> pairs)
         {
-            
             client.loadVideoAd(placementId, Json.Serialize(pairs));
-
         }
 
 		public void setListener(ATRewardedVideoListener listener)
@@ -44,25 +42,14 @@ namespace AnyThinkAds.Api
             client.setListener(listener);
         }
 
-		public void addsetting(string placementId,Dictionary<string,object> pairs){
-			client.addsetting (placementId,Json.Serialize(pairs));
-		}
         public bool hasAdReady(string placementId)
         {
             return client.hasAdReady(placementId);
-
         }
 
         public string checkAdStatus(string placementId)
         {
             return client.checkAdStatus(placementId);
-
-        }
-
-        public void setUserData(string placementId, string userId, string customData)
-        {
-            client.setUserData(placementId, userId, customData);
-
         }
 
         public void showAd(string placementId)
@@ -73,21 +60,6 @@ namespace AnyThinkAds.Api
         public void showAd(string placementId, Dictionary<string, string> pairs)
         {
             client.showAd(placementId, Json.Serialize(pairs));
-        }
-
-        public void cleanAd(string placementId)
-        {
-            client.cleanAd(placementId);
-        }
-
-        public void onApplicationForces(string placementId)
-        {
-            client.onApplicationForces(placementId);
-        }
-
-        public void onApplicationPasue(string placementId)
-        {
-            client.onApplicationPasue(placementId);
         }
 
         public IATRewardedVideoAdClient GetATRewardedClient()

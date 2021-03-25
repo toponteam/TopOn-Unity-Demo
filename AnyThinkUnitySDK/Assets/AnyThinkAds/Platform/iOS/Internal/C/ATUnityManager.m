@@ -136,17 +136,6 @@ char * get_string_message_for_unity(const char *msg, void(*callback)(const char*
 
 -(BOOL) startSDKWithAppID:(NSString*)appID appKey:(NSString*)appKey {
     [ATAPI setLogEnabled:YES];
-//    if ([self subjectToGDPR]) {
-//        [self presentDataConsentDialog];
-//    }
-    if ([[ATAPI sharedInstance] inDataProtectionArea])
-    {
-        ATDataConsentSet status = [ATAPI sharedInstance].dataConsentSet;
-        if (status == ATDataConsentSetUnknown){
-            [self presentDataConsentDialog];
-        }
-    }
-
     return [[ATAPI sharedInstance] startWithAppID:appID appKey:appKey error:nil];
 }
 

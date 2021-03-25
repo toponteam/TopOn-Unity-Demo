@@ -24,6 +24,8 @@ extern NSString *const kATInterstitialDelegateExtraPriority;
 -(void) interstitialDidFailToPlayVideoForPlacementID:(NSString*)placementID error:(NSError*)error extra:(NSDictionary*)extra;
 -(void) interstitialDidCloseForPlacementID:(NSString*)placementID extra:(NSDictionary*)extra;
 -(void) interstitialDidClickForPlacementID:(NSString*)placementID extra:(NSDictionary*)extra;
+-(void) interstitialDeepLinkOrJumpForPlacementID:(NSString*)placementID extra:(NSDictionary*)extra result:(BOOL)success;
+
 @end
 
 #endif /* ATInterstitialDelegate_h */

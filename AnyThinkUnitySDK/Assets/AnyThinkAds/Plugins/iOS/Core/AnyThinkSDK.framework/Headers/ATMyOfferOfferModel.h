@@ -14,7 +14,6 @@
 
 @property(nonatomic, readwrite) ATScreenOrientation imageOrientation;
 @property(nonatomic, readwrite) ATScreenOrientation videoOrientation;
-//@property(nonatomic, readonly) NSString *deepLink;//Implemented in future version
 @property(nonatomic, readwrite) NSString *videoStartTKURL;
 @property(nonatomic, readwrite) NSString *video25TKURL;
 @property(nonatomic, readwrite) NSString *video50TKURL;

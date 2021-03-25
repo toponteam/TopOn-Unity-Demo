@@ -41,6 +41,11 @@ public class ATBannerAdWrapper:ATAdWrapper {
     	ATUnityCBridge.SendMessageToC(CMessaageReceiverClass, "loadBannerAdWithPlacementID:customDataJSONString:callback:", new object[]{placementID, customData != null ? customData : ""}, true);
     }
 
+    static public string checkAdStatus(string placementID) {
+        Debug.Log("Unity: ATBannerAdWrapper::checkAdStatus(" + placementID + ")");
+        return ATUnityCBridge.GetStringMessageFromC(CMessaageReceiverClass, "checkAdStatus:", new object[]{placementID});
+    }
+
     static public void hideBannerAd(string placementID) {
         Debug.Log("Unity: ATBannerAdWrapper::showBannerAd(" + placementID + ")");
         ATUnityCBridge.SendMessageToC(CMessaageReceiverClass, "hideBannerAdWithPlacementID:", new object[]{placementID}, false);
@@ -55,13 +60,26 @@ public class ATBannerAdWrapper:ATAdWrapper {
     {
         Debug.Log("Unity: ATBannerAdWrapper::showBannerAd(" + placementID + "," + position + ")");
         Dictionary<string, object> rectDict = new Dictionary<string, object> { { "position", position } };
-        ATUnityCBridge.SendMessageToC(CMessaageReceiverClass, "showBannerAdWithPlacementID:rect:", new object[] { placementID, Json.Serialize(rectDict) }, false);
+        ATUnityCBridge.SendMessageToC(CMessaageReceiverClass, "showBannerAdWithPlacementID:rect:extraJsonString:", new object[] { placementID, Json.Serialize(rectDict), null}, false);
+    }
+
+    static public void showBannerAd(string placementID, string position, string mapJson)
+    {
+        Debug.Log("Unity: ATBannerAdWrapper::showBannerAd(" + placementID + "," + position + ")");
+        Dictionary<string, object> rectDict = new Dictionary<string, object> { { "position", position } };
+        ATUnityCBridge.SendMessageToC(CMessaageReceiverClass, "showBannerAdWithPlacementID:rect:extraJsonString:", new object[] { placementID, Json.Serialize(rectDict), mapJson}, false);
     }
 
     static public void showBannerAd(string placementID, ATRect rect) {
+        Debug.Log("Unity: ATBannerAdWrapper::showBannerAd(" + placementID + ")");
+        Dictionary<string, object> rectDict = new Dictionary<string, object>{ {"x", rect.x},  {"y", rect.y}, {"width", rect.width}, {"height", rect.height}, {"uses_pixel", rect.usesPixel}};
+        ATUnityCBridge.SendMessageToC(CMessaageReceiverClass, "showBannerAdWithPlacementID:rect:extraJsonString:", new object[]{placementID, Json.Serialize(rectDict), null}, false);
+    }
+
+    static public void showBannerAd(string placementID, ATRect rect, string mapJson) {
     	Debug.Log("Unity: ATBannerAdWrapper::showBannerAd(" + placementID + ")");
         Dictionary<string, object> rectDict = new Dictionary<string, object>{ {"x", rect.x},  {"y", rect.y}, {"width", rect.width}, {"height", rect.height}, {"uses_pixel", rect.usesPixel}};
-    	ATUnityCBridge.SendMessageToC(CMessaageReceiverClass, "showBannerAdWithPlacementID:rect:", new object[]{placementID, Json.Serialize(rectDict)}, false);
+    	ATUnityCBridge.SendMessageToC(CMessaageReceiverClass, "showBannerAdWithPlacementID:rect:extraJsonString:", new object[]{placementID, Json.Serialize(rectDict), mapJson}, false);
     }
 
     static public void cleanBannerAd(string placementID) {

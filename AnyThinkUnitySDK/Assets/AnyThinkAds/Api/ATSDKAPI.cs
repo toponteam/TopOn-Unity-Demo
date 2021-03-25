@@ -115,21 +115,6 @@ namespace AnyThinkAds.Api
             client.showGDPRAuth();
         }
 
-        public void setPurchaseFlag() 
-        {
-            client.setPurchaseFlag();
-        }
-
-        public bool purchaseFlag() 
-        {
-            return client.purchaseFlag();
-        }
-
-        public void clearPurchaseFlag() 
-        {
-            client.clearPurchaseFlag();
-        }
-
         public static void setLogDebug(bool isDebug)
         {
             client.setLogDebug(isDebug);
