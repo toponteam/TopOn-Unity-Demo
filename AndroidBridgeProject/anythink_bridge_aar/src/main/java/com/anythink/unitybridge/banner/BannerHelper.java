@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 import com.anythink.banner.api.ATBannerListener;
 import com.anythink.banner.api.ATBannerView;
 import com.anythink.core.api.ATAdInfo;
+import com.anythink.core.api.ATAdStatusInfo;
 import com.anythink.core.api.AdError;
 import com.anythink.unitybridge.MsgTools;
 import com.anythink.unitybridge.UnityPluginUtils;
@@ -31,42 +32,37 @@ public class BannerHelper {
     private final String TAG = getClass().getSimpleName();
     BannerListener mListener;
     Activity mActivity;
-    String mUnitId;
+    String mPlacementId;
 
     ATBannerView mBannerView;
 
     public BannerHelper(BannerListener listener) {
-        MsgTools.pirntMsg("BannerHelper >>> " + this);
+        MsgTools.pirntMsg("BannerHelper: " + this);
         if (listener == null) {
-            MsgTools.pirntMsg("Listener == null ..");
+            MsgTools.pirntMsg("Listener == null");
         }
         mListener = listener;
         mActivity = UnityPluginUtils.getActivity("BannerHelper");
-        mUnitId = "";
+        mPlacementId = "";
     }
 
-    /**
-     * 初始化Banner对象
-     *
-     * @param unitId
-     */
-    public void initBanner(String unitId) {
-        MsgTools.pirntMsg("initBanner 1>>> " + this);
-        mUnitId = unitId;
+    public void initBanner(String placementId) {
+        MsgTools.pirntMsg("initBanner 1: " + placementId);
+        mPlacementId = placementId;
 
         mBannerView = new ATBannerView(mActivity);
-        mBannerView.setPlacementId(mUnitId);
-        MsgTools.pirntMsg("initBanner 2>>> " + this);
+        mBannerView.setPlacementId(mPlacementId);
+        MsgTools.pirntMsg("initBanner 2: " + mPlacementId);
         mBannerView.setBannerAdListener(new ATBannerListener() {
             @Override
             public void onBannerLoaded() {
-                MsgTools.pirntMsg("initBanner onBannerLoaded>>> ");
+                MsgTools.pirntMsg("onBannerLoaded: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
                             synchronized (BannerHelper.this) {
-                                mListener.onBannerLoaded(mUnitId);
+                                mListener.onBannerLoaded(mPlacementId);
                             }
                         }
                     }
@@ -76,13 +72,13 @@ public class BannerHelper {
 
             @Override
             public void onBannerFailed(final AdError adError) {
-                MsgTools.pirntMsg("initBanner onBannerFailed>>> " + adError.printStackTrace());
+                MsgTools.pirntMsg("onBannerFailed: " + mPlacementId + ", " + adError.getFullErrorInfo());
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
                             synchronized (BannerHelper.this) {
-                                mListener.onBannerFailed(mUnitId, adError.getCode(), adError.printStackTrace());
+                                mListener.onBannerFailed(mPlacementId, adError.getCode(), adError.getFullErrorInfo());
                             }
                         }
                     }
@@ -91,13 +87,13 @@ public class BannerHelper {
 
             @Override
             public void onBannerClicked(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("initBanner onBannerClicked>>> ");
+                MsgTools.pirntMsg("onBannerClicked: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
                             synchronized (BannerHelper.this) {
-                                mListener.onBannerClicked(mUnitId, adInfo.toString());
+                                mListener.onBannerClicked(mPlacementId, adInfo.toString());
                             }
                         }
                     }
@@ -106,13 +102,13 @@ public class BannerHelper {
 
             @Override
             public void onBannerShow(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("initBanner onBannerShow>>> ");
+                MsgTools.pirntMsg("onBannerShow: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
                             synchronized (BannerHelper.this) {
-                                mListener.onBannerShow(mUnitId, adInfo.toString());
+                                mListener.onBannerShow(mPlacementId, adInfo.toString());
                             }
                         }
                     }
@@ -121,13 +117,13 @@ public class BannerHelper {
 
             @Override
             public void onBannerClose(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("initBanner onBannerClose>>> ");
+                MsgTools.pirntMsg("onBannerClose: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
                             synchronized (BannerHelper.this) {
-                                mListener.onBannerClose(mUnitId, adInfo.toString());
+                                mListener.onBannerClose(mPlacementId, adInfo.toString());
                             }
                         }
                     }
@@ -136,13 +132,13 @@ public class BannerHelper {
 
             @Override
             public void onBannerAutoRefreshed(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("initBanner onBannerAutoRefreshed>>> ");
+                MsgTools.pirntMsg("onBannerAutoRefreshed: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
                             synchronized (BannerHelper.this) {
-                                mListener.onBannerAutoRefreshed(mUnitId, adInfo.toString());
+                                mListener.onBannerAutoRefreshed(mPlacementId, adInfo.toString());
                             }
                         }
                     }
@@ -151,29 +147,24 @@ public class BannerHelper {
 
             @Override
             public void onBannerAutoRefreshFail(final AdError adError) {
-                MsgTools.pirntMsg("initBanner onBannerAutoRefreshFail>>> " + adError.printStackTrace());
+                MsgTools.pirntMsg("onBannerAutoRefreshFail: " + mPlacementId + ", " + adError.getFullErrorInfo());
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
                             synchronized (BannerHelper.this) {
-                                mListener.onBannerAutoRefreshFail(mUnitId, adError.getCode(), adError.printStackTrace());
+                                mListener.onBannerAutoRefreshFail(mPlacementId, adError.getCode(), adError.getFullErrorInfo());
                             }
                         }
                     }
                 });
             }
         });
-        MsgTools.pirntMsg("initBanner 3>>> " + this);
+        MsgTools.pirntMsg("initBanner 3: " + mPlacementId);
     }
 
-    /**
-     * 加载banner广告
-     *
-     * @param jsonMap
-     */
     public void loadBannerAd(final String jsonMap) {
-        MsgTools.pirntMsg("jsonMap - " + jsonMap);
+        MsgTools.pirntMsg("loadBanner: " + mPlacementId + ", jsonMap: " + jsonMap);
         UnityPluginUtils.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -226,13 +217,13 @@ public class BannerHelper {
 
                     mBannerView.loadAd();
                 } else {
-                    MsgTools.pirntMsg("loadBannerAd error  ..you must call initBanner first " + this);
+                    MsgTools.pirntMsg("loadBannerAd error, you must call initBanner first " + mPlacementId);
                     TaskManager.getInstance().run_proxy(new Runnable() {
                         @Override
                         public void run() {
                             if (mListener != null) {
                                 synchronized (BannerHelper.this) {
-                                    mListener.onBannerFailed(mUnitId, "-1", "you must call initBanner first ..");
+                                    mListener.onBannerFailed(mPlacementId, "-1", "you must call initBanner first");
                                 }
                             }
                         }
@@ -250,13 +241,13 @@ public class BannerHelper {
                 if (mBannerView != null) {
                     mBannerView.loadAd();
                 } else {
-                    MsgTools.pirntMsg("loadBannerAd error  ..you must call initBanner first " + this);
+                    MsgTools.pirntMsg("loadBannerAd error, you must call initBanner first " + mPlacementId);
                     TaskManager.getInstance().run_proxy(new Runnable() {
                         @Override
                         public void run() {
                             if (mListener != null) {
                                 synchronized (BannerHelper.this) {
-                                    mListener.onBannerFailed(mUnitId, "-1", "you must call initBanner first ..");
+                                    mListener.onBannerFailed(mPlacementId, "-1", "you must call initBanner first");
                                 }
                             }
                         }
@@ -267,16 +258,8 @@ public class BannerHelper {
         });
     }
 
-    /**
-     * 展示BannerView
-     *
-     * @param x
-     * @param y
-     * @param width
-     * @param height
-     */
-    public void showBannerAd(final int x, final int y, final int width, final int height) {
-        MsgTools.pirntMsg("showBanner >>> " + this);
+    public void showBannerAd(final int x, final int y, final int width, final int height, final String jsonMap) {
+        MsgTools.pirntMsg("showBanner: " + mPlacementId + ", jsonMap: " + jsonMap);
         UnityPluginUtils.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -287,20 +270,21 @@ public class BannerHelper {
                     if (mBannerView.getParent() != null) {
                         ((ViewGroup) mBannerView.getParent()).removeView(mBannerView);
                     }
+
+                    setConfig(jsonMap);
+
                     mActivity.addContentView(mBannerView, layoutParams);
                 } else {
-                    MsgTools.pirntMsg("show error  ..you must call initBanner first " + this);
+                    MsgTools.pirntMsg("show error, you must call initBanner first " + mPlacementId);
                 }
 
             }
         });
     }
 
-    /**
-     * 展示BannerView（传入位置）
-     */
-    public void showBannerAd(final String position) {
-        MsgTools.pirntMsg("showBanner by position>>> " + this);
+
+    public void showBannerAd(final String position, final String jsonMap) {
+        MsgTools.pirntMsg("showBanner by position: " + mPlacementId + ", jsonMap: " + jsonMap);
         UnityPluginUtils.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -320,24 +304,49 @@ public class BannerHelper {
                     if (mBannerView.getParent() != null) {
                         ((ViewGroup) mBannerView.getParent()).removeView(mBannerView);
                     }
+
+                    setConfig(jsonMap);
+
                     mActivity.addContentView(mBannerView, layoutParams);
                 } else {
-                    MsgTools.pirntMsg("show error  ..you must call initBanner first " + this);
+                    MsgTools.pirntMsg("show error, you must call initBanner first " + mPlacementId);
                 }
 
             }
         });
     }
 
+    private void setConfig(String jsonMap) {
+        String scenario = "";
+        if (!TextUtils.isEmpty(jsonMap)) {
+            try {
+                JSONObject jsonObject = new JSONObject(jsonMap);
+                if (jsonObject.has(Const.SCENARIO)) {
+                    scenario = jsonObject.optString(Const.SCENARIO);
+                }
+            } catch (Exception e) {
+                if (Const.DEBUG) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        MsgTools.pirntMsg("showBanner: " + mPlacementId + ", scenario: " + scenario);
+        if (!TextUtils.isEmpty(scenario)) {
+            mBannerView.setScenario(scenario);
+        }
+    }
+
+
     public void showBannerAd() {
-        MsgTools.pirntMsg("showBanner without ATRect >>> " + this);
+        MsgTools.pirntMsg("showBanner without ATRect: " + mPlacementId);
         UnityPluginUtils.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if (mBannerView != null) {
                     mBannerView.setVisibility(View.VISIBLE);
                 } else {
-                    MsgTools.pirntMsg("show error  ..you must call initBanner first " + this);
+                    MsgTools.pirntMsg("show error, you must call initBanner first " + mPlacementId);
                 }
 
             }
@@ -345,36 +354,55 @@ public class BannerHelper {
     }
 
     public void hideBannerAd() {
-        MsgTools.pirntMsg("hideBannerAd >>> " + this);
+        MsgTools.pirntMsg("hideBannerAd: " + mPlacementId);
         UnityPluginUtils.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if (mBannerView != null) {
                     mBannerView.setVisibility(View.GONE);
                 } else {
-                    MsgTools.pirntMsg("hideBannerAd error  ..you must call initBanner first " + this);
+                    MsgTools.pirntMsg("hideBannerAd error, you must call initBanner first " + mPlacementId);
                 }
 
             }
         });
     }
 
-    /**
-     * 移除BannerView
-     */
     public void cleanBannerAd() {
-        MsgTools.pirntMsg("clean >>> " + this);
+        MsgTools.pirntMsg("clean: " + mPlacementId);
         UnityPluginUtils.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if (mBannerView != null && mBannerView.getParent() != null) {
-                    MsgTools.pirntMsg("clean2 >>> " + this);
+                    MsgTools.pirntMsg("clean2: " + mPlacementId);
                     ViewParent viewParent = mBannerView.getParent();
                     ((ViewGroup) viewParent).removeView(mBannerView);
                 } else {
-                    MsgTools.pirntMsg("clean3 >>> no banner clean " + this);
+                    MsgTools.pirntMsg("clean3: no banner clean " + mPlacementId);
                 }
             }
         });
+    }
+
+    public String checkAdStatus() {
+        MsgTools.pirntMsg("checkAdStatus: " + mPlacementId);
+        if (mBannerView != null) {
+            ATAdStatusInfo atAdStatusInfo = mBannerView.checkAdStatus();
+            boolean loading = atAdStatusInfo.isLoading();
+            boolean ready = atAdStatusInfo.isReady();
+            ATAdInfo atTopAdInfo = atAdStatusInfo.getATTopAdInfo();
+
+            try {
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("isLoading", loading);
+                jsonObject.put("isReady", ready);
+                jsonObject.put("adInfo", atTopAdInfo);
+
+                return jsonObject.toString();
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }
+        return "";
     }
 }

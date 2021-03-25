@@ -20,20 +20,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-/**
- * Copyright (C) 2018 {XX} Science and Technology Co., Ltd.
- */
 public class InterstitialHelper {
     public static final String TAG = UnityPluginUtils.TAG;
     InterstitialListener mListener;
     Activity mActivity;
     ATInterstitial mInterstitialAd;
-    String mUnitId;
+    String mPlacementId;
 
     boolean isReady = false;
 
     public InterstitialHelper(InterstitialListener listener) {
-        MsgTools.pirntMsg("InterstitialHelper >>> " + this);
+        MsgTools.pirntMsg("InterstitialHelper: " + this);
         if (listener == null) {
             Log.e(TAG, "Listener == null ..");
         }
@@ -42,26 +39,26 @@ public class InterstitialHelper {
     }
 
 
-    public void initInterstitial(final String unitid) {
-        MsgTools.pirntMsg("initInterstitial 1>>> " + this);
+    public void initInterstitial(final String placementId) {
+        MsgTools.pirntMsg("initInterstitial 1: " + placementId);
 
-        mInterstitialAd = new ATInterstitial(mActivity, unitid);
-        mUnitId = unitid;
+        mInterstitialAd = new ATInterstitial(mActivity, placementId);
+        mPlacementId = placementId;
 
 
-        MsgTools.pirntMsg("initInterstitial 2>>> " + this);
+        MsgTools.pirntMsg("initInterstitial 2: " + placementId);
 
         mInterstitialAd.setAdListener(new ATInterstitialListener() {
             @Override
             public void onInterstitialAdLoaded() {
-                MsgTools.pirntMsg("initInterstitial onInterstitialAdLoaded>>> ");
+                MsgTools.pirntMsg("onInterstitialAdLoaded: " + mPlacementId);
                 isReady = true;
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
-                             synchronized (InterstitialHelper.this) {
-                                mListener.onInterstitialAdLoaded(mUnitId);
+                            synchronized (InterstitialHelper.this) {
+                                mListener.onInterstitialAdLoaded(mPlacementId);
                             }
                         }
                     }
@@ -70,13 +67,13 @@ public class InterstitialHelper {
 
             @Override
             public void onInterstitialAdLoadFail(final AdError adError) {
-                MsgTools.pirntMsg("initInterstitial onInterstitialAdLoadFail>>> " + adError.printStackTrace());
+                MsgTools.pirntMsg("onInterstitialAdLoadFail: " + mPlacementId + ", " + adError.getFullErrorInfo());
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
-                             synchronized (InterstitialHelper.this) {
-                                mListener.onInterstitialAdLoadFail(mUnitId, adError.getCode(), adError.printStackTrace());
+                            synchronized (InterstitialHelper.this) {
+                                mListener.onInterstitialAdLoadFail(mPlacementId, adError.getCode(), adError.getFullErrorInfo());
                             }
                         }
                     }
@@ -85,13 +82,13 @@ public class InterstitialHelper {
 
             @Override
             public void onInterstitialAdClicked(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("initInterstitial onInterstitialAdClicked>>> ");
+                MsgTools.pirntMsg("onInterstitialAdClicked: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
-                             synchronized (InterstitialHelper.this) {
-                                mListener.onInterstitialAdClicked(mUnitId, adInfo.toString());
+                            synchronized (InterstitialHelper.this) {
+                                mListener.onInterstitialAdClicked(mPlacementId, adInfo.toString());
                             }
                         }
                     }
@@ -100,13 +97,13 @@ public class InterstitialHelper {
 
             @Override
             public void onInterstitialAdShow(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("initInterstitial onInterstitialAdShow>>> ");
+                MsgTools.pirntMsg("onInterstitialAdShow: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
-                             synchronized (InterstitialHelper.this) {
-                                mListener.onInterstitialAdShow(mUnitId, adInfo.toString());
+                            synchronized (InterstitialHelper.this) {
+                                mListener.onInterstitialAdShow(mPlacementId, adInfo.toString());
                             }
                         }
                     }
@@ -115,13 +112,13 @@ public class InterstitialHelper {
 
             @Override
             public void onInterstitialAdClose(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("initInterstitial onInterstitialAdClose>>> ");
+                MsgTools.pirntMsg("onInterstitialAdClose: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
-                             synchronized (InterstitialHelper.this) {
-                                mListener.onInterstitialAdClose(mUnitId, adInfo.toString());
+                            synchronized (InterstitialHelper.this) {
+                                mListener.onInterstitialAdClose(mPlacementId, adInfo.toString());
                             }
                         }
                     }
@@ -130,13 +127,13 @@ public class InterstitialHelper {
 
             @Override
             public void onInterstitialAdVideoStart(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("initInterstitial onInterstitialAdVideoStart>>> ");
+                MsgTools.pirntMsg("onInterstitialAdVideoStart: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
-                             synchronized (InterstitialHelper.this) {
-                                mListener.onInterstitialAdVideoStart(mUnitId, adInfo.toString());
+                            synchronized (InterstitialHelper.this) {
+                                mListener.onInterstitialAdVideoStart(mPlacementId, adInfo.toString());
                             }
                         }
                     }
@@ -145,13 +142,13 @@ public class InterstitialHelper {
 
             @Override
             public void onInterstitialAdVideoEnd(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("initInterstitial onInterstitialAdVideoEnd>>> ");
+                MsgTools.pirntMsg("onInterstitialAdVideoEnd: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
-                             synchronized (InterstitialHelper.this) {
-                                mListener.onInterstitialAdVideoEnd(mUnitId, adInfo.toString());
+                            synchronized (InterstitialHelper.this) {
+                                mListener.onInterstitialAdVideoEnd(mPlacementId, adInfo.toString());
                             }
                         }
                     }
@@ -160,25 +157,25 @@ public class InterstitialHelper {
 
             @Override
             public void onInterstitialAdVideoError(final AdError adError) {
-                MsgTools.pirntMsg("initInterstitial onInterstitialAdVideoError>>> :" + adError.printStackTrace());
+                MsgTools.pirntMsg("onInterstitialAdVideoError: " + mPlacementId + ", " + adError.getFullErrorInfo());
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
-                             synchronized (InterstitialHelper.this) {
-                                mListener.onInterstitialAdVideoError(mUnitId, adError.getCode(), adError.printStackTrace());
+                            synchronized (InterstitialHelper.this) {
+                                mListener.onInterstitialAdVideoError(mPlacementId, adError.getCode(), adError.getFullErrorInfo());
                             }
                         }
                     }
                 });
             }
         });
-        MsgTools.pirntMsg("initInterstitial 3>>> " + this);
+        MsgTools.pirntMsg("initInterstitial 3: " + placementId);
     }
 
 
     public void loadInterstitialAd(final String jsonMap) {
-        MsgTools.pirntMsg("loadInterstitialAd >>> " + this + ", jsonMap >>> " + jsonMap);
+        MsgTools.pirntMsg("loadInterstitialAd: " + mPlacementId + ", jsonMap: " + jsonMap);
 
         if (!TextUtils.isEmpty(jsonMap)) {
             Map<String, Object> localExtra = new HashMap<>();
@@ -208,13 +205,13 @@ public class InterstitialHelper {
 
                     mInterstitialAd.load();
                 } else {
-                    Log.e(TAG, "loadInterstitialAd error  ..you must call initInterstitial first " + this);
+                    Log.e(TAG, "loadInterstitialAd error, you must call initInterstitial first " + this);
                     TaskManager.getInstance().run_proxy(new Runnable() {
                         @Override
                         public void run() {
                             if (mListener != null) {
-                                 synchronized (InterstitialHelper.this) {
-                                    mListener.onInterstitialAdLoadFail(mUnitId, "-1", "you must call initInterstitial first ..");
+                                synchronized (InterstitialHelper.this) {
+                                    mListener.onInterstitialAdLoadFail(mPlacementId, "-1", "you must call initInterstitial first ..");
                                 }
                             }
                         }
@@ -226,7 +223,7 @@ public class InterstitialHelper {
     }
 
     public void showInterstitialAd(final String jsonMap) {
-        MsgTools.pirntMsg("showInterstitial >>> " + this + ", jsonMap >>> " + jsonMap);
+        MsgTools.pirntMsg("showInterstitial: " + this + ", jsonMap: " + jsonMap);
         UnityPluginUtils.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -246,16 +243,20 @@ public class InterstitialHelper {
                             }
                         }
                     }
-                    MsgTools.pirntMsg("showInterstitialAd >>> " + this + ", scenario >>> " + scenario);
-                    mInterstitialAd.show(mActivity, scenario);
+                    MsgTools.pirntMsg("showInterstitialAd: " + this + ", scenario: " + scenario);
+                    if (!TextUtils.isEmpty(scenario)) {
+                        mInterstitialAd.show(mActivity, scenario);
+                    } else {
+                        mInterstitialAd.show(mActivity);
+                    }
                 } else {
-                    Log.e(TAG, "showInterstitial error  ..you must call initInterstitial first " + this);
+                    Log.e(TAG, "showInterstitial error, you must call initInterstitial first " + this);
                     TaskManager.getInstance().run_proxy(new Runnable() {
                         @Override
                         public void run() {
                             if (mListener != null) {
-                                 synchronized (InterstitialHelper.this) {
-                                    mListener.onInterstitialAdLoadFail(mUnitId, "-1", "you must call initInterstitial first ..");
+                                synchronized (InterstitialHelper.this) {
+                                    mListener.onInterstitialAdLoadFail(mPlacementId, "-1", "you must call initInterstitial first ..");
                                 }
                             }
                         }
@@ -267,58 +268,34 @@ public class InterstitialHelper {
     }
 
     public boolean isAdReady() {
-        MsgTools.pirntMsg("isAdReady >start>> " + this);
+        MsgTools.pirntMsg("isAdReady start: " + mPlacementId);
 
         try {
             if (mInterstitialAd != null) {
                 boolean isAdReady = mInterstitialAd.isAdReady();
-                MsgTools.pirntMsg("isAdReady >>> " + isAdReady);
+                MsgTools.pirntMsg("isAdReady: " + isAdReady);
                 return isAdReady;
             } else {
-                Log.e(TAG, "isAdReady error  ..you must call initInterstitial first ");
+                Log.e(TAG, "isAdReady error, you must call initInterstitial first ");
 
             }
-            MsgTools.pirntMsg("isAdReady >ent>> " + this);
+            MsgTools.pirntMsg("isAdReady end: " + mPlacementId);
         } catch (Exception e) {
-            MsgTools.pirntMsg("isAdReady >Exception>> " + e.getMessage());
+            MsgTools.pirntMsg("isAdReady Exception: " + e.getMessage());
 //            e.printStackTrace();
             return isReady;
 
         } catch (Throwable e) {
-            MsgTools.pirntMsg("isAdReady >Throwable>> " + e.getMessage());
+            MsgTools.pirntMsg("isAdReady Throwable: " + e.getMessage());
 //            e.printStackTrace();
             return isReady;
         }
         return isReady;
     }
 
-    public void clean() {
-        MsgTools.pirntMsg("clean >>> " + this);
-        if (mInterstitialAd != null) {
-            isReady = false;
-            mInterstitialAd.clean();
-        } else {
-            Log.e(TAG, "clean error  ..you must call initInterstitial first ");
-
-        }
-
-    }
-
-    public void onPause() {
-        MsgTools.pirntMsg("onPause-->");
-        if (mInterstitialAd != null) {
-            mInterstitialAd.onPause();
-        }
-    }
-
-    public void onResume() {
-        MsgTools.pirntMsg("onResume-->");
-        if (mInterstitialAd != null) {
-            mInterstitialAd.onResume();
-        }
-    }
 
     public String checkAdStatus() {
+        MsgTools.pirntMsg("checkAdStatus: " + mPlacementId);
         if (mInterstitialAd != null) {
             ATAdStatusInfo atAdStatusInfo = mInterstitialAd.checkAdStatus();
             boolean loading = atAdStatusInfo.isLoading();

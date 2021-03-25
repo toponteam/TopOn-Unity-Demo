@@ -1,13 +1,6 @@
 package com.anythink.unitybridge.interstitial;
 
 
-/**
- * Copyright (C) 2018 {XX} Science and Technology Co., Ltd.
- *
- * @version V{XX_XX}
- * @Author ：Created by zhoushubin on 2018/8/3.
- * @Email: zhoushubin@salmonads.com
- */
 public interface InterstitialListener {
 
     public void onInterstitialAdLoaded(String unitId);

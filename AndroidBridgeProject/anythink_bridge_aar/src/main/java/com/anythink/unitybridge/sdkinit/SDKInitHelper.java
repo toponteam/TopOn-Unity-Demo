@@ -15,14 +15,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-/**
- * Copyright (C) 2018 {XX} Science and Technology Co., Ltd.
- * 测试方法二
- *
- * @version V{XX_XX}
- * @Author ：Created by zhoushubin on 2018/8/2.
- * @Email: zhoushubin@salmonads.com
- */
+
 public class SDKInitHelper {
     SDKInitListener mSDKInitListener;
     Activity mActivity;
@@ -208,6 +201,7 @@ public class SDKInitHelper {
 //            e.printStackTrace();
 //        }
     }
+
 
     public void deniedUploadDeviceInfo(String arrayString) {
         MsgTools.pirntMsg("deniedUploadDeviceInfo " + arrayString);

@@ -16,13 +16,7 @@ import com.anythink.unitybridge.MsgTools;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Copyright (C) 2018 {XX} Science and Technology Co., Ltd.
- *
- * @version V{XX_XX}
- * @Author ：Created by zhoushubin on 2018/8/7.
- * @Email: zhoushubin@salmonads.com
- */
+
 public class ViewInfo {
     protected class INFO {
         protected int mX = 0;
@@ -32,6 +26,7 @@ public class ViewInfo {
         protected String bgcolor = "";
         protected int textSize = 0;
         protected String textcolor = "";
+        protected boolean isCustomClick = false;
 
         protected String name;
 
@@ -138,7 +133,7 @@ public class ViewInfo {
     }
 
 
-    public INFO rootView, imgMainView, IconView, titleView, descView, adLogoView, ctaView, click;
+    public INFO rootView, imgMainView, IconView, titleView, descView, adLogoView, ctaView, dislikeView;
 
 
     public static ViewInfo createDefualtView(Activity pActivity) {
@@ -216,6 +211,15 @@ public class ViewInfo {
         _viewInfo.ctaView.mY = _viewInfo.rootView.mX + 0;
         _viewInfo.ctaView.name = "cta_def";
 
+        _viewInfo.dislikeView.textSize = 12;
+        _viewInfo.dislikeView.textcolor = "0X000000";
+        _viewInfo.dislikeView.bgcolor = "0X000000";
+        _viewInfo.dislikeView.mWidth = 25;
+        _viewInfo.dislikeView.mHeight = 25;
+        _viewInfo.dislikeView.mX = _viewInfo.rootView.mX + 0;
+        _viewInfo.dislikeView.mY = _viewInfo.rootView.mX + 0;
+        _viewInfo.dislikeView.name = "dislike_def";
+
         return _viewInfo;
     }
 
@@ -243,6 +247,9 @@ public class ViewInfo {
         }
         if (_jsonObject.has("textSize")) {
             _info.textSize = _jsonObject.getInt("textSize");
+        }
+        if (_jsonObject.has("isCustomClick")) {
+            _info.isCustomClick = _jsonObject.getBoolean("isCustomClick");
         }
 
         _info.name = name;
