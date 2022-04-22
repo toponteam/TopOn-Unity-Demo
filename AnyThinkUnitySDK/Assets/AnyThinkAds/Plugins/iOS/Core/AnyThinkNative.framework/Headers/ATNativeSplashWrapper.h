@@ -36,4 +36,6 @@ extern NSString *const kATNativeSplashShowingExtraStyleLandscape;
 +(void) loadNativeSplashAdWithPlacementID:(NSString*)placementID extra:(NSDictionary*)extra customData:(NSDictionary*)customData delegate:(id<ATNativeSplashDelegate>)delegate;
 +(void) showNativeSplashAdWithPlacementID:(NSString*)placementID extra:(NSDictionary*)extra delegate:(id<ATNativeSplashDelegate>)delegate;
 +(BOOL) splashNativeAdReadyForPlacementID:(NSString*)placementID;
+
+
 @end

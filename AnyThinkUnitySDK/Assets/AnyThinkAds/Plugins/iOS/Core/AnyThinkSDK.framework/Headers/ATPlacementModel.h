@@ -23,6 +23,12 @@ typedef NS_ENUM(NSInteger, ATADShowType) {
     ATADShowTypeSerial = 1
 };
 
+typedef enum : NSUInteger {
+    ATLoadingApiUnknown,
+    ATLoadingApiTypeOld,
+    ATLoadingApiTypeNew,
+} ATLoadingApiType;
+
 typedef NS_ENUM(NSInteger, ATAdFormat) {
     ATAdFormatNative = 0,
     ATAdFormatRewardedVideo = 1,
@@ -36,8 +42,8 @@ typedef NS_ENUM(NSInteger, ATRevenueToPlatform) {
     ATRevenueToPlatformAppsflyer = 2,
     ATRevenueToPlatformTenjin
 };
-extern NSString *const kPlacementModelCacheDateKey;
-extern NSString *const kPlacementModelCustomDataKey;
+extern NSString *const kATPlacementModelCacheDateKey;
+extern NSString *const kATPlacementModelCustomDataKey;
 @interface ATPlacementModelExtra:ATModel
 @property(nonatomic, readonly) BOOL cachesPlacementSetting;
 @property(nonatomic, readonly) NSTimeInterval defaultAdSourceLoadingDelay;
@@ -94,14 +100,27 @@ extern NSString *const kPlacementModelCustomDataKey;
 @property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* unitGroups;
 @property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* headerBiddingUnitGroups;
 @property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* S2SHeaderBiddingUnitGroups;
+@property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* olApiUnitGroups;
+@property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* inhouseUnitGroups;
+@property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* bksUnitGroups;
+@property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* bottomListUnitGroups;
+@property(nonatomic, strong) NSArray <ATUnitGroupModel*>* directOfferHeaderBiddingUnitGroups;
+
+@property(nonatomic, readonly) NSTimeInterval bottomRreqts;     // bottomAd dalay request time
+
 @property(nonatomic, readonly) NSTimeInterval headerBiddingRequestTimeout;
 @property(nonatomic, readonly) NSTimeInterval headerBiddingRequestTolerateInterval;
 @property(nonatomic, readonly) NSString *S2SBidRequestAddress;
+@property(nonatomic, readonly) NSString *waterFallBidRequestAddress;
 
 @property(nonatomic, readonly) NSTimeInterval loadCapDuration;
 @property(nonatomic, readonly) NSInteger loadCap;
 
 @property(nonatomic, readonly) NSInteger expectedNumberOfOffers;
+
+
+@property(nonatomic, readonly) NSTimeInterval bidWaitTimeout;
+@property(nonatomic, readonly) NSTimeInterval reqWaitTimeout;
 
 @property(nonatomic, readonly) NSTimeInterval loadFailureInterval;
 @property(nonatomic, readonly) NSTimeInterval offerLoadingTimeout;
@@ -133,12 +152,14 @@ extern NSString *const kPlacementModelCustomDataKey;
 @property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* adxUnitGroups;
 
 @property(nonatomic, readonly) NSDictionary* olApiSettingDict;
-@property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* olApiUnitGroups;
 
-@property(nonatomic, readonly) NSArray<ATUnitGroupModel*>* inhouseUnitGroups;
+@property(nonatomic, readonly) NSInteger waterfallCheckTime;
 
 @property(nonatomic, readonly) NSString *currency;
 @property(nonatomic, readonly) NSString *exchangeRate;
+
+@property(nonatomic, readonly) NSArray *bURLNotificationFirms;
+
 
 // v5.7.10
 @property(nonatomic, readonly) NSString *campaign;
@@ -159,5 +180,27 @@ extern NSString *const kPlacementModelCustomDataKey;
 
 //todo: just for in-house list. It's not a good solution.
 @property(nonatomic, copy) NSArray<ATUnitGroupModel*>* waterfallA;
+
+
+@property(nonatomic, copy) NSArray *directOfferUnitIDArray;
+
+
+// v5.7.56+
+@property(nonatomic, readonly) NSInteger encryptFlag;
+@property(nonatomic, readonly, copy) NSString *encryptPublicKey;
+
+/**
+ Maximum waiting time for s2s HB adSource to get buyeruid
+ */
+@property(nonatomic, readonly) NSInteger getBuyeruIdWaitTime;
+
+@property(nonatomic, readonly, copy) NSString *inhouseUrl;
+@property(nonatomic, readonly, copy) NSString *thirdInhouseUrl; // bks url of third plantforms
+
+@property(nonatomic, readonly) NSString *exchRateC2U;
+
+@property(nonatomic) ATLoadingApiType loadingApiType;
+
+@property(nonatomic, assign) BOOL isExistHBAdSource;
 
 @end

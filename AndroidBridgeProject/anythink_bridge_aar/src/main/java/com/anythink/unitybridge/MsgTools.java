@@ -5,11 +5,17 @@ import android.util.Log;
 
 public class MsgTools {
     private static final String TAG = UnityPluginUtils.TAG;
-    static boolean isDebug = true;
+    public static boolean isDebug = true;
 
-    public static void pirntMsg(String msg) {
+    public static void printMsg(String msg) {
         if (isDebug) {
             Log.e(TAG, msg);
+        }
+    }
+
+    public static void printMsg(String preLog, String msg) {
+        if (isDebug) {
+            Log.e(TAG, preLog + msg);
         }
     }
 

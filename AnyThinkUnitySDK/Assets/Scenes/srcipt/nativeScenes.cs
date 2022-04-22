@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using AnyThinkAds.Api;
 using UnityEngine.UI;
 
-using AnyThinkAds.ThirdParty.MiniJSON;
+using AnyThinkAds.ThirdParty.LitJson;
 
 
 public class nativeScenes : MonoBehaviour {
@@ -25,8 +25,8 @@ public class nativeScenes : MonoBehaviour {
 #endif
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame
@@ -61,7 +61,11 @@ public class nativeScenes : MonoBehaviour {
         Dictionary<string, object> jsonmap = new Dictionary<string, object>();
 
         #if UNITY_ANDROID
-            ATSize nativeSize = new ATSize(960, 600);
+            ATSize nativeSize = new ATSize(900, 600);
+
+            //support gdt pangle template-rendering
+            jsonmap.Add(AnyThinkAds.Api.ATConst.ADAPTIVE_HEIGHT, AnyThinkAds.Api.ATConst.ADAPTIVE_HEIGHT_YES);;//Adaptive height, only for template-rendering
+
             jsonmap.Add(ATNativeAdLoadingExtra.kATNativeAdLoadingExtraNativeAdSizeStruct, nativeSize);
         #elif UNITY_IOS || UNITY_IPHONE
             ATSize nativeSize = new ATSize(320, 250, false);
@@ -175,17 +179,28 @@ public class nativeScenes : MonoBehaviour {
 
 
 			
-		Debug.Log("Developer renderAdToScene--->");
-        ATNativeAd.Instance.renderAdToScene(mPlacementId_native_all, anyThinkNativeAdView);
+		//Debug.Log("Developer renderAdToScene--->");
+        //ATNativeAd.Instance.renderAdToScene(mPlacementId_native_all, anyThinkNativeAdView);
 
-       // show with scenario
-       // Debug.Log("Developer renderAdToScene with scenariio--->");
-       // Dictionary<string, string> jsonmap = new Dictionary<string, string>();
-       // jsonmap.Add(AnyThinkAds.Api.ATConst.SCENARIO, showingScenario);
-       // ATNativeAd.Instance.renderAdToScene(mPlacementId_native_all, anyThinkNativeAdView, jsonmap);
+        // show with scenario
+        // Debug.Log("Developer renderAdToScene with scenariio--->");
+        //Dictionary<string, string> jsonmap = new Dictionary<string, string>();
+        //jsonmap.Add(AnyThinkAds.Api.ATConst.SCENARIO, showingScenario);
+        //ATNativeAd.Instance.renderAdToScene(mPlacementId_native_all, anyThinkNativeAdView, jsonmap);
 
-	}
-	public void cleanView(){
+
+
+        // show in adaptive for template-rendering ad
+         Debug.Log("Developer renderAdToScene with adatpive height--->");
+        Dictionary<string, string> jsonmap = new Dictionary<string, string>();
+        jsonmap.Add(AnyThinkAds.Api.ATConst.ADAPTIVE_HEIGHT, AnyThinkAds.Api.ATConst.ADAPTIVE_HEIGHT_YES);
+        //jsonmap.Add(AnyThinkAds.Api.ATConst.POSITION, AnyThinkAds.Api.ATConst.POSITION_BOTTOM);
+        jsonmap.Add(AnyThinkAds.Api.ATConst.POSITION, AnyThinkAds.Api.ATConst.POSITION_TOP);
+        ATNativeAd.Instance.renderAdToScene(mPlacementId_native_all, anyThinkNativeAdView, jsonmap);
+
+
+    }
+    public void cleanView(){
 		Debug.Log ("Developer cleanView native....");
         ATNativeAd.Instance.cleanAdView(mPlacementId_native_all,AnyThinkAds.Demo.ATManager.anyThinkNativeAdView);
 	}
@@ -194,7 +209,13 @@ public class nativeScenes : MonoBehaviour {
 	public void isAdReady(){
         bool isReady = ATNativeAd.Instance.hasAdReady(mPlacementId_native_all);
 		Debug.Log("Developer isAdReady native....:" + isReady);
-	}
+
+        string adCaches = ATNativeAd.Instance.getValidAdCaches(mPlacementId_native_all);
+        Debug.Log("Developer getValidAdCaches native...." + adCaches);
+
+        ATNativeAd.Instance.entryScenarioWithPlacementID(mPlacementId_native_all, showingScenario);
+
+    }
 
 
 
@@ -212,11 +233,11 @@ public class nativeScenes : MonoBehaviour {
         }
         public void onAdImpressed(string placementId, ATCallbackInfo callbackInfo)
         {
-            Debug.Log("Developer onAdImpressed------:" + placementId + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer onAdImpressed------:" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
         }
         public void onAdClicked(string placementId, ATCallbackInfo callbackInfo)
         {
-            Debug.Log("Developer onAdClicked------:" + placementId + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer onAdClicked------:" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
         }
         public void onAdVideoStart(string placementId)
         {
@@ -233,11 +254,42 @@ public class nativeScenes : MonoBehaviour {
 
         public void onAdCloseButtonClicked(string placementId, ATCallbackInfo callbackInfo)
         {
-            Debug.Log("Developer onAdCloseButtonClicked------:" + placementId + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer onAdCloseButtonClicked------:" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
 
             Debug.Log("Developer onAdCloseButtonClicked------: cleanView native....");
             ATNativeAd.Instance.cleanAdView(mPlacementId_native_all,AnyThinkAds.Demo.ATManager.anyThinkNativeAdView);
         }
+
+        public void startLoadingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer startLoadingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void finishLoadingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer finishLoadingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void failToLoadADSource(string placementId,ATCallbackInfo callbackInfo,string code, string message){
+            Debug.Log("Developer failToLoadADSource------code:" + code + "---message:" + message+ "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void startBiddingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer startBiddingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void finishBiddingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer finishBiddingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void failBiddingADSource(string placementId,ATCallbackInfo callbackInfo,string code, string message){
+            Debug.Log("Developer failBiddingADSource------code:" + code + "---message:" + message+ "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
     }
 		
 }

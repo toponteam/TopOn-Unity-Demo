@@ -3,6 +3,6 @@
         <repositories>
             <repository>https://maven.ogury.co</repository>
         </repositories>
-        <androidPackage spec="co.ogury:ogury-sdk:5.0.4"/>
+        <androidPackage spec="co.ogury:ogury-sdk:5.2.0"/>
     </androidPackages>
 </dependencies>

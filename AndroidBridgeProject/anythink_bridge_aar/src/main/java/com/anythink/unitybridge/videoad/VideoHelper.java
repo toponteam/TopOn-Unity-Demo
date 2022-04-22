@@ -1,21 +1,28 @@
 package com.anythink.unitybridge.videoad;
 
 import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.anythink.core.api.ATAdInfo;
+import com.anythink.core.api.ATAdSourceStatusListener;
 import com.anythink.core.api.ATAdStatusInfo;
+import com.anythink.core.api.ATNetworkConfirmInfo;
+import com.anythink.core.api.ATSDK;
 import com.anythink.core.api.AdError;
 import com.anythink.rewardvideo.api.ATRewardVideoAd;
-import com.anythink.rewardvideo.api.ATRewardVideoListener;
+import com.anythink.rewardvideo.api.ATRewardVideoExListener;
 import com.anythink.unitybridge.MsgTools;
 import com.anythink.unitybridge.UnityPluginUtils;
+import com.anythink.unitybridge.download.DownloadHelper;
 import com.anythink.unitybridge.utils.Const;
 import com.anythink.unitybridge.utils.TaskManager;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -30,27 +37,112 @@ public class VideoHelper {
     boolean isReward = false;
 
     public VideoHelper(VideoListener pListener) {
-        MsgTools.pirntMsg("VideoHelper: " + this);
+        MsgTools.printMsg("VideoHelper: " + this);
         if (pListener == null) {
-            MsgTools.pirntMsg("Listener == null: ");
+            MsgTools.printMsg("Listener == null: ");
         }
         mListener = pListener;
         mActivity = UnityPluginUtils.getActivity("VideoHelper");
     }
 
     public void initVideo(final String placementId) {
-        MsgTools.pirntMsg("initVideo 1: " + placementId);
+        MsgTools.printMsg("initVideo 1: " + placementId);
 
         mRewardVideoAd = new ATRewardVideoAd(mActivity, placementId);
         mPlacementId = placementId;
 
 
-        MsgTools.pirntMsg("initVideo 2: " + placementId);
+        MsgTools.printMsg("initVideo 2: " + placementId);
 
-        mRewardVideoAd.setAdListener(new ATRewardVideoListener() {
+        mRewardVideoAd.setAdListener(new ATRewardVideoExListener() {
+            @Override
+            public void onDeeplinkCallback(ATAdInfo atAdInfo, boolean b) {
+
+            }
+
+            @Override
+            public void onDownloadConfirm(Context context, ATAdInfo atAdInfo, ATNetworkConfirmInfo atNetworkConfirmInfo) {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdAgainPlayStart(final ATAdInfo atAdInfo) {
+                MsgTools.printMsg("onRewardedVideoAdAgainPlayStart: " + mPlacementId);
+                TaskManager.getInstance().run_proxy(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mListener != null) {
+                            synchronized (VideoHelper.this) {
+                                mListener.onRewardedVideoAdAgainPlayStart(mPlacementId, atAdInfo.toString());
+                            }
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onRewardedVideoAdAgainPlayEnd(final ATAdInfo atAdInfo) {
+                MsgTools.printMsg("onRewardedVideoAdAgainPlayEnd: " + mPlacementId);
+                TaskManager.getInstance().run_proxy(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mListener != null) {
+                            synchronized (VideoHelper.this) {
+                                mListener.onRewardedVideoAdAgainPlayEnd(mPlacementId, atAdInfo.toString());
+                            }
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onRewardedVideoAdAgainPlayFailed(final AdError adError, final ATAdInfo atAdInfo) {
+                MsgTools.printMsg("onRewardedVideoAdAgainPlayFailed: " + mPlacementId);
+                TaskManager.getInstance().run_proxy(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mListener != null) {
+                            synchronized (VideoHelper.this) {
+                                mListener.onRewardedVideoAdAgainPlayFailed(mPlacementId, adError.getCode(), adError.getFullErrorInfo());
+                            }
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onRewardedVideoAdAgainPlayClicked(final ATAdInfo atAdInfo) {
+                MsgTools.printMsg("onRewardedVideoAdAgainPlayClicked: " + mPlacementId);
+                TaskManager.getInstance().run_proxy(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mListener != null) {
+                            synchronized (VideoHelper.this) {
+                                mListener.onRewardedVideoAdAgainPlayClicked(mPlacementId, atAdInfo.toString());
+                            }
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onAgainReward(final ATAdInfo atAdInfo) {
+                MsgTools.printMsg("onAgainReward: " + mPlacementId);
+                TaskManager.getInstance().run_proxy(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mListener != null) {
+                            synchronized (VideoHelper.this) {
+                                mListener.onAgainReward(mPlacementId, atAdInfo.toString());
+                            }
+                        }
+                    }
+                });
+            }
+
             @Override
             public void onRewardedVideoAdLoaded() {
-                MsgTools.pirntMsg("onRewardedVideoAdLoaded: " + mPlacementId);
+                MsgTools.printMsg("onRewardedVideoAdLoaded: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
@@ -66,7 +158,7 @@ public class VideoHelper {
 
             @Override
             public void onRewardedVideoAdFailed(final AdError pAdError) {
-                MsgTools.pirntMsg("onRewardedVideoAdFailed: " + mPlacementId + ", " + pAdError.getFullErrorInfo());
+                MsgTools.printMsg("onRewardedVideoAdFailed: " + mPlacementId + ", " + pAdError.getFullErrorInfo());
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
@@ -75,7 +167,7 @@ public class VideoHelper {
                                 mListener.onRewardedVideoAdFailed(mPlacementId, pAdError.getCode(), pAdError.getFullErrorInfo());
                             }
                         } else {
-                            MsgTools.pirntMsg("onRewardedVideoAdFailed callnoback: " + pAdError.getFullErrorInfo());
+                            MsgTools.printMsg("onRewardedVideoAdFailed callnoback: " + pAdError.getFullErrorInfo());
                         }
                     }
                 });
@@ -83,7 +175,7 @@ public class VideoHelper {
 
             @Override
             public void onRewardedVideoAdPlayStart(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("onRewardedVideoAdPlayStart: " + mPlacementId);
+                MsgTools.printMsg("onRewardedVideoAdPlayStart: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
@@ -98,7 +190,7 @@ public class VideoHelper {
 
             @Override
             public void onRewardedVideoAdPlayEnd(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("onRewardedVideoAdPlayEnd: " + mPlacementId);
+                MsgTools.printMsg("onRewardedVideoAdPlayEnd: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
@@ -113,7 +205,7 @@ public class VideoHelper {
 
             @Override
             public void onRewardedVideoAdPlayFailed(final AdError pAdError, ATAdInfo adInfo) {
-                MsgTools.pirntMsg("onRewardedVideoAdPlayFailed: " + mPlacementId + ", " + pAdError.getFullErrorInfo());
+                MsgTools.printMsg("onRewardedVideoAdPlayFailed: " + mPlacementId + ", " + pAdError.getFullErrorInfo());
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
@@ -129,7 +221,7 @@ public class VideoHelper {
 
             @Override
             public void onRewardedVideoAdClosed(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("onRewardedVideoAdClosed: " + mPlacementId);
+                MsgTools.printMsg("onRewardedVideoAdClosed: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
@@ -144,7 +236,7 @@ public class VideoHelper {
 
             @Override
             public void onRewardedVideoAdPlayClicked(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("onRewardedVideoAdPlayClicked: " + mPlacementId);
+                MsgTools.printMsg("onRewardedVideoAdPlayClicked: " + mPlacementId);
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
@@ -159,7 +251,7 @@ public class VideoHelper {
 
             @Override
             public void onReward(final ATAdInfo adInfo) {
-                MsgTools.pirntMsg("onReward: " + mPlacementId);
+                MsgTools.printMsg("onReward: " + mPlacementId);
                 isReward = true;
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
@@ -173,11 +265,111 @@ public class VideoHelper {
                 });
             }
         });
-        MsgTools.pirntMsg("initVideo 3: " + mPlacementId);
+
+        mRewardVideoAd.setAdSourceStatusListener(new ATAdSourceStatusListener() {
+            @Override
+            public void onAdSourceBiddingAttempt(final ATAdInfo atAdInfo) {
+                MsgTools.printMsg("onAdSourceBiddingAttempt: " + mPlacementId );
+                TaskManager.getInstance().run_proxy(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mListener != null) {
+                            synchronized (VideoHelper.this) {
+                                mListener.onAdSourceBiddingAttempt(mPlacementId, atAdInfo.toString());
+                            }
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onAdSourceBiddingFilled(final ATAdInfo atAdInfo) {
+                MsgTools.printMsg("onAdSourceBiddingFilled: " + mPlacementId );
+                TaskManager.getInstance().run_proxy(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mListener != null) {
+                            synchronized (VideoHelper.this) {
+                                mListener.onAdSourceBiddingFilled(mPlacementId, atAdInfo.toString());
+                            }
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onAdSourceBiddingFail(final ATAdInfo atAdInfo, final AdError adError) {
+                MsgTools.printMsg("onAdSourceBiddingFail: " + mPlacementId + "," + adError.getFullErrorInfo());
+                TaskManager.getInstance().run_proxy(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mListener != null) {
+                            synchronized (VideoHelper.this) {
+                                mListener.onAdSourceBiddingFail(mPlacementId, atAdInfo.toString(), adError.getCode(), adError.getFullErrorInfo());
+                            }
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onAdSourceAttemp(final ATAdInfo atAdInfo) {
+                MsgTools.printMsg("onAdSourceAttemp: " + mPlacementId );
+                TaskManager.getInstance().run_proxy(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mListener != null) {
+                            synchronized (VideoHelper.this) {
+                                mListener.onAdSourceAttemp(mPlacementId, atAdInfo.toString());
+                            }
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onAdSourceLoadFilled(final ATAdInfo atAdInfo) {
+                MsgTools.printMsg("onAdSourceLoadFilled: " + mPlacementId );
+                TaskManager.getInstance().run_proxy(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mListener != null) {
+                            synchronized (VideoHelper.this) {
+                                mListener.onAdSourceLoadFilled(mPlacementId, atAdInfo.toString());
+                            }
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onAdSourceLoadFail(final ATAdInfo atAdInfo, final AdError adError) {
+                MsgTools.printMsg("onAdSourceLoadFail: " + mPlacementId + "," + adError.getFullErrorInfo());
+                TaskManager.getInstance().run_proxy(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mListener != null) {
+                            synchronized (VideoHelper.this) {
+                                mListener.onAdSourceLoadFail(mPlacementId, atAdInfo.toString(), adError.getCode(), adError.getFullErrorInfo());
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        MsgTools.printMsg("initVideo 3: " + mPlacementId);
+
+        try {
+            if (ATSDK.isCnSDK()) {
+                mRewardVideoAd.setAdDownloadListener(DownloadHelper.getDownloadListener(mPlacementId));
+            }
+        } catch (Throwable e) {
+        }
     }
 
     public void fillVideo(final String jsonMap) {
-        MsgTools.pirntMsg("fillVideo start: " + mPlacementId + ", jsonMap: " + jsonMap);
+        MsgTools.printMsg("fillVideo start: " + mPlacementId + ", jsonMap: " + jsonMap);
         UnityPluginUtils.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -211,13 +403,13 @@ public class VideoHelper {
                         localExtra.put("user_id", userId);
                         localExtra.put("user_custom_data", userExtraData);
 
-                        MsgTools.pirntMsg("fillVideo: " + mPlacementId + ", userId:" + userId + ", userExtraData:" + userExtraData);
+                        MsgTools.printMsg("fillVideo: " + mPlacementId + ", userId:" + userId + ", userExtraData:" + userExtraData);
                     }
 
                     mRewardVideoAd.setLocalExtra(localExtra);
                     mRewardVideoAd.load();
                 } else {
-                    MsgTools.pirntMsg("fillVideo error, you must call initVideo first " + mPlacementId);
+                    MsgTools.printMsg("fillVideo error, you must call initVideo first " + mPlacementId);
                     TaskManager.getInstance().run_proxy(new Runnable() {
                         @Override
                         public void run() {
@@ -234,9 +426,8 @@ public class VideoHelper {
         });
     }
 
-
     public void showVideo(final String jsonMap) {
-        MsgTools.pirntMsg("showVideo: " + mPlacementId + ", jsonMap: " + jsonMap);
+        MsgTools.printMsg("showVideo: " + mPlacementId + ", jsonMap: " + jsonMap);
         isReward = false;
         UnityPluginUtils.runOnUiThread(new Runnable() {
             @Override
@@ -257,14 +448,14 @@ public class VideoHelper {
                             }
                         }
                     }
-                    MsgTools.pirntMsg("showVideo: " + mPlacementId + ", scenario: " + scenario);
+                    MsgTools.printMsg("showVideo: " + mPlacementId + ", scenario: " + scenario);
                     if (!TextUtils.isEmpty(scenario)) {
                         mRewardVideoAd.show(mActivity, scenario);
                     } else {
                         mRewardVideoAd.show(mActivity);
                     }
                 } else {
-                    MsgTools.pirntMsg("showVideo error, you must call initVideo first " + mPlacementId);
+                    MsgTools.printMsg("showVideo error, you must call initVideo first " + mPlacementId);
                     TaskManager.getInstance().run_proxy(new Runnable() {
                         @Override
                         public void run() {
@@ -282,32 +473,31 @@ public class VideoHelper {
     }
 
     public boolean isAdReady() {
-        MsgTools.pirntMsg("isAdReady start: " + mPlacementId);
+        MsgTools.printMsg("isAdReady start: " + mPlacementId);
 
         try {
             if (mRewardVideoAd != null) {
                 boolean isAdReady = mRewardVideoAd.isAdReady();
-                MsgTools.pirntMsg("isAdReady: " + mPlacementId + isAdReady);
+                MsgTools.printMsg("isAdReady: " + mPlacementId + isAdReady);
                 return isAdReady;
             } else {
-                MsgTools.pirntMsg("isAdReady error, you must call initVideo first ");
+                MsgTools.printMsg("isAdReady error, you must call initVideo first ");
 
             }
-            MsgTools.pirntMsg("isAdReady end: " + mPlacementId);
+            MsgTools.printMsg("isAdReady end: " + mPlacementId);
         } catch (Exception e) {
-            MsgTools.pirntMsg("isAdReady Exception: " + e.getMessage());
+            MsgTools.printMsg("isAdReady Exception: " + e.getMessage());
             return isReady;
 
         } catch (Throwable e) {
-            MsgTools.pirntMsg("isAdReady Throwable:" + e.getMessage());
+            MsgTools.printMsg("isAdReady Throwable:" + e.getMessage());
             return isReady;
         }
         return isReady;
     }
 
-
     public String checkAdStatus() {
-        MsgTools.pirntMsg("checkAdStatus: " + mPlacementId);
+        MsgTools.printMsg("checkAdStatus: " + mPlacementId);
         if (mRewardVideoAd != null) {
             ATAdStatusInfo atAdStatusInfo = mRewardVideoAd.checkAdStatus();
             boolean loading = atAdStatusInfo.isLoading();
@@ -328,4 +518,42 @@ public class VideoHelper {
         return "";
     }
 
+    public String getValidAdCaches() {
+        MsgTools.printMsg("getValidAdCaches:" + mPlacementId);
+
+        if (mRewardVideoAd != null) {
+            JSONArray jsonArray = new JSONArray();
+
+            List<ATAdInfo> vaildAds = mRewardVideoAd.checkValidAdCaches();
+            if (vaildAds == null) {
+                return "";
+            }
+
+            int size = vaildAds.size();
+
+            for (int i = 0; i < size; i++) {
+                try {
+                    jsonArray.put(new JSONObject(vaildAds.get(i).toString()));
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+            }
+            return jsonArray.toString();
+        }
+        return "";
+    }
+
+    public void entryAdScenario(final String scenarioId) {
+        MsgTools.printMsg("entryAdScenario start: " + mPlacementId + ", scenarioId: " + scenarioId);
+        UnityPluginUtils.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (!TextUtils.isEmpty(mPlacementId)) {
+                    ATRewardVideoAd.entryAdScenario(mPlacementId, scenarioId);
+                } else {
+                    MsgTools.printMsg("entryAdScenario error, you must call initVideo first " + mPlacementId);
+                }
+            }
+        });
+    }
 }

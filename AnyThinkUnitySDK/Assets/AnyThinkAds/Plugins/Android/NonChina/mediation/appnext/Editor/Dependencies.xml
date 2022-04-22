@@ -1,7 +1,7 @@
 <dependencies>
     <androidPackages>
         <repositories>
-            <repository>http://dl.appnext.com/</repository>
+            <repository>https://dl.appnext.com/</repository>
         </repositories>
         <androidPackage spec="com.appnext.sdk:ads:2.4.8.472"/>
         <androidPackage spec="com.appnext.sdk:banners:2.4.8.472"/>

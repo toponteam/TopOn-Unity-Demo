@@ -8,14 +8,27 @@
 
 #import <Foundation/Foundation.h>
 #import "ATAd.h"
+
+typedef NS_ENUM(NSInteger, ATRefreshType){
+    ATRefreshTypeNone,
+    ATRefreshTypeAutoRefresh,
+    ATRefreshTypePlayAgain,
+    ATRefreshTypeInitiation,
+    ATRefreshTypeLoadFailed,
+    ATRefreshTypeNotReady,
+    ATRefreshTypeShowStart,
+    ATRefreshTypeShowFailed
+} ;
+
 extern NSString *const kATTrackerExtraErrorKey;
+extern NSString *const kATTrackerExtraAgainLookFlagKey;
 extern NSString *const kATTrackerExtraAutoloadFlagKey;
 extern NSString *const kATTrackerExtraSDKCalledFlagKey;
 extern NSString *const kATTrackerExtraSDKNotCalledReasonKey;
 extern NSString *const kATTrackerExtraLoadFailureReasonKey;
 extern NSString *const kATTrackerExtraASIDKey;
 extern NSString *const kATTrackerExtraStatusKey;
-extern NSString *const ATTrackerExtraShownNetworkPriorityInfoKey;
+extern NSString *const kATTrackerExtraShownNetworkPriorityInfoKey;
 extern NSString *const kATTrackerExtraHeaderBiddingInfoKey;
 extern NSString *const kATTrackerExtraResourceTypeKey;
 extern NSString *const kATTrackerExtraUnitIDKey;//Ad source id
@@ -25,6 +38,7 @@ extern NSString *const kATTrackerExtraDefaultLoadFlagKey;
 extern NSString *const kATTrackerExtraFilledWithinNetworkTimeoutFlagKey;
 extern NSString *const kATTrackerExtraFillRequestFlagKey;
 extern NSString *const kATTrackerExtraFillTimeKey;
+extern NSString *const kATTrackerExtraDataFillTimeKey;
 extern NSString *const kATTrackerExtraASResultKey;
 extern NSString *const kATTrackerExtraAppIDKey;
 extern NSString *const kATTrackerExtraLastestRequestIDKey;
@@ -44,6 +58,10 @@ extern NSString *const kATTrackerExtraUGUnitIDKey;
 extern NSString *const kATTrackerExtraASIDKey;
 extern NSString *const kATTrackerExtraFormatKey;
 extern NSString *const kATTrackerExtraRequestExpectedOfferNumberFlagKey;
+extern NSString *const kATTrackerExtraClickImpKey;
+extern NSString *const kATTrackerExtraPlacementModelKey;
+extern NSString *const kATTrackerExtraAdCacheStatusKey;
+extern NSString *const kATTrackerExtraAdRequestUsedTimeKey;
 
 // ofm
 extern NSString *const kATTrackerExtraOFMTrafficIDKey;
@@ -67,7 +85,8 @@ typedef NS_ENUM(NSInteger, ATNativeADTrackType) {
     ATNativeAdTrackTypeBidSort = 11,
     ATNativeAdTrackTypeLoadResult = 12,//currently sent when loading succeeds
     ATNativeAdTrackTypeShowAPICall = 13,
-    ATNativeADTrackTypeRankAndShuffle = 15
+    ATNativeADTrackTypeRankAndShuffle = 15,
+    ATNativeADTrackTypeEntryScenario = 16
 };
 
 typedef NS_ENUM(NSInteger, ATNativeADSourceType) {

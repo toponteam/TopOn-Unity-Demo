@@ -28,4 +28,6 @@ extern NSString *const kATAdLoadingExtraAdmobAdSizeFlagsKey;//Admob AdSize flags
 - (nullable ATBannerView*)retrieveBannerViewForPlacementID:(NSString*)placementID scene:(NSString *)scene;
 
 - (ATCheckLoadModel*)checkBannerLoadStatusForPlacementID:(NSString*)placementID;
+- (NSArray<NSDictionary *> *)getBannerValidAdsForPlacementID:(NSString *)placementID;
+
 @end

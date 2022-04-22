@@ -34,5 +34,30 @@ namespace AnyThinkAds.Common
 		 * 显示广告
 		 */
         void showAd(string placementId, string mapJson);
-    }
+
+		/***
+		 * 获取所有可用缓存广告
+		 */
+		string getValidAdCaches(string placementId);
+
+		void entryScenarioWithPlacementID(string placementId, string scenarioID);
+
+
+        string checkAutoAdStatus(string placementId);
+
+		void addAutoLoadAdPlacementID(string[] placementIDList);
+
+        void removeAutoLoadAdPlacementID(string placementId);
+
+		bool autoLoadRewardedVideoReadyForPlacementID(string placementId);
+
+		string getAutoValidAdCaches(string placementId);
+
+        void setAutoLocalExtra(string placementId, string mapJson);
+
+        void entryAutoAdScenarioWithPlacementID(string placementId, string scenarioID);
+
+		void showAutoAd(string placementId, string mapJson);
+
+	}
 }

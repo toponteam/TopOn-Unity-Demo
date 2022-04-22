@@ -12,6 +12,8 @@
 #import <AnyThinkInterstitial/ATAdManager+Interstitial.h>
 #import <AnyThinkInterstitial/ATInterstitialDelegate.h>
 #import <AnyThinkInterstitial/ATInterstitialCustomEvent.h>
+#import <AnyThinkInterstitial/ATInterstitialAutoAdManager.h>
+
 
 //! Project version number for AnyThinkInterstitial.
 FOUNDATION_EXPORT double AnyThinkInterstitialVersionNumber;

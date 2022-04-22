@@ -66,7 +66,7 @@ public class ATUnityRender implements ATNativeAdRenderer<CustomNativeAd> {
                 mViewInfo.imgMainView.mWidth = mViewInfo.rootView.mWidth;
                 mViewInfo.imgMainView.mHeight = mViewInfo.rootView.mHeight;
 
-                MsgTools.pirntMsg("ExpressNative, NetworkType ----> " + mNetworkType);
+                MsgTools.printMsg("ExpressNative, NetworkType ----> " + mNetworkType);
                 ViewInfo.add2ParentView(mFrameLayout, mediaView, mViewInfo.imgMainView, -1);
                 return;
             }
@@ -81,7 +81,7 @@ public class ATUnityRender implements ATNativeAdRenderer<CustomNativeAd> {
             if (mViewInfo.titleView.textSize > 0) {
                 titleView.setTextSize(mViewInfo.titleView.textSize);
             }
-            MsgTools.pirntMsg("title---->" + ad.getTitle());
+            MsgTools.printMsg("title---->" + ad.getTitle());
             titleView.setText(ad.getTitle());
 
             titleView.setSingleLine();
@@ -112,7 +112,7 @@ public class ATUnityRender implements ATNativeAdRenderer<CustomNativeAd> {
             ctaView.setMaxEms(15);
             ctaView.setEllipsize(TextUtils.TruncateAt.END);
 
-            MsgTools.pirntMsg("cat---->" + ad.getCallToActionText());
+            MsgTools.printMsg("cat---->" + ad.getCallToActionText());
             ctaView.setText(ad.getCallToActionText());
             ViewInfo.add2ParentView(mFrameLayout, ctaView, mViewInfo.ctaView, -1);
         }
@@ -127,7 +127,7 @@ public class ATUnityRender implements ATNativeAdRenderer<CustomNativeAd> {
             if (mViewInfo.descView.textSize > 0) {
                 descView.setTextSize(mViewInfo.descView.textSize);
             }
-            MsgTools.pirntMsg("desc---->" + ad.getDescriptionText());
+            MsgTools.printMsg("desc---->" + ad.getDescriptionText());
             descView.setText(ad.getDescriptionText());
 
 
@@ -143,35 +143,29 @@ public class ATUnityRender implements ATNativeAdRenderer<CustomNativeAd> {
 
             FrameLayout iconArea = new FrameLayout(mActivity);
 
-
-            if (ad.getAdIconView() == null) {
+            View adIconView = ad.getAdIconView();
+            if (adIconView == null) {
                 iconView = new ATNativeImageView(mActivity);
                 iconArea.addView(iconView, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
                 iconView.setImage(ad.getIconImageUrl());
             } else {
-                iconArea.addView(ad.getAdIconView(), new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+                iconArea.addView(adIconView, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
             }
 
             // 加载图片
             ViewInfo.add2ParentView(mFrameLayout, iconArea, mViewInfo.IconView, -1);
         }
 
-        ATNativeImageView logoView = null;
-        if (mViewInfo.adLogoView != null) {
-            logoView = new ATNativeImageView(mActivity);
-            ViewInfo.add2ParentView(mFrameLayout, logoView, mViewInfo.adLogoView, -1);
-            logoView.setImage(ad.getAdChoiceIconUrl());
-        }
 
         if (mNetworkType != 5 && mediaView != null) {
 //            mediaView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-            MsgTools.pirntMsg("mediaView ---> 视屏播放 " + ad.getVideoUrl());
+            MsgTools.printMsg("mediaView ---> 视屏播放 " + ad.getVideoUrl());
             if (mViewInfo.imgMainView != null) {
                 ViewInfo.add2ParentView(mFrameLayout, mediaView, mViewInfo.imgMainView, -1);
             }
         } else {
             //加载大图
-            MsgTools.pirntMsg("mediaView ---> 大图播放");
+            MsgTools.printMsg("mediaView ---> 大图播放");
             if (mViewInfo.imgMainView != null) {
                 final ATNativeImageView mainImageView = new ATNativeImageView(mActivity);
                 ViewInfo.add2ParentView(mFrameLayout, mainImageView, mViewInfo.imgMainView, -1);
@@ -195,21 +189,29 @@ public class ATUnityRender implements ATNativeAdRenderer<CustomNativeAd> {
             mFrameLayout.addView(adFromTextView, adFromParam);
         }
 
-        if (mNetworkType == 2) {
-            MsgTools.pirntMsg("start to add admob ad textview ");
-            TextView adLogoView = new TextView(mActivity);
-            adLogoView.setTextColor(Color.WHITE);
-            adLogoView.setText("AD");
-            adLogoView.setTextSize(11);
-            adLogoView.setPadding(CommonUtil.dip2px(mActivity, 3), 0, CommonUtil.dip2px(mActivity, 3), 0);
-            adLogoView.setBackgroundColor(Color.parseColor("#66000000"));
-            if (mFrameLayout != null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                layoutParams.leftMargin = CommonUtil.dip2px(mActivity, 3);
-                layoutParams.topMargin = CommonUtil.dip2px(mActivity, 3);
-                mFrameLayout.addView(adLogoView, layoutParams);
 
-                MsgTools.pirntMsg("add admob ad textview 2 activity");
+        ATNativeImageView logoView = null;
+        if (mViewInfo.adLogoView != null) {
+            logoView = new ATNativeImageView(mActivity);
+            ViewInfo.add2ParentView(mFrameLayout, logoView, mViewInfo.adLogoView, -1);
+            logoView.setImage(ad.getAdChoiceIconUrl());
+            MsgTools.printMsg("ad choice icon url == null:" + (ad.getAdChoiceIconUrl() == null));
+            if (TextUtils.isEmpty(ad.getAdChoiceIconUrl())) {
+                MsgTools.printMsg("start to add ad label textview");
+                TextView adLableTextView = new TextView(mActivity);
+                adLableTextView.setTextColor(Color.WHITE);
+                adLableTextView.setText("AD");
+                adLableTextView.setTextSize(11);
+                adLableTextView.setPadding(CommonUtil.dip2px(mActivity, 3), 0, CommonUtil.dip2px(mActivity, 3), 0);
+                adLableTextView.setBackgroundColor(Color.parseColor("#66000000"));
+                if (mFrameLayout != null) {
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    layoutParams.leftMargin = CommonUtil.dip2px(mActivity, 3);
+                    layoutParams.topMargin = CommonUtil.dip2px(mActivity, 3);
+                    mFrameLayout.addView(adLableTextView, layoutParams);
+
+                    MsgTools.printMsg("add ad label textview 2 activity");
+                }
             }
         }
 
@@ -225,7 +227,7 @@ public class ATUnityRender implements ATNativeAdRenderer<CustomNativeAd> {
         if (mViewInfo.descView != null) {
             dealWithClick(descView, mViewInfo.descView.isCustomClick, mClickViews, customClickViews, "desc");
         }
-        if (mViewInfo.IconView != null) {
+        if (mViewInfo.IconView != null && iconView != null) {
             dealWithClick(iconView, mViewInfo.IconView.isCustomClick, mClickViews, customClickViews, "icon");
         }
         if (mViewInfo.adLogoView != null) {
@@ -239,7 +241,7 @@ public class ATUnityRender implements ATNativeAdRenderer<CustomNativeAd> {
         //dislike
 
         if (mDislikeView != null) {
-            MsgTools.pirntMsg("bind dislike ----> " + mNetworkType);
+            MsgTools.printMsg("bind dislike ----> " + mNetworkType);
 
             mDislikeView.setVisibility(View.VISIBLE);
 
@@ -271,13 +273,13 @@ public class ATUnityRender implements ATNativeAdRenderer<CustomNativeAd> {
         if (mNetworkType == 8 || mNetworkType == 22) {
             if (isCustomClick) {
                 if (view != null) {
-                    MsgTools.pirntMsg("add customClick ----> " + name);
+                    MsgTools.printMsg("add customClick ----> " + name);
                     customClickViews.add(view);
                 }
                 return;
             }
         }
-        MsgTools.pirntMsg("add click ----> " + name);
+        MsgTools.printMsg("add click ----> " + name);
         clickViews.add(view);
     }
 

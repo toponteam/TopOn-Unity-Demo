@@ -71,6 +71,8 @@ static NSString *kATBannerAdLoadingExtraInlineAdaptiveOrientationKey = @"inline_
         return [self checkAdStatus:firstObject];
     }   else if ([selector isEqualToString:@"clearCache"]) {
         [self clearCache];
+    }   else if ([selector isEqualToString:@"getValidAdCaches:"]) {
+        return [self getValidAdCaches:firstObject];
     }
     return nil;
 }
@@ -122,6 +124,12 @@ static NSString *kATBannerAdLoadingExtraInlineAdaptiveOrientationKey = @"inline_
     statusDict[@"adInfo"] = checkLoadModel.adOfferInfo;
     NSLog(@"ATBannerAdWrapper::statusDict = %@", statusDict);
     return statusDict.jsonString;
+}
+
+-(NSString*) getValidAdCaches:(NSString *)placementID {
+    NSArray *array = [[ATAdManager sharedManager] getBannerValidAdsForPlacementID:placementID];
+    NSLog(@"ATNativeAdWrapper::array = %@", array);
+    return array.jsonString;
 }
 
 UIEdgeInsets SafeAreaInsets_ATUnityBanner() {
@@ -200,6 +208,31 @@ UIEdgeInsets SafeAreaInsets_ATUnityBanner() {
 -(void) didFailToLoadADWithPlacementID:(NSString*)placementID error:(NSError*)error {
     error = error != nil ? error : [NSError errorWithDomain:@"com.anythink.Unity3DPackage" code:100001 userInfo:@{NSLocalizedDescriptionKey:@"AT has failed to load ad", NSLocalizedFailureReasonErrorKey:@"AT has failed to load ad"}];
     [self invokeCallback:@"OnBannerAdLoadFail" placementID:placementID error:error extra:nil];
+}
+// ad
+- (void)didStartLoadingADSourceWithPlacementID:(NSString *)placementID extra:(NSDictionary*)extra{
+    [self invokeCallback:@"startLoadingADSource" placementID:placementID error:nil extra:extra];
+}
+
+- (void)didFinishLoadingADSourceWithPlacementID:(NSString *)placementID extra:(NSDictionary*)extra{
+    [self invokeCallback:@"finishLoadingADSource" placementID:placementID error:nil extra:extra];
+}
+
+- (void)didFailToLoadADSourceWithPlacementID:(NSString*)placementID extra:(NSDictionary*)extra error:(NSError*)error{
+    [self invokeCallback:@"failToLoadADSource" placementID:placementID error:error extra:extra];
+}
+
+// bidding
+- (void)didStartBiddingADSourceWithPlacementID:(NSString *)placementID extra:(NSDictionary*)extra{
+    [self invokeCallback:@"startBiddingADSource" placementID:placementID error:nil extra:extra];
+}
+
+- (void)didFinishBiddingADSourceWithPlacementID:(NSString *)placementID extra:(NSDictionary*)extra{
+    [self invokeCallback:@"finishBiddingADSource" placementID:placementID error:nil extra:extra];
+}
+
+- (void)didFailBiddingADSourceWithPlacementID:(NSString*)placementID extra:(NSDictionary*)extra error:(NSError*)error{
+    [self invokeCallback:@"failBiddingADSource" placementID:placementID error:error extra:extra];
 }
 
 -(void) bannerView:(ATBannerView *)bannerView didShowAdWithPlacementID:(NSString *)placementID extra:(NSDictionary *)extra {

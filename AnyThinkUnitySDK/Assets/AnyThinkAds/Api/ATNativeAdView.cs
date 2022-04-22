@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 
-using AnyThinkAds.ThirdParty.MiniJSON;
-
 namespace AnyThinkAds.Api
 {
     public class ATNativeAdView 

@@ -1,9 +1,6 @@
 <dependencies>
     <androidPackages>
-        <repositories>
-            <repository>https://chartboostmobile.bintray.com/Chartboost</repository>
-        </repositories>
-        <androidPackage spec="com.chartboost:chartboost-sdk:8.2.0"/>
+        <androidPackage spec="com.chartboost:chartboost-sdk:8.2.1"/>
         <androidPackage spec="com.chartboost:helium:2.2.1"/>
         <androidPackage spec="org.greenrobot:eventbus:3.2.0"/>
         <androidPackage spec="com.google.android.gms:play-services-ads-identifier:17.0.0"/>

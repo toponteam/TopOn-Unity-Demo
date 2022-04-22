@@ -31,6 +31,11 @@ typedef NS_ENUM(NSInteger, ATLinkType) {
     ATLinkTypeInnerSafari = 5
 };
 
+typedef NS_ENUM(NSInteger, ATOfferLayoutType) {
+    ATOfferLayoutTypeNormal = 0,
+    ATOfferLayoutTypeExpress
+};
+
 typedef NS_ENUM(NSInteger, ATClickMode) {
     ATClickModeSync = 1,
     ATClickModeAsync
@@ -59,13 +64,16 @@ typedef NS_ENUM(NSInteger, ATVideoClickable) {
 typedef NS_ENUM(NSInteger, ATNetworkFirmId) {
     ATNetworkFirmIdADX =  66,
     ATNetworkFirmIdMyOffer = 35,
-    ATNetworkFirmIdGDTOnline = 42
+    ATNetworkFirmIdGDTOnline = 42,
+    ATNetworkFirmIdDirectOffer =  67,
+
 };
 
 typedef NS_ENUM(NSInteger, ATOfferModelType) {
     ATOfferModelMyOffer = 1,
     ATOfferModelADX =  2,
-    ATOfferModelOnlineApi =  3
+    ATOfferModelOnlineApi =  3,
+    ATOfferModelDirectOffer =  4,
 };
 
 typedef NS_ENUM(NSInteger, ATOfferCrtType) {
@@ -89,6 +97,31 @@ typedef NS_ENUM(NSInteger, ATClickType) {
     ATClickTypeClickJumpUrl
 };
 
+typedef NS_ENUM(NSInteger, ATUnitGroupType) {
+    ATUnitGroupTypeNormal = 1,
+    ATUnitGroupTypeAdx,
+    ATUnitGroupTypeC2S,
+    ATUnitGroupTypeS2S,
+    ATUnitGroupTypeInHouse,
+    ATUnitGroupTypeBKS,
+    ATUnitGroupTypeDirectOffer,
+    ATUnitGroupTypeDefault,
+};
+
+typedef NS_ENUM(NSInteger, ATSplashType) {
+    ATSplashTypeSplice = 1,
+    ATSplashTypeFullScreen
+};
+
+typedef NS_ENUM(NSInteger, ATSplashImageScaleType) {
+    ATSplashImageScaleTypeFit = 1,
+    ATSplashImageScaleTypeFill
+};
+
+typedef NS_ENUM(NSInteger, ATBiddingCurrencyType) {
+    ATBiddingCurrencyTypeUS = 1,
+    ATBiddingCurrencyTypeCNY
+};
 
 @interface ATModel : NSObject
 -(instancetype)initWithDictionary:(NSDictionary*)dictionary;

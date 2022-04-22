@@ -8,10 +8,18 @@
 
 #import "ATOfferSetting.h"
 
+// v5.7.47
+typedef NS_ENUM(NSInteger, ATMyOfferInterType) {
+    ATMyOfferInterTypeFull = 1,
+    ATMyOfferInterTypeHalf
+};
+
 @interface ATMyOfferSetting : ATOfferSetting
 -(instancetype) initWithDictionary:(NSDictionary *)dictionary placementID:(NSString*)placementID;
 
 @property(nonatomic, readwrite) NSTimeInterval resourceCacheTime;
+
+@property(nonatomic, readwrite) ATMyOfferInterType interType;
 
 +(instancetype) mockSetting;
 @end

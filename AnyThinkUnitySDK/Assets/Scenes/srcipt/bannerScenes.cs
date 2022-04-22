@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using AnyThinkAds.Api;
 using UnityEngine.UI;
 
-using AnyThinkAds.ThirdParty.MiniJSON;
+using AnyThinkAds.ThirdParty.LitJson;
 
 
 public class bannerScenes : MonoBehaviour {
@@ -72,6 +72,11 @@ public class bannerScenes : MonoBehaviour {
         string adStatus = ATBannerAd.Instance.checkAdStatus(mPlacementId_banner_all);
         Debug.Log("Developer checkAdStatus banner...." + adStatus);
 
+        string adCaches = ATBannerAd.Instance.getValidAdCaches(mPlacementId_banner_all);
+        Debug.Log("Developer getValidAdCaches banner...." + adCaches);
+
+
+
 
         // ATRect arpuRect = new ATRect(0,50, this.screenWidth, 300, true);
         // ATBannerAd.Instance.showBannerAd(mPlacementId_banner_all, arpuRect);
@@ -106,7 +111,7 @@ public class bannerScenes : MonoBehaviour {
     {
         public void onAdAutoRefresh(string placementId, ATCallbackInfo callbackInfo)
         {
-            Debug.Log("Developer callback onAdAutoRefresh :" +  placementId + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer callback onAdAutoRefresh :" +  placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
         }
 
         public void onAdAutoRefreshFail(string placementId, string code, string message)
@@ -116,7 +121,7 @@ public class bannerScenes : MonoBehaviour {
 
         public void onAdClick(string placementId, ATCallbackInfo callbackInfo)
         {
-            Debug.Log("Developer callback onAdClick :" + placementId + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer callback onAdClick :" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
         }
 
         public void onAdClose(string placementId)
@@ -126,12 +131,12 @@ public class bannerScenes : MonoBehaviour {
 
         public void onAdCloseButtonTapped(string placementId, ATCallbackInfo callbackInfo)
         {
-            Debug.Log("Developer callback onAdCloseButtonTapped :" + placementId + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer callback onAdCloseButtonTapped :" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
         }
 
         public void onAdImpress(string placementId, ATCallbackInfo callbackInfo)
         {
-            Debug.Log("Developer callback onAdImpress :" + placementId + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer callback onAdImpress :" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
         }
 
         public void onAdLoad(string placementId)
@@ -143,6 +148,39 @@ public class bannerScenes : MonoBehaviour {
         {
             Debug.Log("Developer callback onAdLoadFail : : " + placementId + "--code:" + code + "--msg:" + message);
         }
+
+        public void startLoadingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer startLoadingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void finishLoadingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer finishLoadingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void failToLoadADSource(string placementId,ATCallbackInfo callbackInfo,string code, string message){
+            Debug.Log("Developer failToLoadADSource------code:" + code + "---message:" + message+ "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void startBiddingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer startBiddingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void finishBiddingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer finishBiddingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void failBiddingADSource(string placementId,ATCallbackInfo callbackInfo,string code, string message){
+            Debug.Log("Developer failBiddingADSource------code:" + code + "---message:" + message+ "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+
+
     }
 
 

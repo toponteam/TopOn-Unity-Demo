@@ -12,7 +12,8 @@
 
 extern NSString *const kATInterstitialDelegateExtraNetworkIDKey;
 extern NSString *const kATInterstitialDelegateExtraAdSourceIDKey;
-extern NSString *const kATInterstitialDelegateExtraIsHeaderBidding;
+extern NSString *const kATInterstitialDelegateExtraIsHeaderBidding DEPRECATED_MSG_ATTRIBUTE("The kATInterstitialDelegateExtraIsHeaderBidding class will be obsolete, please use kATInterstitialDelegateExtraAdSourceIsHeaderBidding");
+extern NSString *const kATInterstitialDelegateExtraAdSourceIsHeaderBidding;
 extern NSString *const kATInterstitialDelegateExtraPrice;
 extern NSString *const kATInterstitialDelegateExtraPriority;
 @protocol ATInterstitialDelegate<ATAdLoadingDelegate>
@@ -25,6 +26,7 @@ extern NSString *const kATInterstitialDelegateExtraPriority;
 -(void) interstitialDidCloseForPlacementID:(NSString*)placementID extra:(NSDictionary*)extra;
 -(void) interstitialDidClickForPlacementID:(NSString*)placementID extra:(NSDictionary*)extra;
 -(void) interstitialDeepLinkOrJumpForPlacementID:(NSString*)placementID extra:(NSDictionary*)extra result:(BOOL)success;
+
 
 @end
 

@@ -3,21 +3,14 @@
         <repositories>
             <repository>https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea</repository>
         </repositories>
-        <androidPackage spec="com.mbridge.msdk.oversea:videojs:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:mbjscommon:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:playercommon:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:reward:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:videocommon:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:same:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:interstitialvideo:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:mbnative:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:nativeex:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:interstitial:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:mbsplash:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:mbnativeadvanced:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:mbbanner:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:interactiveads:15.4.71"/>
-        <androidPackage spec="com.mbridge.msdk.oversea:mbbid:15.4.71"/>
-        <androidPackage spec="com.google.android.exoplayer:exoplayer-core:2.12.2"/>
+        <androidPackage spec="com.mbridge.msdk.oversea:reward:16.0.11"/>
+        <androidPackage spec="com.mbridge.msdk.oversea:newinterstitial:16.0.11"/>
+        <androidPackage spec="com.mbridge.msdk.oversea:mbnative:16.0.11"/>
+        <androidPackage spec="com.mbridge.msdk.oversea:interstitial:16.0.11"/>
+        <androidPackage spec="com.mbridge.msdk.oversea:mbsplash:16.0.11"/>
+        <androidPackage spec="com.mbridge.msdk.oversea:mbnativeadvanced:16.0.11"/>
+        <androidPackage spec="com.mbridge.msdk.oversea:mbbanner:16.0.11"/>
+        <androidPackage spec="com.mbridge.msdk.oversea:mbbid:16.0.11"/>
+        <androidPackage spec="androidx.recyclerview:recyclerview:1.1.0"/>
     </androidPackages>
 </dependencies>

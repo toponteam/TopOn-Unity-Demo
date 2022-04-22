@@ -19,6 +19,7 @@
 -(void) trackNativeAdLoaded:(NSDictionary*)assets;
 -(void) trackNativeAdLoadFailed:(NSError*)error;
 -(void) didAttachMediaView;
+-(void) invalidateUsedAdInfo;
 -(void) willDetachOffer:(ATNativeADCache*)offer fromAdView:(ATNativeADView*)adView;
 /**
  *@para refresh: whether the show is trigered by a ad refresh.
@@ -29,13 +30,17 @@
 - (void)trackNativeAdVideoEnd;
 - (void)trackNativeAdClosed;
 - (void)trackNativeAdImpression;
--(void) trackNativeAdDeeplinkOrJumpResult:(BOOL)success;
+- (void)trackNativeAdDeeplinkOrJumpResult:(BOOL)success;
+
+//v5.7.47
+- (void)trackNativeAdCloseDetail;
 
 /// If it returns YES, then when sending the embedding points of "show", the embedding points of "impression" will be sent together. Otherwise, it will not be sent. Same for the banner ads (ATBannerCustomEvent.h).
 - (BOOL)sendImpressionTrackingIfNeed;
 
 -(NSDictionary*)delegateExtra;
-- (NSDictionary *)delegateExtraWithNativeAD:(ATNativeADCache *)cache;
+- (NSMutableDictionary *)delegateExtraWithNativeAD:(ATNativeADCache *)cache;
+-(instancetype) initWithInfo:(NSDictionary*)serverInfo localInfo:(NSDictionary *)localInfo;
 
 -(ATNativeADSourceType) sourceType;
 @property(nonatomic, copy) void(^requestCompletionBlock)(NSArray<NSDictionary*> *assets, NSError *error);
@@ -46,7 +51,6 @@
  */
 @property(nonatomic) NSInteger numberOfFinishedRequests;
 @property(nonatomic, readonly) NSMutableArray<NSDictionary*>* assets;
-@property(nonatomic) NSDictionary *requestExtra;
 @end
 
 @interface ATNativeADView(Event)
@@ -57,5 +61,6 @@
 -(void) notifyVideoExitFullScreen;
 -(void) notifyCloseButtonTapped;
 -(void) notifyDeeplinkOrJumpResult:(BOOL)success;
-
+-(void) notifyAdDetailClosed;
+-(void) notifyNativeAdShow;
 @end

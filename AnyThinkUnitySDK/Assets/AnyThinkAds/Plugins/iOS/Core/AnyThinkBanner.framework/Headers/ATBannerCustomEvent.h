@@ -29,7 +29,9 @@
 /// Some ad SDKs do not call back after ads were displayed. Override it and return 'YES', a impression tracking will be sent. Same for the native ads (ATNativeADCustomEvent).
 - (BOOL)sendImpressionTrackingIfNeed;
 
-@property(nonatomic, assign) id<ATBannerDelegate> delegate;
+- (void)invalidateBidInfo;
+
+@property(nonatomic, weak) id<ATBannerDelegate> delegate;
 @property(nonatomic, weak) ATBanner *banner;
 @property(nonatomic, weak) ATBannerView *bannerView;
 @property(nonatomic, readonly) NSString *unitID;

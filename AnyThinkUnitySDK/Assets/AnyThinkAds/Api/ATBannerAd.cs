@@ -5,7 +5,7 @@ using System.Reflection;
 using System;
 
 using AnyThinkAds.Common;
-using AnyThinkAds.ThirdParty.MiniJSON;
+using AnyThinkAds.ThirdParty.LitJson;
 
 namespace AnyThinkAds.Api
 {
@@ -57,7 +57,7 @@ namespace AnyThinkAds.Api
 		{   
             if (pairs != null && pairs.ContainsKey(ATBannerAdLoadingExtra.kATBannerAdLoadingExtraBannerAdSize))
             {
-                client.loadBannerAd(placementId, Json.Serialize(pairs));
+                client.loadBannerAd(placementId, JsonMapper.ToJson(pairs));
             }
             else if (pairs != null && pairs.ContainsKey(ATBannerAdLoadingExtra.kATBannerAdLoadingExtraBannerAdSizeStruct))
             {
@@ -66,11 +66,11 @@ namespace AnyThinkAds.Api
                 pairs.Add(ATBannerAdLoadingExtra.kATBannerAdSizeUsesPixelFlagKey, size.usesPixel);
 
                 //Dictionary<string, object> newPaires = new Dictionary<string, object> { { ATBannerAdLoadingExtra.kATBannerAdLoadingExtraBannerAdSize, size.width + "x" + size.height }, { ATBannerAdLoadingExtra.kATBannerAdSizeUsesPixelFlagKey, size.usesPixel } };
-                client.loadBannerAd(placementId, Json.Serialize(pairs));
+                client.loadBannerAd(placementId, JsonMapper.ToJson(pairs));
             }
             else
             {
-                client.loadBannerAd(placementId, Json.Serialize(pairs));
+                client.loadBannerAd(placementId, JsonMapper.ToJson(pairs));
             }
 			
 		}
@@ -80,7 +80,13 @@ namespace AnyThinkAds.Api
             return client.checkAdStatus(placementId);
         }
 
-		public void setListener(ATBannerAdListener listener)
+        public string getValidAdCaches(string placementId)
+        {
+            return client.getValidAdCaches(placementId);
+        }
+
+
+        public void setListener(ATBannerAdListener listener)
         {
             client.setListener(listener);
         }
@@ -92,7 +98,7 @@ namespace AnyThinkAds.Api
 
         public void showBannerAd(string placementId, ATRect rect, Dictionary<string,string> pairs)
         {
-            client.showBannerAd(placementId, rect, Json.Serialize(pairs));
+            client.showBannerAd(placementId, rect, JsonMapper.ToJson(pairs));
         }
 
         public void showBannerAd(string placementId, string position)
@@ -102,7 +108,7 @@ namespace AnyThinkAds.Api
 
         public void showBannerAd(string placementId, string position, Dictionary<string,string> pairs)
         {
-            client.showBannerAd(placementId, position, Json.Serialize(pairs));
+            client.showBannerAd(placementId, position, JsonMapper.ToJson(pairs));
         }
 
         public void showBannerAd(string placementId)

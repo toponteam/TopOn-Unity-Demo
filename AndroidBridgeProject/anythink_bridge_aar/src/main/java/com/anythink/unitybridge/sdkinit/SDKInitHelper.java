@@ -1,18 +1,25 @@
 package com.anythink.unitybridge.sdkinit;
 
 import android.app.Activity;
+import android.location.Location;
 import android.text.TextUtils;
 
+import com.anythink.core.api.ATAreaCallback;
 import com.anythink.core.api.ATSDK;
 import com.anythink.core.api.ATSDKInitListener;
+import com.anythink.core.api.AreaCode;
 import com.anythink.core.api.NetTrafficeCallback;
 import com.anythink.unitybridge.MsgTools;
 import com.anythink.unitybridge.UnityPluginUtils;
+import com.anythink.unitybridge.utils.Const;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 
@@ -24,7 +31,7 @@ public class SDKInitHelper {
 
     public SDKInitHelper(SDKInitListener pSDKInitListener) {
         if (pSDKInitListener == null) {
-            MsgTools.pirntMsg("pSDKInitListener == null ..");
+            MsgTools.printMsg("pSDKInitListener == null ..");
         }
         mSDKInitListener = pSDKInitListener;
         mActivity = UnityPluginUtils.getActivity("SDKInitHelper");
@@ -32,9 +39,9 @@ public class SDKInitHelper {
 
     public void initAppliction(final String appid, final String appkey) {
 
-        MsgTools.pirntMsg("initAppliction--> appid:" + appid);
+        MsgTools.printMsg("initAppliction--> appid:" + appid);
         if (mActivity == null) {
-            MsgTools.pirntMsg("initAppliction--> sActivity == null");
+            MsgTools.printMsg("initAppliction--> sActivity == null");
             if (mSDKInitListener != null) {
                 mSDKInitListener.initSDKError(appid, "activity can not be null ");
             }
@@ -61,7 +68,7 @@ public class SDKInitHelper {
         ATSDK.init(mActivity, appid, appkey, new ATSDKInitListener() {
             @Override
             public void onSuccess() {
-                MsgTools.pirntMsg("init--> done :" + appid);
+                MsgTools.printMsg("init--> done :" + appid);
                 if (mSDKInitListener != null) {
                     mSDKInitListener.initSDKSuccess(appid);
                 }
@@ -78,22 +85,24 @@ public class SDKInitHelper {
     }
 
     public void setDebugLogOpen(boolean isOpen) {
-        MsgTools.pirntMsg("setDebugLogOpen--> :" + isOpen);
+        MsgTools.printMsg("setDebugLogOpen--> :" + isOpen);
         ATSDK.setNetworkLogDebug(isOpen);
+
+        MsgTools.isDebug = isOpen;
     }
 
     public void setChannel(final String channel) {
-        MsgTools.pirntMsg("setChannel--> :" + channel);
+        MsgTools.printMsg("setChannel--> :" + channel);
         ATSDK.setChannel(channel);
     }
 
     public void setSubChannel(final String subChannel) {
-        MsgTools.pirntMsg("setSubChannel--> :" + subChannel);
+        MsgTools.printMsg("setSubChannel--> :" + subChannel);
         ATSDK.setSubChannel(subChannel);
     }
 
     public void initCustomMap(final String jsonMap) {
-        MsgTools.pirntMsg("initCustomMap--> :" + jsonMap != null ? jsonMap : "");
+        MsgTools.printMsg("initCustomMap--> :" + jsonMap != null ? jsonMap : "");
         Map<String, Object> map = new HashMap<>();
         if (!TextUtils.isEmpty(jsonMap)) {
             try {
@@ -112,7 +121,7 @@ public class SDKInitHelper {
     }
 
     public void initPlacementCustomMap(String placementId, String jsonMap) {
-        MsgTools.pirntMsg("initPlacementCustomMap-->" + placementId + ":" + jsonMap != null ? jsonMap : "");
+        MsgTools.printMsg("initPlacementCustomMap-->" + placementId + ":" + jsonMap != null ? jsonMap : "");
         Map<String, Object> map = new HashMap<>();
         if (!TextUtils.isEmpty(jsonMap)) {
             try {
@@ -131,28 +140,28 @@ public class SDKInitHelper {
     }
 
     public int getGDPRLevel() {
-        MsgTools.pirntMsg("getGDPRLevel");
+        MsgTools.printMsg("getGDPRLevel");
         return ATSDK.getGDPRDataLevel(mActivity);
     }
 
     public boolean isEUTraffic() {
-        MsgTools.pirntMsg("isEUTraffic");
+        MsgTools.printMsg("isEUTraffic");
         return ATSDK.isEUTraffic(mActivity);
     }
 
     public void setGDPRLevel(int level) {
-        MsgTools.pirntMsg("setGDPRLevel--> level:" + level);
+        MsgTools.printMsg("setGDPRLevel--> level:" + level);
 
 
         ATSDK.setGDPRUploadDataLevel(mActivity, level);
     }
 
     public void checkIsEuTraffic(final SDKEUCallbackListener callbackListener) {
-        MsgTools.pirntMsg("checkIsEuTraffic");
+        MsgTools.printMsg("checkIsEuTraffic");
         ATSDK.checkIsEuTraffic(mActivity, new NetTrafficeCallback() {
             @Override
             public void onResultCallback(boolean b) {
-                MsgTools.pirntMsg("check EU:" + b);
+                MsgTools.printMsg("check EU:" + b);
                 if (callbackListener != null) {
                     callbackListener.onResultCallback(b);
                 }
@@ -160,7 +169,7 @@ public class SDKInitHelper {
 
             @Override
             public void onErrorCallback(String s) {
-                MsgTools.pirntMsg("check EU error:" + s);
+                MsgTools.printMsg("check EU error:" + s);
                 if (callbackListener != null) {
                     callbackListener.onErrorCallback(s);
                 }
@@ -169,7 +178,7 @@ public class SDKInitHelper {
     }
 
     public void showGDPRAuth() {
-        MsgTools.pirntMsg("showGDPRAuth ");
+        MsgTools.printMsg("showGDPRAuth ");
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -204,11 +213,120 @@ public class SDKInitHelper {
 
 
     public void deniedUploadDeviceInfo(String arrayString) {
-        MsgTools.pirntMsg("deniedUploadDeviceInfo " + arrayString);
+        MsgTools.printMsg("deniedUploadDeviceInfo: " + arrayString);
         if (!TextUtils.isEmpty(arrayString)) {
-            String[] split = arrayString.split(",");
-            ATSDK.deniedUploadDeviceInfo(split);
+            try {
+                JSONArray jsonArray = new JSONArray(arrayString);
+
+                int length = jsonArray.length();
+                if (length > 0) {
+                    String[] infos = new String[length];
+
+                    for (int i = 0; i < length; i++) {
+                        infos[i] = jsonArray.getString(i);
+                    }
+
+                    ATSDK.deniedUploadDeviceInfo(infos);
+                }
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+    public void setExcludeBundleIdArray(String arrayString) {
+        MsgTools.printMsg("setExcludeBundleIdArray: " + arrayString);
+        if (!TextUtils.isEmpty(arrayString)) {
+            try {
+                JSONArray jsonArray = new JSONArray(arrayString);
+
+                int length = jsonArray.length();
+                if (length > 0) {
+                    List<String> list = new ArrayList<>(length);
+
+                    for (int i = 0; i < length; i++) {
+                        list.add(jsonArray.getString(i));
+                    }
+
+                    ATSDK.setExcludePackageList(list);
+                }
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void setExcludeAdSourceIdArrayForPlacementID(String placementID, String arrayString) {
+        MsgTools.printMsg("setExcludeAdSourceIdArrayForPlacementID: " + placementID + ", " + arrayString);
+        if (!TextUtils.isEmpty(arrayString)) {
+            try {
+                JSONArray jsonArray = new JSONArray(arrayString);
+
+                int length = jsonArray.length();
+                if (length > 0) {
+                    List<String> list = new ArrayList<>(length);
+
+                    for (int i = 0; i < length; i++) {
+                        list.add(jsonArray.getString(i));
+                    }
+
+                    ATSDK.setFilterAdSourceIdList(placementID, list);
+                }
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void setSDKArea(int area) {
+        MsgTools.printMsg("setSDKArea: " + area);
+
+        switch (area) {
+            case Const.AREA_GLOBAL:
+                ATSDK.setSDKArea(AreaCode.GLOBAL);
+                break;
+            case Const.AREA_CHINESE_MAINLAND:
+                ATSDK.setSDKArea(AreaCode.CHINESE_MAINLAND);
+                break;
+        }
+    }
+
+    public void getArea(final AreaCallbackListener listener) {
+        MsgTools.printMsg("getArea");
+
+        ATSDK.getArea(new ATAreaCallback() {
+            @Override
+            public void onResultCallback(String s) {
+                MsgTools.printMsg("getArea:" + s);
+                if (listener != null) {
+                    listener.onResultCallback(s);
+                }
+            }
+
+            @Override
+            public void onErrorCallback(String s) {
+                MsgTools.printMsg("getArea:" + s);
+                if (listener != null) {
+                    listener.onErrorCallback(s);
+                }
+            }
+        });
+    }
+
+    public void setWXStatus(boolean install) {
+        MsgTools.printMsg("setWXStatus: " + install);
+
+        ATSDK.setWXStatus(install);
+    }
+
+    public void setLocation(double longitude, double latitude) {
+        MsgTools.printMsg("setLocation: " + longitude + ", " + latitude);
+
+        Location location = new Location("");
+        location.setLatitude(latitude);
+        location.setLongitude(longitude);
+
+        ATSDK.setLocation(location);
     }
 
 

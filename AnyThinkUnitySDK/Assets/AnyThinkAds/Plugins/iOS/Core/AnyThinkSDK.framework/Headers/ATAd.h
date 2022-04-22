@@ -16,6 +16,8 @@
 -(void) renewAdWithPriority:(NSInteger)priority placementModel:(ATPlacementModel*)placementModel unitGroup:(ATUnitGroupModel*)unitGroup requestID:(NSString*)requestID;
 @property(nonatomic, readonly) ATPlacementModel *placementModel;
 @property(nonatomic, readonly) ATUnitGroupModel *unitGroup;
+@property(nonatomic) NSMutableArray<NSDictionary*> *unitGroupInfos;
+
 /**
  Priority is calculate by the index of the unit group in the placement's unit group list; zero is the highest
  */
@@ -45,8 +47,10 @@
 @property(nonatomic, readonly) BOOL renewed;
 @property(nonatomic, readonly) NSString *price;
 @property(nonatomic, readonly) NSString *bidId;
+@property(nonatomic, readonly) NSString *tpBidId;
 @property(nonatomic, readonly, weak) ATWaterfall *finalWaterfall;
 @property(nonatomic, readonly) NSInteger autoReqType;
+@property(nonatomic) BOOL adReportClicked;
 @end
 
 #endif /* ATAd_h */

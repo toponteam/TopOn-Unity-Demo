@@ -66,5 +66,10 @@ namespace AnyThinkAds.Common
 		 * 清理缓存
 		 */ 
         void cleanCache(string placementId);
+
+		/***
+		 * 获取所有可用缓存广告
+		 */
+		string getValidAdCaches(string placementId);
     }
 }

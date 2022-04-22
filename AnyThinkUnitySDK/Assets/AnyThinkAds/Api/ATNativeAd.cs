@@ -5,7 +5,7 @@ using System.Reflection;
 using System;
 
 using AnyThinkAds.Common;
-using AnyThinkAds.ThirdParty.MiniJSON;
+using AnyThinkAds.ThirdParty.LitJson;
 
 
 namespace AnyThinkAds.Api
@@ -43,20 +43,30 @@ namespace AnyThinkAds.Api
                 pairs.Add(ATNativeAdLoadingExtra.kATNativeAdLoadingExtraNativeAdSize, size.width + "x" + size.height);
                 pairs.Add(ATNativeAdLoadingExtra.kATNativeAdSizeUsesPixelFlagKey, size.usesPixel);
             }
-            client.loadNativeAd(placementId,Json.Serialize(pairs));
+            client.loadNativeAd(placementId,JsonMapper.ToJson(pairs));
         }
 
         public bool hasAdReady(string placementId){
             return client.hasAdReady(placementId);
         }
 
-       public string checkAdStatus(string placementId)
+        public string checkAdStatus(string placementId)
         {
             return client.checkAdStatus(placementId);
         }
 
+        public string getValidAdCaches(string placementId)
+        {
+            return client.getValidAdCaches(placementId);
+        }
+
         public void setListener(ATNativeAdListener listener){
             client.setListener(listener);
+        }
+        
+        public void entryScenarioWithPlacementID(string placementId, string scenarioID)
+        {
+            client.entryScenarioWithPlacementID(placementId,scenarioID);
         }
 
         public void renderAdToScene(string placementId, ATNativeAdView anyThinkNativeAdView){
@@ -64,7 +74,7 @@ namespace AnyThinkAds.Api
         }
 
         public void renderAdToScene(string placementId, ATNativeAdView anyThinkNativeAdView, Dictionary<string,string> pairs){
-            client.renderAdToScene(placementId, anyThinkNativeAdView, Json.Serialize(pairs));
+            client.renderAdToScene(placementId, anyThinkNativeAdView, JsonMapper.ToJson(pairs));
         }
 
         public void cleanAdView(string placementId, ATNativeAdView anyThinkNativeAdView){

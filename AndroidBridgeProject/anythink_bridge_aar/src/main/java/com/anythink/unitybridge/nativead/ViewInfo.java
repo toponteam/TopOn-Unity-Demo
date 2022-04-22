@@ -42,7 +42,7 @@ public class ViewInfo {
             return;
         }
 
-        if (childView == null || pViewInfo.mWidth < 0 || pViewInfo.mHeight < 0) {
+        if (childView == null || pViewInfo.mWidth < 0 || (pViewInfo.mHeight < 0 && pViewInfo.mHeight != ViewGroup.LayoutParams.WRAP_CONTENT)) {
             Log.e("add2activity--[" + pViewInfo.name + "]", " config error ,show error !");
             return;
         }
@@ -90,10 +90,10 @@ public class ViewInfo {
 //    }
 
 
-    public static void addNativeAdView2Activity(final Activity pActivity, final ViewInfo pViewInfo, final ATNativeAdView mATNativeAdView) {
+    public static void addNativeAdView2Activity(final Activity pActivity, final ViewInfo pViewInfo, final ATNativeAdView mATNativeAdView, final int parentGravity) {
 
         if (pActivity == null || mATNativeAdView == null) {
-            MsgTools.pirntMsg("pActivity or native ad view is null");
+            MsgTools.printMsg("pActivity or native ad view is null");
             return;
         }
 
@@ -113,18 +113,23 @@ public class ViewInfo {
 
                 if(pViewInfo.rootView != null){
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(pViewInfo.rootView.mWidth, pViewInfo.rootView.mHeight);
-                    layoutParams.leftMargin = pViewInfo.rootView.mX;
-                    layoutParams.topMargin = pViewInfo.rootView.mY;
+
+                    if (parentGravity != -1) {
+                        layoutParams.gravity = parentGravity;
+                    } else {
+                        layoutParams.leftMargin = pViewInfo.rootView.mX;
+                        layoutParams.topMargin = pViewInfo.rootView.mY;
+                    }
 
                     if(!TextUtils.isEmpty(pViewInfo.rootView.bgcolor)){
                         mATNativeAdView.setBackgroundColor(Color.parseColor(pViewInfo.rootView.bgcolor));
                     }
 
-                    MsgTools.pirntMsg("Add native view to content start....");
+                    MsgTools.printMsg("Add native view to content start....");
                     pActivity.addContentView(mATNativeAdView, layoutParams);
-                    MsgTools.pirntMsg("Add native view to content end....");
+                    MsgTools.printMsg("Add native view to content end....");
                 } else {
-                    MsgTools.pirntMsg("pViewInfo.rootView is null");
+                    MsgTools.printMsg("pViewInfo.rootView is null");
                 }
 
 

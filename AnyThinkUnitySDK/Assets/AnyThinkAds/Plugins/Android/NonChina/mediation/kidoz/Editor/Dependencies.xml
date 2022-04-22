@@ -1,5 +1,6 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec="com.kidoz.sdk:KidozSDK:0.8.8.8@aar"/>
+        <androidPackage spec="net.kidoz.sdk:kidoz-android-native:8.9.3"/>
+        <androidPackage spec="org.greenrobot:eventbus:3.2.0"/>
     </androidPackages>
 </dependencies>

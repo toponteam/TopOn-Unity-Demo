@@ -21,6 +21,8 @@
 #import <AnyThinkNative/ATNativeRenderer.h>
 #import <AnyThinkNative/ATNativeADView+Internal.h>
 #import <AnyThinkNative/ATNativeADCache.h>
+#import <AnyThinkNative/ATNativeAdOffer.h>
+
 
 //! Project version number for AnyThinkNative.
 FOUNDATION_EXPORT double AnyThinkNativeVersionNumber;

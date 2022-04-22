@@ -13,7 +13,8 @@
 
 extern NSString *const kATBannerDelegateExtraNetworkIDKey;
 extern NSString *const kATBannerDelegateExtraAdSourceIDKey;
-extern NSString *const kATBannerDelegateExtraIsHeaderBidding;
+extern NSString *const kATBannerDelegateExtraIsHeaderBidding DEPRECATED_MSG_ATTRIBUTE("The kATBannerDelegateExtraIsHeaderBidding class will be obsolete, please use kATBannerDelegateExtraAdSourceIsHeaderBidding");
+extern NSString *const kATBannerDelegateExtraAdSourceIsHeaderBidding;
 extern NSString *const kATBannerDelegateExtraPrice;
 extern NSString *const kATBannerDelegateExtraPriority;
 

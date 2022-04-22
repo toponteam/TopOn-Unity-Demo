@@ -49,13 +49,28 @@ typedef NS_ENUM(NSInteger, ATOfferInterActableArea) {
 @property(nonatomic, readwrite) NSString *storeURL;
 @property(nonatomic, readwrite) ATLinkType linkType;
 @property(nonatomic, readwrite) NSString *clickURL;
-@property(nonatomic, readwrite) NSString *deeplinkUrl;
+@property(nonatomic, readwrite) NSString *deeplinkUrl; 
 @property(nonatomic, readwrite) NSString *localResourceID;
-@property(nonatomic, readwrite) ATOfferModelType offerModelType;
-@property(nonatomic, readwrite) ATOfferCrtType crtType;
+@property(nonatomic, assign) ATOfferModelType offerModelType;
+@property(nonatomic, assign) ATOfferCrtType crtType;
 
 @property(nonatomic, copy) NSString *jumpUrl;
 @property(nonatomic) NSInteger offerFirmID;
+
+
+@property(nonatomic, assign) BOOL offerIMCapSw;
+@property(nonatomic, assign) BOOL offerCLCapSw;
+
+@property(nonatomic, assign) BOOL resourceIMCapSw;
+@property(nonatomic, assign) BOOL resourceCLCapSw;
+
+
+
+// ad attributes
+@property(nonatomic, readwrite) NSString *adPublisher;
+@property(nonatomic, readwrite) NSString *adVersion;
+@property(nonatomic, readwrite) NSString *adPrivacy;
+@property(nonatomic, readwrite) NSString *adPermission;
 
 //banner(myoffer:5.6.6)
 @property(nonatomic, readwrite) NSString *bannerImageUrl;
@@ -78,6 +93,16 @@ typedef NS_ENUM(NSInteger, ATOfferInterActableArea) {
 
 // If it is YES, it means that the feedback has been done.
 @property(nonatomic) BOOL feedback;
+
+// v5.7.47 +
+@property(nonatomic, readwrite) NSArray<NSString*>* deeplinkSuccessUrl;
+@property(nonatomic, readwrite) NSDictionary* at_deeplinkSuccessUrl;
+
+// v5.7.56+
+@property(nonatomic, readwrite) ATSplashImageScaleType splashImageScaleType;
+
+
+- (BOOL)showAdAttributes;
 @end
 
 

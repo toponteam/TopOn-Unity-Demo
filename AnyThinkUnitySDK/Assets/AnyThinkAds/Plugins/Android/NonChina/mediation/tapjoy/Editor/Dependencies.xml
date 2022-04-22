@@ -1,9 +1,9 @@
 <dependencies>
     <androidPackages>
         <repositories>
-            <repository>https://tapjoy.bintray.com/maven</repository>
+            <repository>https://sdk.tapjoy.com/</repository>
         </repositories>
-        <androidPackage spec="com.tapjoy:tapjoy-android-sdk:12.7.1@aar"/>
+        <androidPackage spec="com.tapjoy:tapjoy-android-sdk:12.9.0@aar"/>
         <androidPackage spec="com.google.android.gms:play-services-ads-identifier:17.0.0"/>
     </androidPackages>
 </dependencies>

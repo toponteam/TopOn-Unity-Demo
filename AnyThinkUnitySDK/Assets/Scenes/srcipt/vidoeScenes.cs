@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using AnyThinkAds.Api;
 using UnityEngine.UI;
-using AnyThinkAds.ThirdParty.MiniJSON;
+using AnyThinkAds.ThirdParty.LitJson;
 
 public class vidoeScenes : MonoBehaviour {
 
@@ -42,6 +42,8 @@ public class vidoeScenes : MonoBehaviour {
 
 
 
+
+
     static ATCallbackListener callbackListener;
 	public void loadVideo(){
         if(callbackListener == null){
@@ -58,6 +60,8 @@ public class vidoeScenes : MonoBehaviour {
 
 
         ATRewardedVideo.Instance.loadVideoAd(mPlacementId_rewardvideo_all,jsonmap);
+
+        // ATRewardedVideo.Instance.addAutoLoadAdPlacementID(mPlacementId_rewardvideo_all);
 		
 	}
 	public void showVideo(){
@@ -67,20 +71,78 @@ public class vidoeScenes : MonoBehaviour {
         Dictionary<string, string> jsonmap = new Dictionary<string, string>();
         jsonmap.Add(AnyThinkAds.Api.ATConst.SCENARIO, showingScenario);
         ATRewardedVideo.Instance.showAd(mPlacementId_rewardvideo_all, jsonmap);
+
+        // ATRewardedVideo.Instance.showAutoAd(mPlacementId_rewardvideo_all);
 		
 	}
 
 	public void isReady(){
 
-		// Debug.Log ("Developer isReady ?....");
+
+        // bool b = ATRewardedVideo.Instance.autoLoadRewardedVideoReadyForPlacementID(mPlacementId_rewardvideo_all);
+		// Debug.Log("Developer Auto isReady video...." + b);
+
+        // string adCaches = ATRewardedVideo.Instance.getAutoValidAdCaches(mPlacementId_rewardvideo_all);
+        // Debug.Log("Developer getAutoValidAdCaches video...." + adCaches);
+
+        ATRewardedVideo.Instance.entryScenarioWithPlacementID(mPlacementId_rewardvideo_all,"123");
+        
+		Debug.Log ("Developer isReady ?....");
         bool b = ATRewardedVideo.Instance.hasAdReady(mPlacementId_rewardvideo_all);
 		Debug.Log("Developer isReady video...." + b);
 
         string adStatus = ATRewardedVideo.Instance.checkAdStatus(mPlacementId_rewardvideo_all);
         Debug.Log("Developer checkAdStatus video...." + adStatus);
+
+        string adCaches = ATRewardedVideo.Instance.getValidAdCaches(mPlacementId_rewardvideo_all);
+        Debug.Log("Developer getValidAdCaches video...." + adCaches);
     }
 
-    class ATCallbackListener : ATRewardedVideoListener {
+    // auto load
+    public void addAutoLoadAdPlacementID()
+    {
+          if(callbackListener == null){
+            callbackListener = new ATCallbackListener();
+            Debug.Log("Developer init video....placementId:" + mPlacementId_rewardvideo_all);
+            ATRewardedAutoVideo.Instance.setListener(callbackListener);
+        }
+
+        string[] jsonList = {mPlacementId_rewardvideo_all};
+        ATRewardedAutoVideo.Instance.addAutoLoadAdPlacementID(jsonList);
+    }
+
+    public void removeAutoLoadAdPlacementID()
+    {
+        string[] jsonList = {mPlacementId_rewardvideo_all};
+
+        ATRewardedAutoVideo.Instance.removeAutoLoadAdPlacementID(jsonList);
+    }
+
+    public void autoReadyForPlacementID()
+    {
+
+        ATRewardedAutoVideo.Instance.setAutoLocalExtra(mPlacementId_rewardvideo_all,new Dictionary<string, string> { { "placement_custom_key", "placement_custom" } });
+
+        ATRewardedAutoVideo.Instance.entryAutoAdScenarioWithPlacementID(mPlacementId_rewardvideo_all, showingScenario);
+
+        bool b = ATRewardedAutoVideo.Instance.autoLoadRewardedVideoReadyForPlacementID(mPlacementId_rewardvideo_all);
+        Debug.Log("Developer isReady auto ...." + b);
+
+        string adCaches = ATRewardedAutoVideo.Instance.checkAutoAdStatus(mPlacementId_rewardvideo_all);
+        Debug.Log("Developer checkAutoAdStatus ...." + adCaches);
+    }
+     public void showAutoAd()
+    {
+        Dictionary<string, string> jsonmap = new Dictionary<string, string>();
+        jsonmap.Add(AnyThinkAds.Api.ATConst.SCENARIO, showingScenario);
+
+        // ATRewardedAutoVideo.Instance.showAutoAd(mPlacementId_rewardvideo_all);
+
+        ATRewardedAutoVideo.Instance.showAutoAd(mPlacementId_rewardvideo_all,jsonmap);
+    }
+
+
+    class ATCallbackListener : ATRewardedVideoExListener {
         
         public void onRewardedVideoAdLoaded(string placementId)
         {
@@ -92,11 +154,11 @@ public class vidoeScenes : MonoBehaviour {
         }
 
         public void onRewardedVideoAdPlayStart(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer onRewardedVideoAdPlayStart------" + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer onRewardedVideoAdPlayStart------" + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
         }
 
         public void onRewardedVideoAdPlayEnd(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer onRewardedVideoAdPlayEnd------" + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer onRewardedVideoAdPlayEnd------" + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
         }
 
         public void onRewardedVideoAdPlayFail(string placementId, string code, string message){
@@ -104,15 +166,75 @@ public class vidoeScenes : MonoBehaviour {
         }
 
         public void onRewardedVideoAdPlayClosed(string placementId, bool isReward, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer onRewardedVideoAdPlayClosed------isReward:" + isReward + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer onRewardedVideoAdPlayClosed------isReward:" + isReward + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
         }
 
         public void onRewardedVideoAdPlayClicked(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer onRewardVideoAdPlayClicked------" + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer onRewardVideoAdPlayClicked------" + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
         }
 
         public void onReward(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer onReward------" + "->" + Json.Serialize(callbackInfo.toDictionary()));
+            Debug.Log("Developer onReward------" + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
         }
+
+        public void startLoadingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer startLoadingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void finishLoadingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer finishLoadingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void failToLoadADSource(string placementId,ATCallbackInfo callbackInfo,string code, string message){
+            Debug.Log("Developer failToLoadADSource------code:" + code + "---message:" + message + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void startBiddingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer startBiddingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void finishBiddingADSource(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer finishBiddingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void failBiddingADSource(string placementId,ATCallbackInfo callbackInfo,string code, string message){
+            Debug.Log("Developer failBiddingADSource------code:" + code + "---message:" + message + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
+
+        }
+
+		public void onRewardedVideoAdAgainPlayStart(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer onRewardedVideoAdAgainPlayStart------" + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
+        }
+
+		public void onRewardedVideoAdAgainPlayEnd(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer onRewardedVideoAdAgainPlayEnd------" + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
+        }
+		
+		public void onRewardedVideoAdAgainPlayFail(string placementId, string code, string message){
+            Debug.Log("Developer onRewardedVideoAdAgainPlayFail------code:" + code + "---message:" + message);
+        }
+
+		public void onRewardedVideoAdAgainPlayClicked(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer onRewardedVideoAdAgainPlayClicked------" + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
+
+        }
+
+		public void onAgainReward(string placementId, ATCallbackInfo callbackInfo){
+            Debug.Log("Developer onAgainReward------" + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
+
+        }
+
+
+
+
+
+
+
+
     }
 }
