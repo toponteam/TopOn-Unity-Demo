@@ -1,6 +1,0 @@
-framework module AnyThinkTTAdapter {
-  umbrella header "AnyThinkTTAdapter.h"
-
-  export *
-  module * { export * }
-}

@@ -29,7 +29,7 @@ namespace AnyThinkAds.Api
     public class ATNativeBannerAd
     {
     	private static readonly ATNativeBannerAd instance = new ATNativeBannerAd();
-		private IATNativeBannerAdClient client;
+		public IATNativeBannerAdClient client;
 		public ATNativeBannerAd() {
             client = GetATNativeBannerAdClient();
 		}

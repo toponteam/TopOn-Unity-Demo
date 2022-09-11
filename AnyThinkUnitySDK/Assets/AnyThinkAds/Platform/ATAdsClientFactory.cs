@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using AnyThinkAds.Api;
 using AnyThinkAds.Common;
 
 using System.Collections;
 using System.Collections.Generic;
-
+#pragma warning disable 0067
 namespace AnyThinkAds
 {
     public class ATAdsClientFactory
@@ -150,6 +151,20 @@ namespace AnyThinkAds
 
     class UnityBannerClient:IATBannerAdClient
     {
+        public event EventHandler<ATAdEventArgs> onAdLoadEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdImpressEvent;
+        public event EventHandler<ATAdEventArgs> onAdClickEvent;
+        public event EventHandler<ATAdEventArgs> onAdAutoRefreshEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdAutoRefreshFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdCloseEvent;
+        public event EventHandler<ATAdEventArgs> onAdCloseButtonTappedEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceBiddingFailureEvent;
        ATBannerAdListener listener;
        public void loadBannerAd(string unitId, string mapJson){
             if(listener != null)
@@ -187,6 +202,24 @@ namespace AnyThinkAds
     class UnityInterstitialClient : IATInterstitialAdClient
     {
        ATInterstitialAdListener listener;
+        #pragma warning disable 220
+
+        public event EventHandler<ATAdEventArgs> onAdLoadEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdShowEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdShowFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdCloseEvent;
+        public event EventHandler<ATAdEventArgs> onAdClickEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoStartEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdVideoFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoEndEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceBiddingFailureEvent;
+
        public void loadInterstitialAd(string unitId, string mapJson){
             if (listener != null)
             {
@@ -231,6 +264,22 @@ namespace AnyThinkAds
 
     class UnityNativeAdClient : IATNativeAdClient
     {
+
+        public event EventHandler<ATAdEventArgs> onAdLoadEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdImpressEvent;
+        public event EventHandler<ATAdEventArgs> onAdClickEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoStartEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoEndEvent;
+        public event EventHandler<ATAdProgressEventArgs> onAdVideoProgressEvent;
+        public event EventHandler<ATAdEventArgs> onAdCloseEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceBiddingFailureEvent;
+
         ATNativeAdListener listener;
        public void loadNativeAd(string unitId, string mapJson){
             if(listener != null)
@@ -269,6 +318,21 @@ namespace AnyThinkAds
 
     class UnityNativeBannerAdClient : IATNativeBannerAdClient
     {
+
+         public event EventHandler<ATAdEventArgs> onAdLoadEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdImpressEvent;
+        public event EventHandler<ATAdEventArgs> onAdClickEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoStartEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoEndEvent;
+        public event EventHandler<ATAdProgressEventArgs> onAdVideoProgressEvent;
+        public event EventHandler<ATAdEventArgs> onAdCloseEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceBiddingFailureEvent;
         ATNativeBannerAdListener listener;
        public void loadAd(string unitId, string mapJson){
             if(listener != null)
@@ -290,6 +354,26 @@ namespace AnyThinkAds
 
     class UnityRewardedVideoAdClient : IATRewardedVideoAdClient
     {
+         public event EventHandler<ATAdEventArgs> onAdLoadEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoStartEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoEndEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdVideoFailureEvent;
+        public event EventHandler<ATAdRewardEventArgs> onAdVideoCloseEvent;
+        public event EventHandler<ATAdEventArgs> onAdClickEvent;
+        public event EventHandler<ATAdEventArgs> onRewardEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceBiddingFailureEvent;
+        public event EventHandler<ATAdEventArgs> onPlayAgainStart;
+        public event EventHandler<ATAdEventArgs> onPlayAgainEnd;
+        public event EventHandler<ATAdErrorEventArgs> onPlayAgainFailure;
+        public event EventHandler<ATAdEventArgs> onPlayAgainClick;
+        public event EventHandler<ATAdEventArgs> onPlayAgainReward;
+
         ATRewardedVideoListener listener;
         public void loadVideoAd(string unitId, string mapJson){
             if (listener != null)

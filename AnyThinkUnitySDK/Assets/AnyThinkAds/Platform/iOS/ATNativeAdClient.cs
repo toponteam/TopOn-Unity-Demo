@@ -1,13 +1,30 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AnyThinkAds.Common;
 using AnyThinkAds.Api;
 using AnyThinkAds.iOS;
 using AnyThinkAds.ThirdParty.LitJson;
-
+#pragma warning disable 0067
 namespace AnyThinkAds.iOS {
 	public class ATNativeAdClient : IATNativeAdClient {
+
+        public event EventHandler<ATAdEventArgs> onAdLoadEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdImpressEvent;
+        public event EventHandler<ATAdEventArgs> onAdClickEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoStartEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoEndEvent;
+        public event EventHandler<ATAdProgressEventArgs> onAdVideoProgressEvent;
+        public event EventHandler<ATAdEventArgs> onAdCloseEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceBiddingFailureEvent;
+
 		private ATNativeAdListener mlistener;
 		public void loadNativeAd(string placementId, string mapJson) {
             Debug.Log("Unity:ATNativeAdClient::loadNativeAd()");
@@ -78,76 +95,87 @@ namespace AnyThinkAds.iOS {
         //Callbacks
         public void onAdImpressed(string placementId, string callbackJson) {
             Debug.Log("Unity:ATNativeAdClient::onAdImpressed...unity3d.");
-            if(mlistener != null) mlistener.onAdImpressed(placementId, new ATCallbackInfo(callbackJson));
+
+            onAdImpressEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
+        
         }
 
         public void onAdClicked(string placementId, string callbackJson) {
             Debug.Log("Unity:ATNativeAdClient::onAdClicked...unity3d.");
-            if (mlistener != null) mlistener.onAdClicked(placementId, new ATCallbackInfo(callbackJson));
+              onAdClickEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
+         
         }
 
         public void onAdCloseButtonClicked(string placementId, string callbackJson)
         {
             Debug.Log("Unity:ATNativeAdClient::onAdCloseButtonClicked...unity3d.");
-            if (mlistener != null) mlistener.onAdCloseButtonClicked(placementId, new ATCallbackInfo(callbackJson));
+            onAdCloseEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
+       
         }
 
         public void onAdVideoStart(string placementId) {
             Debug.Log("Unity:ATNativeAdClient::onAdVideoStart...unity3d.");
-            if (mlistener != null) mlistener.onAdVideoStart(placementId);
+            onAdVideoStartEvent?.Invoke(this, new ATAdEventArgs(placementId));
+            
         }
 
         public void onAdVideoEnd(string placementId) {
             Debug.Log("Unity:ATNativeAdClient::onAdVideoEnd...unity3d.");
-            if (mlistener != null) mlistener.onAdVideoEnd(placementId);
+              onAdVideoEndEvent?.Invoke(this, new ATAdEventArgs(placementId,""));
         }
 
         public void onAdVideoProgress(string placementId,int progress) {
             Debug.Log("Unity:ATNativeAdClient::onAdVideoProgress...progress[" + progress + "]");
-            if (mlistener != null) mlistener.onAdVideoProgress(placementId, progress);
+            onAdVideoProgressEvent?.Invoke(this, new ATAdProgressEventArgs(placementId,"",progress));
         }
 
         public void onNativeAdLoaded(string placementId) {
             Debug.Log("Unity:ATNativeAdClient::onNativeAdLoaded...unity3d.");
-            if (mlistener != null) mlistener.onAdLoaded(placementId);
+            onAdLoadEvent?.Invoke(this, new ATAdEventArgs(placementId,""));
+        
         }
 
         public void onNativeAdLoadFail(string placementId,string code, string msg) {
             Debug.Log("Unity:ATNativeAdClient::onNativeAdLoadFail...unity3d. code:" + code + " msg:" + msg);
-            if (mlistener != null) mlistener.onAdLoadFail(placementId, code, msg);
+            onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId,code,msg));
         }
 
 		//auto callbacks
 	    public void startLoadingADSource(string placementId, string callbackJson) 
 		{
 	        Debug.Log("Unity: ATNativeAdClient::startLoadingADSource()");
-            if (mlistener != null) mlistener.startLoadingADSource(placementId, new ATCallbackInfo(callbackJson));
+             onAdSourceAttemptEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
 	    }
 	    public void finishLoadingADSource(string placementId, string callbackJson) 
 		{
 	        Debug.Log("Unity: ATNativeAdClient::finishLoadingADSource()");
-            if (mlistener != null) mlistener.finishLoadingADSource(placementId, new ATCallbackInfo(callbackJson));
+             onAdSourceFilledEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
+           
 	    }	
 	    public void failToLoadADSource(string placementId,string callbackJson, string code, string error) 
 		{
 	        Debug.Log("Unity: ATNativeAdClient::failToLoadADSource()");
-	        if (mlistener != null) mlistener.failToLoadADSource(placementId, new ATCallbackInfo(callbackJson),code, error);
+             onAdSourceLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId,code,error));
+	       
 	    }
 		public void startBiddingADSource(string placementId, string callbackJson) 
 		{
 	        Debug.Log("Unity: ATNativeAdClient::startBiddingADSource()");
-            if (mlistener != null) mlistener.startBiddingADSource(placementId, new ATCallbackInfo(callbackJson));
+            onAdSourceBiddingAttemptEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
+     
 	    }
 	    public void finishBiddingADSource(string placementId, string callbackJson) 
 		{
 	        Debug.Log("Unity: ATNativeAdClient::finishBiddingADSource()");
-            if (mlistener != null) mlistener.finishBiddingADSource(placementId, new ATCallbackInfo(callbackJson));
+            onAdSourceFilledEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
+            
 	    }	
 
 	    public void failBiddingADSource(string placementId,string callbackJson, string code, string error) 
 		{
 	        Debug.Log("Unity: ATNativeAdClient::failBiddingADSource()");
-	        if (mlistener != null) mlistener.failBiddingADSource(placementId,new ATCallbackInfo(callbackJson), code, error);
+            onAdSourceBiddingFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId,callbackJson,code,error));
+	        
 	    }
 
 	}

@@ -5,7 +5,7 @@ using AnyThinkAds.Api;
 
 namespace AnyThinkAds.Common
 {
-    public interface IATBannerAdClient 
+    public interface IATBannerAdClient : IATBannerEvents
     {
 		/***
 		 * 请求广告  

@@ -1,5 +1,5 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec="com.my.target:mytarget-sdk:5.13.1"/>
+        <androidPackage spec="com.my.target:mytarget-sdk:5.15.3"/>
     </androidPackages>
 </dependencies>

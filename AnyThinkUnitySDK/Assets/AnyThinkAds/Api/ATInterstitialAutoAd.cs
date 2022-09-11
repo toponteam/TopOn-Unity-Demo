@@ -13,7 +13,7 @@ namespace AnyThinkAds.Api
     public class ATInterstitialAutoAd
 	{
 		private static readonly ATInterstitialAutoAd instance = new ATInterstitialAutoAd();
-		private IATInterstitialAdClient client;
+		public IATInterstitialAdClient client;
 
 		private ATInterstitialAutoAd()
 		{
@@ -33,10 +33,6 @@ namespace AnyThinkAds.Api
             return AnyThinkAds.ATAdsClientFactory.BuildInterstitialAdClient();
         }
 
-		public void setListener(ATInterstitialAdListener listener)
-        {
-            client.setListener(listener);
-        }
 
         // auto
 

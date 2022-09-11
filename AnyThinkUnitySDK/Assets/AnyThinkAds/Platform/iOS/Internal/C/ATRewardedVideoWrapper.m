@@ -118,7 +118,7 @@ NSString *const kLoadExtraMediaExtraKey = @"UserExtraData";
 }
 
 -(void) clearCache {
-    [[ATAdManager sharedManager] clearCache];
+   
 }
 
 -(void) setExtra:(NSString*)extra {

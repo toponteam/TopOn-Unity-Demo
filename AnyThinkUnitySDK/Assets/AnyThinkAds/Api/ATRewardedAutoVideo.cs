@@ -13,7 +13,7 @@ namespace AnyThinkAds.Api
     public class ATRewardedAutoVideo
     {
         private static readonly ATRewardedAutoVideo instance = new ATRewardedAutoVideo();
-        private IATRewardedVideoAdClient client;
+        public IATRewardedVideoAdClient client;
 
         private ATRewardedAutoVideo()
         {
@@ -28,10 +28,6 @@ namespace AnyThinkAds.Api
             }
         }
 
-		public void setListener(ATRewardedVideoListener listener)
-        {
-            client.setListener(listener);
-        }
         // Auto
         public void addAutoLoadAdPlacementID(string[] placementIDList)
         {

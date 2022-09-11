@@ -13,7 +13,7 @@ namespace AnyThinkAds.Api
     public class ATRewardedVideo
     {
         private static readonly ATRewardedVideo instance = new ATRewardedVideo();
-        private IATRewardedVideoAdClient client;
+        public IATRewardedVideoAdClient client;
 
         private ATRewardedVideo()
         {
@@ -37,10 +37,6 @@ namespace AnyThinkAds.Api
             client.loadVideoAd(placementId, JsonMapper.ToJson(pairs));
         }
 
-		public void setListener(ATRewardedVideoListener listener)
-        {
-            client.setListener(listener);
-        }
 
         public bool hasAdReady(string placementId)
         {

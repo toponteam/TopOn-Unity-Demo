@@ -6,7 +6,7 @@ using AnyThinkAds.Api;
 
 namespace AnyThinkAds.Common
 {
-    public interface IATRewardedVideoAdClient
+    public interface IATRewardedVideoAdClient : IATRewardedVideoEvents
     {
 		/**
 		 * 请求视屏广告

@@ -6,7 +6,7 @@ using AnyThinkAds.Api;
 
 namespace AnyThinkAds.Common
 {
-	public interface IATNativeBannerAdClient
+	public interface IATNativeBannerAdClient : IATNativeAdEvents
 	{
 		/***
 		 * 请求广告  

@@ -3,10 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using AnyThinkAds.Common;
 using AnyThinkAds.Api;
+using System;
 
 namespace AnyThinkAds.iOS {
 	public class ATBannerAdClient : IATBannerAdClient {
+
+
+        public event EventHandler<ATAdEventArgs> onAdLoadEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdImpressEvent;
+        public event EventHandler<ATAdEventArgs> onAdClickEvent;
+        public event EventHandler<ATAdEventArgs> onAdAutoRefreshEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdAutoRefreshFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdCloseEvent;
+        public event EventHandler<ATAdEventArgs> onAdCloseButtonTappedEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceBiddingFailureEvent;
+
 		private  ATBannerAdListener anyThinkListener;
+		
 
 		public void addsetting(string placementId,string json){
 			//todo...
@@ -76,77 +95,77 @@ namespace AnyThinkAds.iOS {
 			ATBannerAdWrapper.clearCache();
         }
 
+       
         public void OnBannerAdLoad(string placementId) {
-			Debug.Log("Unity: ATBannerAdWrapper::OnBannerAdLoad()");
-	        if (anyThinkListener != null) anyThinkListener.onAdLoad(placementId);
+			Debug.Log("Unity: HBBannerAdWrapper::OnBannerAdLoad()");
+	        onAdLoadEvent?.Invoke(this, new ATAdEventArgs(placementId));
 	    }
 	    
 	    public void OnBannerAdLoadFail(string placementId, string code, string message) {
-			Debug.Log("Unity: ATBannerAdWrapper::OnBannerAdLoadFail()");
-	        if (anyThinkListener != null) anyThinkListener.onAdLoadFail(placementId, code, message);
+			Debug.Log("Unity: HBBannerAdWrapper::OnBannerAdLoadFail()");
+	        onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, message, code));
 	    }
 	    
 	    public void OnBannerAdImpress(string placementId, string callbackJson) {
-			Debug.Log("Unity: ATBannerAdWrapper::OnBannerAdImpress()");
-            if (anyThinkListener != null) anyThinkListener.onAdImpress(placementId, new ATCallbackInfo(callbackJson));
+			Debug.Log("Unity: HBBannerAdWrapper::OnBannerAdImpress()");
+            onAdImpressEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
 	    }
 	    
         public void OnBannerAdClick(string placementId, string callbackJson) {
-			Debug.Log("Unity: ATBannerAdWrapper::OnBannerAdClick()");
-            if (anyThinkListener != null) anyThinkListener.onAdClick(placementId, new ATCallbackInfo(callbackJson));
+			Debug.Log("Unity: HBBannerAdWrapper::OnBannerAdClick()");
+            onAdClickEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
 	    }
 	    
         public void OnBannerAdAutoRefresh(string placementId, string callbackJson) {
-			Debug.Log("Unity: ATBannerAdWrapper::OnBannerAdAutoRefresh()");
-            if (anyThinkListener != null) anyThinkListener.onAdAutoRefresh(placementId, new ATCallbackInfo(callbackJson));
+			Debug.Log("Unity: HBBannerAdWrapper::OnBannerAdAutoRefresh()");
+            onAdAutoRefreshEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
 	    }
 	    
 	    public void OnBannerAdAutoRefreshFail(string placementId, string code, string message) {
-			Debug.Log("Unity: ATBannerAdWrapper::OnBannerAdAutoRefreshFail()");
-	        if (anyThinkListener != null) anyThinkListener.onAdAutoRefreshFail(placementId, code, message);
+			Debug.Log("Unity: HBBannerAdWrapper::OnBannerAdAutoRefreshFail()");
+	        onAdAutoRefreshFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, message, code));
 	    }
 
 	    public void OnBannerAdClose(string placementId) {
-			Debug.Log("Unity: ATBannerAdWrapper::OnBannerAdClose()");
-	        if (anyThinkListener != null) anyThinkListener.onAdClose(placementId);
+			Debug.Log("Unity: HBBannerAdWrapper::OnBannerAdClose()");
+	        onAdCloseEvent?.Invoke(this, new ATAdEventArgs(placementId));
 	    }
 
 	    public void OnBannerAdCloseButtonTapped(string placementId, string callbackJson) {
-			Debug.Log("Unity: ATBannerAdWrapper::OnBannerAdCloseButton()");
-	        if (anyThinkListener != null) anyThinkListener.onAdCloseButtonTapped(placementId, new ATCallbackInfo(callbackJson));
+			Debug.Log("Unity: HBBannerAdWrapper::OnBannerAdCloseButton()");
+	        onAdCloseButtonTappedEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
 	    }
 		//auto callbacks
 	    public void startLoadingADSource(string placementId, string callbackJson) 
 		{
-	        Debug.Log("Unity: ATBannerAdWrapper::startLoadingADSource()");
-            if (anyThinkListener != null) anyThinkListener.startLoadingADSource(placementId, new ATCallbackInfo(callbackJson));
+	        Debug.Log("Unity: HBBannerAdWrapper::startLoadingADSource()");
+            onAdSourceAttemptEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
 	    }
 	    public void finishLoadingADSource(string placementId, string callbackJson) 
 		{
-	        Debug.Log("Unity: ATBannerAdWrapper::finishLoadingADSource()");
-            if (anyThinkListener != null) anyThinkListener.finishLoadingADSource(placementId, new ATCallbackInfo(callbackJson));
+	        Debug.Log("Unity: HBBannerAdWrapper::finishLoadingADSource()");
+            onAdSourceFilledEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
 	    }	
 	    public void failToLoadADSource(string placementId,string callbackJson, string code, string error) 
 		{
-	        Debug.Log("Unity: ATBannerAdWrapper::failToLoadADSource()");
-	        if (anyThinkListener != null) anyThinkListener.failToLoadADSource(placementId, new ATCallbackInfo(callbackJson),code, error);
+	        Debug.Log("Unity: HBBannerAdWrapper::failToLoadADSource()");
+	        onAdSourceLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, callbackJson, code, error));
 	    }
 		public void startBiddingADSource(string placementId, string callbackJson) 
 		{
-	        Debug.Log("Unity: ATBannerAdWrapper::startBiddingADSource()");
-            if (anyThinkListener != null) anyThinkListener.startBiddingADSource(placementId, new ATCallbackInfo(callbackJson));
+	        Debug.Log("Unity: HBBannerAdWrapper::startBiddingADSource()");
+            onAdSourceBiddingAttemptEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
 	    }
 	    public void finishBiddingADSource(string placementId, string callbackJson) 
 		{
-	        Debug.Log("Unity: ATBannerAdWrapper::finishBiddingADSource()");
-            if (anyThinkListener != null) anyThinkListener.finishBiddingADSource(placementId, new ATCallbackInfo(callbackJson));
+	        Debug.Log("Unity: HBBannerAdWrapper::finishBiddingADSource()");
+            onAdSourceBiddingFilledEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
 	    }	
 	    public void failBiddingADSource(string placementId, string callbackJson,string code, string error) 
 		{
-	        Debug.Log("Unity: ATBannerAdWrapper::failBiddingADSource()");
-	        if (anyThinkListener != null) anyThinkListener.failBiddingADSource(placementId,new ATCallbackInfo(callbackJson), code, error);
+	        Debug.Log("Unity: HBBannerAdWrapper::failBiddingADSource()");
+	        onAdSourceBiddingFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, callbackJson, code, error));
 	    }
-
 
 	}
 }

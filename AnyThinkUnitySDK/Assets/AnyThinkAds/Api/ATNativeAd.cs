@@ -21,7 +21,7 @@ namespace AnyThinkAds.Api
     {
 
         private static readonly ATNativeAd instance = new ATNativeAd();
-        private IATNativeAdClient client;
+        public IATNativeAdClient client;
 
         public ATNativeAd(){
             client = GetATNativeAdClient();
@@ -60,9 +60,6 @@ namespace AnyThinkAds.Api
             return client.getValidAdCaches(placementId);
         }
 
-        public void setListener(ATNativeAdListener listener){
-            client.setListener(listener);
-        }
         
         public void entryScenarioWithPlacementID(string placementId, string scenarioID)
         {

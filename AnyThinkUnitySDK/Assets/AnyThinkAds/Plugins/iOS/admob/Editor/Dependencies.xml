@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><dependencies>
     <iosPods>
-        <iosPod name="Google-Mobile-Ads-SDK" version="9.0.0" />
+        <iosPod name="AnyThinkiOS/AnyThinkAdmobAdapter" version="5.9.98" />
     </iosPods>
 </dependencies>

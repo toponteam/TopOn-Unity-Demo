@@ -1,0 +1,6 @@
+<dependencies>
+    <androidPackages>
+        <androidPackage spec="com.yandex.android:mobileads:5.2.0"/>
+        <androidPackage spec="com.yandex.android:mobmetricalib:5.0.0"/>
+    </androidPackages>
+</dependencies>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><dependencies>
     <iosPods>
-        <iosPod name="AdColony" version="4.7.2" />
+        <iosPod name="AnyThinkiOS/AnyThinkAdColonyAdapter" version="5.9.98" />
     </iosPods>
 </dependencies>

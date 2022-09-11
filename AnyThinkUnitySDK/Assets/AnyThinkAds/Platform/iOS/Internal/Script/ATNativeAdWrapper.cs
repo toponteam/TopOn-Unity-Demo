@@ -5,7 +5,7 @@ using System;
 using AOT;
 using AnyThinkAds.ThirdParty.LitJson;
 using AnyThinkAds.iOS;
-
+#pragma warning disable 0109
 public class ATNativeAdWrapper:ATAdWrapper {
     static private Dictionary<string, ATNativeAdClient> clients;
     static private string CMessageReceiverClass = "ATNativeAdWrapper";

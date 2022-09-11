@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><dependencies>
     <iosPods>
-        <iosPod name="BaiduMobAdSDK" version="4.85" />
+        <iosPod name="AnyThinkiOS/AnyThinkBaiduAdapter" version="5.9.98" />
     </iosPods>
 </dependencies>

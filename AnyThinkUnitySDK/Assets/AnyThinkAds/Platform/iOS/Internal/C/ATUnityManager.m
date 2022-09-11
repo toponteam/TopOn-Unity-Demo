@@ -13,7 +13,6 @@
 #import <CoreTelephony/CTCarrier.h>
 #import "ATBannerAdWrapper.h"
 #import "ATNativeAdWrapper.h"
-#import "ATNativeBannerAdWrapper.h"
 #import "ATInterstitialAdWrapper.h"
 #import "ATRewardedVideoWrapper.h"
 
@@ -22,7 +21,7 @@
  *selector:
  *arguments:
  */
-bool message_from_unity(const char *msg, void(*callback)(const char*, const char *)) {
+bool at_message_from_unity(const char *msg, void(*callback)(const char*, const char *)) {
     NSString *msgStr = [NSString stringWithUTF8String:msg];
     NSDictionary *msgDict = [NSJSONSerialization JSONObjectWithData:[msgStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
     Class class = NSClassFromString(msgDict[@"class"]);
@@ -33,7 +32,7 @@ bool message_from_unity(const char *msg, void(*callback)(const char*, const char
     return ret;
 }
 
-int get_message_for_unity(const char *msg, void(*callback)(const char*, const char *)) {
+int at_get_message_for_unity(const char *msg, void(*callback)(const char*, const char *)) {
     NSString *msgStr = [NSString stringWithUTF8String:msg];
     NSDictionary *msgDict = [NSJSONSerialization JSONObjectWithData:[msgStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
     
@@ -45,7 +44,7 @@ int get_message_for_unity(const char *msg, void(*callback)(const char*, const ch
     return ret;
 }
 
-char * get_string_message_for_unity(const char *msg, void(*callback)(const char*, const char *)) {
+char * at_get_string_message_for_unity(const char *msg, void(*callback)(const char*, const char *)) {
     NSString *msgStr = [NSString stringWithUTF8String:msg];
     NSDictionary *msgDict = [NSJSONSerialization JSONObjectWithData:[msgStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
 
@@ -148,6 +147,7 @@ char * get_string_message_for_unity(const char *msg, void(*callback)(const char*
 
 -(BOOL) startSDKWithAppID:(NSString*)appID appKey:(NSString*)appKey {
     [ATAPI setLogEnabled:YES];
+    [[ATAPI sharedInstance]setSystemPlatformType:ATSystemPlatformTypeUnity];
     return [[ATAPI sharedInstance] startWithAppID:appID appKey:appKey error:nil];
 }
 
@@ -230,7 +230,7 @@ char * get_string_message_for_unity(const char *msg, void(*callback)(const char*
  */
 -(void) setDataConsent:(NSString*)consentJsonString network:(NSNumber*)network {
     NSLog(@"constenJsonString = %@, network = %@", consentJsonString, network);
-    NSDictionary *networks = @{@1:kATNetworkNameFacebook, @2:kATNetworkNameAdmob, @3:kATNetworkNameInmobi, @4:kATNetworkNameFlurry, @5:kATNetworkNameApplovin, @6:kATNetworkNameMintegral, @7:kATNetworkNameMopub, @8:kATNetworkNameGDT, @9:kATNetworkNameChartboost, @10:kATNetworkNameTapjoy, @11:kATNetworkNameIronSource, @12:kATNetworkNameUnityAds, @13:kATNetworkNameVungle, @14:kATNetworkNameAdColony, @1:kATNetworkNameOneway, @18:kATNetworkNameMobPower, @20:kATNetworkNameYeahmobi, @21:kATNetworkNameAppnext, @22:kATNetworkNameBaidu};
+    NSDictionary *networks = @{@1:kATNetworkNameFacebook, @2:kATNetworkNameAdmob, @3:kATNetworkNameInmobi, @4:kATNetworkNameFlurry, @5:kATNetworkNameApplovin, @6:kATNetworkNameMintegral, @8:kATNetworkNameGDT, @9:kATNetworkNameChartboost, @10:kATNetworkNameTapjoy, @11:kATNetworkNameIronSource, @12:kATNetworkNameUnityAds, @13:kATNetworkNameVungle, @14:kATNetworkNameAdColony, @1:kATNetworkNameOneway, @18:kATNetworkNameMobPower, @20:kATNetworkNameYeahmobi, @21:kATNetworkNameAppnext, @22:kATNetworkNameBaidu};
     if ([networks containsObjectForKey:network]) {
         if (([consentJsonString isKindOfClass:[NSString class]] && [consentJsonString dataUsingEncoding:NSUTF8StringEncoding] != nil)) {
             NSDictionary *consentDict = [NSJSONSerialization JSONObjectWithData:[consentJsonString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
@@ -271,7 +271,6 @@ char * get_string_message_for_unity(const char *msg, void(*callback)(const char*
 
 -(void) setSDKArea:(NSNumber*)area {
     NSLog(@"ATUnityManager::setSDKArea=%@",area);
-    [[ATAPI sharedInstance] setUserDataArea:[area intValue] == 0 ? ATAreaCodeGlobal : ATAreaCodeChinese_mainland];
 }
 
 -(void) getArea:(void(*)(const char *))callback {

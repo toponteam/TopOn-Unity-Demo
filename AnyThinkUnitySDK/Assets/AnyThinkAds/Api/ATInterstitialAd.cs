@@ -19,7 +19,7 @@ namespace AnyThinkAds.Api
     public class ATInterstitialAd
 	{
 		private static readonly ATInterstitialAd instance = new ATInterstitialAd();
-		private IATInterstitialAdClient client;
+		public IATInterstitialAdClient client;
 
 		private ATInterstitialAd()
 		{
@@ -49,10 +49,6 @@ namespace AnyThinkAds.Api
             }
         }
         
-		public void setListener(ATInterstitialAdListener listener)
-        {
-            client.setListener(listener);
-        }
 
         public bool hasInterstitialAdReady(string placementId)
         {

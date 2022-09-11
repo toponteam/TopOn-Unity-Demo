@@ -35,11 +35,12 @@ namespace AnyThinkAds.Api
     public class ATBannerAd 
 	{
 		private static readonly ATBannerAd instance = new ATBannerAd();
-		private IATBannerAdClient client;
+		public IATBannerAdClient client;
 
 		private ATBannerAd() 
 		{
             client = GetATBannerAdClient();
+            
 		}
 
 		public static ATBannerAd Instance 
@@ -85,11 +86,6 @@ namespace AnyThinkAds.Api
             return client.getValidAdCaches(placementId);
         }
 
-
-        public void setListener(ATBannerAdListener listener)
-        {
-            client.setListener(listener);
-        }
 
         public void showBannerAd(string placementId, ATRect rect)
         {

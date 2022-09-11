@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,26 @@ namespace AnyThinkAds.Android
 {
     public class ATRewardedVideoAdClient : AndroidJavaProxy,IATRewardedVideoAdClient
     {
+        public event EventHandler<ATAdEventArgs>		onAdLoadEvent;
+        public event EventHandler<ATAdErrorEventArgs>	onAdLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs>		onAdVideoStartEvent;
+        public event EventHandler<ATAdEventArgs>		onAdVideoEndEvent;
+        public event EventHandler<ATAdErrorEventArgs>	onAdVideoFailureEvent;
+        public event EventHandler<ATAdRewardEventArgs>	onAdVideoCloseEvent;
+        public event EventHandler<ATAdEventArgs>		onAdClickEvent;
+        public event EventHandler<ATAdEventArgs>	onRewardEvent;
+        public event EventHandler<ATAdEventArgs>		onAdSourceAttemptEvent;
+        public event EventHandler<ATAdEventArgs>		onAdSourceFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs>	onAdSourceLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs>		onAdSourceBiddingAttemptEvent;
+        public event EventHandler<ATAdEventArgs>		onAdSourceBiddingFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs>	onAdSourceBiddingFailureEvent;
+        public event EventHandler<ATAdEventArgs>		onPlayAgainStart;
+        public event EventHandler<ATAdEventArgs>		onPlayAgainEnd;
+        public event EventHandler<ATAdErrorEventArgs>	onPlayAgainFailure;
+        public event EventHandler<ATAdEventArgs>		onPlayAgainClick;
+        public event EventHandler<ATAdEventArgs>		onPlayAgainReward;
+
 
         private Dictionary<string, AndroidJavaObject> videoHelperMap = new Dictionary<string, AndroidJavaObject>();
 
@@ -148,181 +169,127 @@ namespace AnyThinkAds.Android
         public void onRewardedVideoAdLoaded(string placementId)
         {
             Debug.Log("onRewardedVideoAdLoaded...unity3d.");
-            if(anyThinkListener != null){
-                anyThinkListener.onRewardedVideoAdLoaded(placementId);
-            }
+            onAdLoadEvent?.Invoke(this, new ATAdEventArgs(placementId));
         }
 
 
         public void onRewardedVideoAdFailed(string placementId,string code, string error)
         {
             Debug.Log("onRewardedVideoAdFailed...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onRewardedVideoAdLoadFail(placementId, code, error);
-            }
+            onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
         }
 
 
         public void onRewardedVideoAdPlayStart(string placementId, string callbackJson)
         {
             Debug.Log("onRewardedVideoAdPlayStart...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onRewardedVideoAdPlayStart(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onAdVideoStartEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
 
         public void onRewardedVideoAdPlayEnd(string placementId, string callbackJson)
         {
             Debug.Log("onRewardedVideoAdPlayEnd...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onRewardedVideoAdPlayEnd(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onAdVideoEndEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
 
         public void onRewardedVideoAdPlayFailed(string placementId,string code, string error)
         {
             Debug.Log("onRewardedVideoAdPlayFailed...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onRewardedVideoAdPlayFail(placementId, code, error);
-            }
+            onAdVideoFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
         }
 
         public void onRewardedVideoAdClosed(string placementId,bool isRewarded, string callbackJson)
         {
             Debug.Log("onRewardedVideoAdClosed...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onRewardedVideoAdPlayClosed(placementId,isRewarded, new ATCallbackInfo(callbackJson));
-            }
+            onAdVideoCloseEvent?.Invoke(this, new ATAdRewardEventArgs(placementId, callbackJson, isRewarded));
         }
 
         public void onRewardedVideoAdPlayClicked(string placementId, string callbackJson)
         {
             Debug.Log("onRewardedVideoAdPlayClicked...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onRewardedVideoAdPlayClicked(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onAdClickEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
+           
         }
 
 
         public void onReward(string placementId, string callbackJson)
         {
             Debug.Log("onReward...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onReward(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onRewardEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
 
         public void onRewardedVideoAdAgainPlayStart(string placementId, string callbackJson)
         {
             Debug.Log("onRewardedVideoAdAgainPlayStart...unity3d.");
-            if (anyThinkListener != null && anyThinkListener is ATRewardedVideoExListener)
-            {
-                ((ATRewardedVideoExListener)anyThinkListener).onRewardedVideoAdAgainPlayStart(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onPlayAgainStart?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
         public void onRewardedVideoAdAgainPlayEnd(string placementId, string callbackJson)
         {
             Debug.Log("onRewardedVideoAdAgainPlayEnd...unity3d.");
-            if (anyThinkListener != null && anyThinkListener is ATRewardedVideoExListener)
-            {
-                ((ATRewardedVideoExListener)anyThinkListener).onRewardedVideoAdAgainPlayEnd(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onPlayAgainEnd?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
 
         public void onRewardedVideoAdAgainPlayFailed(string placementId, string code, string error)
         {
             Debug.Log("onRewardedVideoAdAgainPlayFailed...unity3d.");
-            if (anyThinkListener != null && anyThinkListener is ATRewardedVideoExListener)
-            {
-                ((ATRewardedVideoExListener)anyThinkListener).onRewardedVideoAdAgainPlayFail(placementId, code, error);
-            }
+            onPlayAgainFailure?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
         }
 
 
         public void onRewardedVideoAdAgainPlayClicked(string placementId, string callbackJson)
         {
             Debug.Log("onRewardedVideoAdAgainPlayClicked...unity3d.");
-            if (anyThinkListener != null && anyThinkListener is ATRewardedVideoExListener)
-            {
-                ((ATRewardedVideoExListener)anyThinkListener).onRewardedVideoAdAgainPlayClicked(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onPlayAgainClick?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
+            
         }
 
 
         public void onAgainReward(string placementId, string callbackJson)
         {
             Debug.Log("onAgainReward...unity3d.");
-            if (anyThinkListener != null && anyThinkListener is ATRewardedVideoExListener)
-            {
-                ((ATRewardedVideoExListener)anyThinkListener).onAgainReward(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onPlayAgainReward?.Invoke(this, new ATAdRewardEventArgs(placementId, callbackJson, true));
         }
 
         // Adsource Listener
         public void onAdSourceBiddingAttempt(string placementId, string callbackJson)
         {
             Debug.Log("onAdSourceBiddingAttempt...unity3d."+ placementId + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.startBiddingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onAdSourceBiddingAttemptEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
         public void onAdSourceBiddingFilled(string placementId, string callbackJson)
         {
             Debug.Log("onAdSourceBiddingFilled...unity3d." + placementId + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.finishBiddingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onAdSourceBiddingFilledEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
         public void onAdSourceBiddingFail(string placementId, string callbackJson, string code, string error)
         {
             Debug.Log("onAdSourceBiddingFail...unity3d." + placementId + "," + code + "," + error + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.failBiddingADSource(placementId, new ATCallbackInfo(callbackJson), code, error);
-            }
+            onAdSourceBiddingFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
         }
 
-        public void onAdSourceAttemp(string placementId, string callbackJson)
+        public void onAdSourceAttempt(string placementId, string callbackJson)
         {
-            Debug.Log("onAdSourceAttemp...unity3d." + placementId + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.startLoadingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+            Debug.Log("onAdSourceAttempt...unity3d." + placementId + "," + callbackJson);
+            onAdSourceAttemptEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
         public void onAdSourceLoadFilled(string placementId, string callbackJson)
         {
             Debug.Log("onAdSourceLoadFilled...unity3d." + placementId + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.finishLoadingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onAdSourceFilledEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
         public void onAdSourceLoadFail(string placementId, string callbackJson, string code, string error)
         {
             Debug.Log("onAdSourceLoadFail...unity3d." + placementId + "," + code + "," + error + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.failToLoadADSource(placementId, new ATCallbackInfo(callbackJson), code, error);
-            }
+            onAdSourceLoadFailureEvent?.Invoke(this,new ATAdErrorEventArgs(placementId, error, code));
         }
 
 

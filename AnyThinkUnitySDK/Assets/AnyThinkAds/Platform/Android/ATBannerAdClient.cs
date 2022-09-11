@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 using AnyThinkAds.Common;
 using AnyThinkAds.Api;
+#pragma warning disable 0067
 namespace AnyThinkAds.Android
 {
     public class ATBannerAdClient : AndroidJavaProxy, IATBannerAdClient
@@ -11,7 +13,38 @@ namespace AnyThinkAds.Android
 
         private Dictionary<string, AndroidJavaObject> bannerHelperMap = new Dictionary<string, AndroidJavaObject>();
 
+        
         private  ATBannerAdListener anyThinkListener;
+
+         public event EventHandler<ATAdEventArgs> onAdLoadEvent;
+
+        // triggers when a banner ad has failed to load
+        public event EventHandler<ATAdErrorEventArgs> onAdLoadFailureEvent;
+
+        // triggers when a banner ad generates an impression
+        public event EventHandler<ATAdEventArgs> onAdImpressEvent;
+
+        // triggers when the user clicks a banner ad
+        public event EventHandler<ATAdEventArgs> onAdClickEvent;
+
+        // triggers when the ad refreshes
+        public event EventHandler<ATAdEventArgs> onAdAutoRefreshEvent;
+
+        // triggers when the ad fails to auto refresh
+        public event EventHandler<ATAdErrorEventArgs> onAdAutoRefreshFailureEvent;
+
+        // triggers when the banner ad is closed
+        public event EventHandler<ATAdEventArgs> onAdCloseEvent;
+
+        // triggers when the users closes the ad via the button
+        public event EventHandler<ATAdEventArgs> onAdCloseButtonTappedEvent;
+
+        public event EventHandler<ATAdEventArgs> onAdSourceAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceBiddingFailureEvent;
 
         public ATBannerAdClient() : base("com.anythink.unitybridge.banner.BannerListener")
         {
@@ -192,122 +225,89 @@ namespace AnyThinkAds.Android
         public void onBannerLoaded(string placementId)
         {
             Debug.Log("onBannerLoaded...unity3d.");
-            if(anyThinkListener != null){
-                anyThinkListener.onAdLoad(placementId);
-            } 
+            onAdLoadEvent?.Invoke(this, new ATAdEventArgs(placementId));
         }
 
         //广告加载失败
         public void onBannerFailed(string placementId,string code, string error)
         {
             Debug.Log("onBannerFailed...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onAdLoadFail(placementId, code, error);
-            }
+            onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
         }
 
         //广告点击
         public void onBannerClicked(string placementId, string callbackJson)
         {
             Debug.Log("onBannerClicked...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onAdClick(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onAdClickEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
         //广告展示
         public void onBannerShow(string placementId, string callbackJson)
         {
             Debug.Log("onBannerShow...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onAdImpress(placementId, new ATCallbackInfo(callbackJson));
-            }
+          onAdImpressEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
         //广告关闭
         public void onBannerClose(string placementId, string callbackJson)
         {
             Debug.Log("onBannerClose...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onAdCloseButtonTapped(placementId, new ATCallbackInfo(callbackJson));
-            }
+           onAdCloseEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
         //广告关闭
         public void onBannerAutoRefreshed(string placementId, string callbackJson)
         {
             Debug.Log("onBannerAutoRefreshed...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onAdAutoRefresh(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onAdAutoRefreshEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
         //广告自动刷新失败
         public void onBannerAutoRefreshFail(string placementId, string code, string msg)
         {
             Debug.Log("onBannerAutoRefreshFail...unity3d.");
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.onAdAutoRefreshFail(placementId,code,msg);
-            }
+            onAdAutoRefreshFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, msg, code));
         }
 
         // Adsource Listener
         public void onAdSourceBiddingAttempt(string placementId, string callbackJson)
         {
             Debug.Log("onAdSourceBiddingAttempt...unity3d." + placementId + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.startBiddingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+            
+             onAdSourceBiddingAttemptEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
         public void onAdSourceBiddingFilled(string placementId, string callbackJson)
         {
             Debug.Log("onAdSourceBiddingFilled...unity3d." + placementId + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.finishBiddingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+            
+             onAdSourceBiddingFilledEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
         public void onAdSourceBiddingFail(string placementId, string callbackJson, string code, string error)
         {
             Debug.Log("onAdSourceBiddingFail...unity3d." + placementId + "," + code + "," + error + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.failBiddingADSource(placementId, new ATCallbackInfo(callbackJson), code, error);
-            }
+           
+            onAdSourceBiddingFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, callbackJson, code, error));
         }
 
-        public void onAdSourceAttemp(string placementId, string callbackJson)
+        public void onAdSourceAttempt(string placementId, string callbackJson)
         {
-            Debug.Log("onAdSourceAttemp...unity3d." + placementId + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.startLoadingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+            Debug.Log("onAdSourceAttempt...unity3d." + placementId + "," + callbackJson);
+          
+              onAdSourceAttemptEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
         public void onAdSourceLoadFilled(string placementId, string callbackJson)
         {
             Debug.Log("onAdSourceLoadFilled...unity3d." + placementId + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.finishLoadingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+           
+            onAdSourceFilledEvent?.Invoke(this, new ATAdEventArgs(placementId, callbackJson));
         }
 
         public void onAdSourceLoadFail(string placementId, string callbackJson, string code, string error)
         {
             Debug.Log("onAdSourceLoadFail...unity3d." + placementId + "," + code + "," + error + "," + callbackJson);
-            if (anyThinkListener != null)
-            {
-                anyThinkListener.failToLoadADSource(placementId, new ATCallbackInfo(callbackJson), code, error);
-            }
+              onAdSourceLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, callbackJson, code, error));
         }
 
     }

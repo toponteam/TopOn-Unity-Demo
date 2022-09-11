@@ -27,7 +27,38 @@ public class nativeScenes : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        ATNativeAd.Instance.client.onAdLoadEvent += onAdLoad;
+        ATNativeAd.Instance.client.onAdLoadFailureEvent += onAdLoadFail;
+        ATNativeAd.Instance.client.onAdImpressEvent += onAdImpressed;
+        ATNativeAd.Instance.client.onAdClickEvent += onAdClick;
+        ATNativeAd.Instance.client.onAdCloseEvent += onAdClose;
+        ATNativeAd.Instance.client.onAdVideoStartEvent += onAdVideoStart;
+        ATNativeAd.Instance.client.onAdVideoEndEvent += onAdVideoEnd;
+        ATNativeAd.Instance.client.onAdVideoProgressEvent += onAdVideoProgress;
+        ATNativeAd.Instance.client.onAdSourceAttemptEvent += startLoadingADSource;
+        ATNativeAd.Instance.client.onAdSourceFilledEvent += finishLoadingADSource;
+        ATNativeAd.Instance.client.onAdSourceLoadFailureEvent += failToLoadADSource;
+        ATNativeAd.Instance.client.onAdSourceBiddingAttemptEvent += startBiddingADSource;
+        ATNativeAd.Instance.client.onAdSourceBiddingFilledEvent += finishBiddingADSource;
+        ATNativeAd.Instance.client.onAdSourceBiddingFailureEvent += failBiddingADSource;
 	}
+
+    void OnDestroy(){
+         ATNativeAd.Instance.client.onAdLoadEvent -= onAdLoad;
+        ATNativeAd.Instance.client.onAdLoadFailureEvent -= onAdLoadFail;
+        ATNativeAd.Instance.client.onAdImpressEvent -= onAdImpressed;
+        ATNativeAd.Instance.client.onAdClickEvent -= onAdClick;
+        ATNativeAd.Instance.client.onAdCloseEvent -= onAdClose;
+        ATNativeAd.Instance.client.onAdVideoStartEvent -= onAdVideoStart;
+        ATNativeAd.Instance.client.onAdVideoEndEvent -= onAdVideoEnd;
+        ATNativeAd.Instance.client.onAdVideoProgressEvent -= onAdVideoProgress;
+        ATNativeAd.Instance.client.onAdSourceAttemptEvent -= startLoadingADSource;
+        ATNativeAd.Instance.client.onAdSourceFilledEvent -= finishLoadingADSource;
+        ATNativeAd.Instance.client.onAdSourceLoadFailureEvent -= failToLoadADSource;
+        ATNativeAd.Instance.client.onAdSourceBiddingAttemptEvent -= startBiddingADSource;
+        ATNativeAd.Instance.client.onAdSourceBiddingFilledEvent -= finishBiddingADSource;
+        ATNativeAd.Instance.client.onAdSourceBiddingFailureEvent -= failBiddingADSource;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -52,10 +83,7 @@ public class nativeScenes : MonoBehaviour {
         Debug.Log ("Developer load native, placementId = " + mPlacementId_native_all);
    
 
-        if(callbackListener == null) {
-        	callbackListener = new ATNativeCallbackListener();
-            ATNativeAd.Instance.setListener(callbackListener);
-        }
+       
 
         //new in v5.6.6
         Dictionary<string, object> jsonmap = new Dictionary<string, object>();
@@ -210,13 +238,82 @@ public class nativeScenes : MonoBehaviour {
         bool isReady = ATNativeAd.Instance.hasAdReady(mPlacementId_native_all);
 		Debug.Log("Developer isAdReady native....:" + isReady);
 
-        string adCaches = ATNativeAd.Instance.getValidAdCaches(mPlacementId_native_all);
-        Debug.Log("Developer getValidAdCaches native...." + adCaches);
+        //string adCaches = ATNativeAd.Instance.getValidAdCaches(mPlacementId_native_all);
+        //Debug.Log("Developer getValidAdCaches native...." + adCaches);
 
         ATNativeAd.Instance.entryScenarioWithPlacementID(mPlacementId_native_all, showingScenario);
 
     }
 
+    public void onAdImpressed(object sender, ATAdEventArgs erg) {
+        Debug.Log("Developer callback onAdImpressed :" + erg.placementId + "->" + JsonMapper.ToJson(erg.callbackInfo.toDictionary()));
+    }
+
+    public void onAdClick(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdClick :" +erg.placementId + "->" + JsonMapper.ToJson(erg.callbackInfo.toDictionary()));
+        }
+
+    public void onAdClose(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdClose :" + erg.placementId);
+        }
+
+    public void onAdLoad(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdLoad :" + erg.placementId);
+        }
+
+    public void onAdLoadFail(object sender,ATAdErrorEventArgs erg )
+        {
+            Debug.Log("Developer callback onAdLoadFail : : " +erg.placementId + "--erg.errorCode:" + erg.errorCode + "--msg:" + erg.errorMessage);
+        }
+
+        public void onAdVideoStart(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer onAdVideoStart------:" + erg.placementId);
+        }
+        public void onAdVideoEnd(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer onAdVideoEnd------:" + erg.placementId);
+        }
+        public void onAdVideoProgress(object sender,ATAdProgressEventArgs erg)
+        {
+            Debug.Log("Developer onAdVideoProgress------:" + erg.placementId);
+        }
+
+
+
+
+    public void startLoadingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer startLoadingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void finishLoadingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer finishLoadingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void failToLoadADSource(object sender,ATAdErrorEventArgs erg ){
+            Debug.Log("Developer failToLoadADSource------erg.errorCode:" + erg.errorCode + "---erg.errorMessage:" + erg.errorMessage+ "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void startBiddingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer startBiddingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void finishBiddingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer finishBiddingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void failBiddingADSource(object sender,ATAdErrorEventArgs erg ){
+            Debug.Log("Developer failBiddingADSource------erg.errorCode:" + erg.errorCode + "---erg.errorMessage:" + erg.errorMessage+ "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
 
 
     class ATNativeCallbackListener : ATNativeAdListener

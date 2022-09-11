@@ -1,14 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 using AnyThinkAds.Common;
 using AnyThinkAds.Api;
-
+#pragma warning disable 0067
 namespace AnyThinkAds.iOS
 {
     public class ATNativeBannerAdClient : IATNativeBannerAdClient
     {
+
+		 public event EventHandler<ATAdEventArgs> onAdLoadEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdImpressEvent;
+        public event EventHandler<ATAdEventArgs> onAdClickEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoStartEvent;
+        public event EventHandler<ATAdEventArgs> onAdVideoEndEvent;
+        public event EventHandler<ATAdProgressEventArgs> onAdVideoProgressEvent;
+        public event EventHandler<ATAdEventArgs> onAdCloseEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingAttemptEvent;
+        public event EventHandler<ATAdEventArgs> onAdSourceBiddingFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs> onAdSourceBiddingFailureEvent;
     	private ATNativeBannerAdListener listener;
     	public void loadAd(string placementId, string mapJson) {
     		Debug.Log("ATNativeBannerAdClient::loadAd()");
@@ -41,37 +57,42 @@ namespace AnyThinkAds.iOS
         //Listener method(s)
         public void onAdLoaded(string placementId) {
         	Debug.Log("ATNativeBannerAdClient::onAdLoaded()");
-        	if(listener != null) listener.onAdLoaded(placementId);
+        	onAdLoadEvent?.Invoke(this, new ATAdEventArgs(placementId));
         }
         
         public void onAdLoadFail(string placementId, string code, string message) {
         	Debug.Log("ATNativeBannerAdClient::onAdLoadFail()");
-        	if(listener != null) listener.onAdLoadFail(placementId, code, message);
+            onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, "", code, message));
+     
         }
         
         public void onAdImpressed(string placementId, string callbackJson) {
         	Debug.Log("ATNativeBannerAdClient::onAdImpressed()");
-            if(listener != null) listener.onAdImpressed(placementId, new ATCallbackInfo(callbackJson));
+            onAdImpressEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
+       
         }
         
         public void onAdClicked(string placementId, string callbackJson) {
         	Debug.Log("ATNativeBannerAdClient::onAdClicked()");
-            if(listener != null) listener.onAdClicked(placementId, new ATCallbackInfo(callbackJson));
+            onAdClickEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
         }
         
         public void onAdAutoRefresh(string placementId, string callbackJson) {
         	Debug.Log("ATNativeBannerAdClient::onAdAutoRefresh()");
-            if(listener != null) listener.onAdAutoRefresh(placementId, new ATCallbackInfo(callbackJson));
+            onAdSourceFilledEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
+    
         }
         
 		public void onAdAutoRefreshFailure(string placementId, string code, string message) {
         	Debug.Log("ATNativeBannerAdClient::onAdAutoRefreshFailure()");
-        	if(listener != null) listener.onAdAutoRefreshFailure(placementId, code, message);
+            onAdSourceLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, "", code, message));
+        	
         }
 
         public void onAdCloseButtonClicked(string placementId) {
         	Debug.Log("ATNativeBannerAdClient::onAdCloseButtonClicked()");
-        	if(listener != null) listener.onAdCloseButtonClicked(placementId);
+            onAdCloseEvent?.Invoke(this, new ATAdEventArgs(placementId));
+  
         }
     }
 }

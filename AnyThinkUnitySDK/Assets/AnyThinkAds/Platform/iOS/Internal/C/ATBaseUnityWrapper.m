@@ -69,7 +69,7 @@
             
             NSMutableDictionary *msgDict = [NSMutableDictionary dictionary];
             
-            if (extra != nil) {
+            if (![ATUnityUtilities isEmpty:extra]) {
                 if (extra[@"extra"] != nil) {
                     msgDict[@"extra"] = extra[@"extra"];
                     msgDict[@"rewarded"] = extra[@"rewarded"];
@@ -80,7 +80,7 @@
             
             paraDict[@"msg"] = msgDict;
             
-            if ([placementID isKindOfClass:[NSString class]] && [placementID length] > 0) {
+            if ([placementID isKindOfClass:[NSString class]] && ![ATUnityUtilities isEmpty:placementID]) {
                 msgDict[@"placement_id"] = placementID;
             };
             
@@ -88,12 +88,12 @@
                 
                 NSMutableDictionary *errorDict = [NSMutableDictionary dictionaryWithObject:[NSString stringWithFormat:@"%ld", error.code] forKey:@"code"];
                 
-                if ([error.userInfo[NSLocalizedDescriptionKey] length] > 0) {
+                if (![ATUnityUtilities isEmpty:error.userInfo[NSLocalizedDescriptionKey]]) {
                     errorDict[@"desc"] = error.userInfo[NSLocalizedDescriptionKey];
                 } else {
                     errorDict[@"desc"] = @"";
                 }
-                if ([error.userInfo[NSLocalizedFailureReasonErrorKey] length] > 0) {
+                if (![ATUnityUtilities isEmpty:error.userInfo[NSLocalizedFailureReasonErrorKey]]) {
                     errorDict[@"reason"] = error.userInfo[NSLocalizedFailureReasonErrorKey];
                 } else {
                     errorDict[@"reason"] = @"";

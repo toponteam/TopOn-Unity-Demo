@@ -11,13 +11,13 @@ public class ATUnityCBridge {
 	
     #if UNITY_IOS || UNITY_IPHONE
 	[DllImport("__Internal")]
-    extern static bool message_from_unity(string msg, CCallBack callback);
+    extern static bool at_message_from_unity(string msg, CCallBack callback);
 
     [DllImport("__Internal")]
-    extern static int get_message_for_unity(string msg, CCallBack callback);
+    extern static int at_get_message_for_unity(string msg, CCallBack callback);
 
     [DllImport("__Internal")]
-    extern static string get_string_message_for_unity(string msg, CCallBack callback);
+    extern static string at_get_string_message_for_unity(string msg, CCallBack callback);
     #endif
 
     [MonoPInvokeCallback(typeof(CCallBack))]
@@ -49,7 +49,7 @@ public class ATUnityCBridge {
         msgDict.Add("selector", selector);
         msgDict.Add("arguments", arguments);
         #if UNITY_IOS || UNITY_IPHONE
-        return get_message_for_unity(JsonMapper.ToJson(msgDict), null);
+        return at_get_message_for_unity(JsonMapper.ToJson(msgDict), null);
         #else
         return 0;
         #endif
@@ -62,7 +62,7 @@ public class ATUnityCBridge {
         msgDict.Add("selector", selector);
         msgDict.Add("arguments", arguments);
         #if UNITY_IOS || UNITY_IPHONE
-        return get_string_message_for_unity(JsonMapper.ToJson(msgDict), null);
+        return at_get_string_message_for_unity(JsonMapper.ToJson(msgDict), null);
         #else 
         return "";
         #endif
@@ -77,7 +77,7 @@ public class ATUnityCBridge {
         CCallBack callback = null;
         if (carryCallback) callback = MessageFromC;
         #if UNITY_IOS || UNITY_IPHONE
-        return message_from_unity(JsonMapper.ToJson(msgDict), callback);
+        return at_message_from_unity(JsonMapper.ToJson(msgDict), callback);
         #else
         return false;
         #endif
@@ -85,7 +85,7 @@ public class ATUnityCBridge {
 
 #if UNITY_IOS || UNITY_IPHONE
     [DllImport("__Internal")]
-    extern static bool message_from_unity(string msg, Func<string, int> callback);
+    extern static bool at_message_from_unity(string msg, Func<string, int> callback);
 #endif
     static public void SendMessageToCWithCallBack(string className, string selector, object[] arguments, Func<string, int> callback)
     {
@@ -95,7 +95,7 @@ public class ATUnityCBridge {
         msgDict.Add("selector", selector);
         msgDict.Add("arguments", arguments);
 #if UNITY_IOS || UNITY_IPHONE
-        message_from_unity(JsonMapper.ToJson(msgDict), callback);
+        at_message_from_unity(JsonMapper.ToJson(msgDict), callback);
 #endif
     }
 }

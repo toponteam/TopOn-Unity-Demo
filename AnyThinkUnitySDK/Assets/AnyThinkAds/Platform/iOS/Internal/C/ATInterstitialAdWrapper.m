@@ -130,7 +130,7 @@ static NSString *kATInterstitialSizeUsesPixelFlagKey = @"uses_pixel";
     [[ATAdManager sharedManager] entryInterstitialScenarioWithPlacementID:placementID scene:scenarioID];
 }
 -(void) clearCache {
-    [[ATAdManager sharedManager] clearCache];
+
 }
 
 #pragma mark - auto

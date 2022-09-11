@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AnyThinkAds.Common;
@@ -8,7 +9,21 @@ namespace AnyThinkAds.Android
 {
     public class ATNativeAdClient : AndroidJavaProxy, IATNativeAdClient
     {
-		
+		public event EventHandler<ATAdEventArgs>            onAdLoadEvent;
+        public event EventHandler<ATAdErrorEventArgs>       onAdLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs>            onAdImpressEvent;
+        public event EventHandler<ATAdEventArgs>            onAdClickEvent;
+        public event EventHandler<ATAdEventArgs>            onAdVideoStartEvent;
+        public event EventHandler<ATAdEventArgs>            onAdVideoEndEvent;
+        public event EventHandler<ATAdProgressEventArgs>    onAdVideoProgressEvent;
+        public event EventHandler<ATAdEventArgs>            onAdCloseEvent;
+        public event EventHandler<ATAdEventArgs>            onAdSourceAttemptEvent;
+        public event EventHandler<ATAdEventArgs>            onAdSourceFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs>       onAdSourceLoadFailureEvent;
+        public event EventHandler<ATAdEventArgs>            onAdSourceBiddingAttemptEvent;
+        public event EventHandler<ATAdEventArgs>            onAdSourceBiddingFilledEvent;
+        public event EventHandler<ATAdErrorEventArgs>       onAdSourceBiddingFailureEvent;
+
         private Dictionary<string, AndroidJavaObject> nativeAdHelperMap = new Dictionary<string, AndroidJavaObject>();
         private ATNativeAdListener mlistener;
 
@@ -201,9 +216,7 @@ namespace AnyThinkAds.Android
         public void onAdImpressed(string placementId, string callbackJson)
         {
             Debug.Log("onAdImpressed...unity3d.");
-            if(mlistener != null){
-                mlistener.onAdImpressed(placementId, new ATCallbackInfo(callbackJson));
-            }
+            onAdImpressEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
         }
 
         /**
@@ -214,10 +227,8 @@ namespace AnyThinkAds.Android
         public void onAdClicked(string placementId, string callbackJson)
         {
             Debug.Log("onAdClicked...unity3d.");
-            if (mlistener != null)
-            {
-                mlistener.onAdClicked(placementId, new ATCallbackInfo(callbackJson));
-            }
+             onAdClickEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
+         
         }
 
         /**
@@ -228,10 +239,7 @@ namespace AnyThinkAds.Android
         public void onAdVideoStart(string placementId)
         {
             Debug.Log("onAdVideoStart...unity3d.");
-            if (mlistener != null)
-            {
-                mlistener.onAdVideoStart(placementId);
-            }
+           onAdVideoStartEvent?.Invoke(this, new ATAdEventArgs(placementId));
         }
 
         /**
@@ -242,10 +250,7 @@ namespace AnyThinkAds.Android
         public void onAdVideoEnd(string placementId)
         {
             Debug.Log("onAdVideoEnd...unity3d.");
-            if (mlistener != null)
-            {
-                mlistener.onAdVideoEnd(placementId);
-            }
+            onAdVideoEndEvent?.Invoke(this, new ATAdEventArgs(placementId,""));
         }
 
         /**
@@ -256,10 +261,7 @@ namespace AnyThinkAds.Android
         public void onAdVideoProgress(string placementId,int progress)
         {
             Debug.Log("onAdVideoProgress...progress[" + progress + "]");
-            if (mlistener != null)
-            {
-                mlistener.onAdVideoProgress(placementId, progress);
-            }
+           onAdVideoProgressEvent?.Invoke(this, new ATAdProgressEventArgs(placementId,"",progress));
         }
 
         /**
@@ -270,10 +272,7 @@ namespace AnyThinkAds.Android
         public void onAdCloseButtonClicked(string placementId, string callbackJson)
         {
             Debug.Log("onAdCloseButtonClicked...unity3d");
-            if (mlistener != null)
-            {
-                mlistener.onAdCloseButtonClicked(placementId, new ATCallbackInfo(callbackJson));
-            }
+          onAdCloseEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
         }
 
 
@@ -283,10 +282,7 @@ namespace AnyThinkAds.Android
         public void onNativeAdLoaded(string placementId)
         {
             Debug.Log("onNativeAdLoaded...unity3d.");
-            if (mlistener != null)
-            {
-                mlistener.onAdLoaded(placementId);
-            }
+             onAdLoadEvent?.Invoke(this, new ATAdEventArgs(placementId,""));
 
         }
 
@@ -296,65 +292,49 @@ namespace AnyThinkAds.Android
         public void onNativeAdLoadFail(string placementId,string code, string msg)
         {
             Debug.Log("onNativeAdLoadFail...unity3d. code:" + code + " msg:" + msg);
-            if (mlistener != null)
-            {
-                mlistener.onAdLoadFail(placementId, code, msg);
-            }
+            onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId,code,msg));
         }
 
         // Adsource Listener
         public void onAdSourceBiddingAttempt(string placementId, string callbackJson)
         {
             Debug.Log("onAdSourceBiddingAttempt...unity3d." + placementId + "," + callbackJson);
-            if (mlistener != null)
-            {
-                mlistener.startBiddingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+            
+               onAdSourceBiddingAttemptEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
         }
 
         public void onAdSourceBiddingFilled(string placementId, string callbackJson)
         {
             Debug.Log("onAdSourceBiddingFilled...unity3d." + placementId + "," + callbackJson);
-            if (mlistener != null)
-            {
-                mlistener.finishBiddingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+           
+            onAdSourceBiddingFilledEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
         }
 
         public void onAdSourceBiddingFail(string placementId, string callbackJson, string code, string error)
         {
             Debug.Log("onAdSourceBiddingFail...unity3d." + placementId + "," + code + "," + error + "," + callbackJson);
-            if (mlistener != null)
-            {
-                mlistener.failBiddingADSource(placementId, new ATCallbackInfo(callbackJson), code, error);
-            }
+            
+             onAdSourceBiddingFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId,callbackJson,code,error));
         }
 
-        public void onAdSourceAttemp(string placementId, string callbackJson)
+        public void onAdSourceAttempt(string placementId, string callbackJson)
         {
-            Debug.Log("onAdSourceAttemp...unity3d." + placementId + "," + callbackJson);
-            if (mlistener != null)
-            {
-                mlistener.startLoadingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+            Debug.Log("onAdSourceAttempt...unity3d." + placementId + "," + callbackJson);
+
+            onAdSourceAttemptEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
         }
 
         public void onAdSourceLoadFilled(string placementId, string callbackJson)
         {
             Debug.Log("onAdSourceLoadFilled...unity3d." + placementId + "," + callbackJson);
-            if (mlistener != null)
-            {
-                mlistener.finishLoadingADSource(placementId, new ATCallbackInfo(callbackJson));
-            }
+           
+            onAdSourceFilledEvent?.Invoke(this, new ATAdEventArgs(placementId,callbackJson));
         }
 
         public void onAdSourceLoadFail(string placementId, string callbackJson, string code, string error)
         {
             Debug.Log("onAdSourceLoadFail...unity3d." + placementId + "," + code + "," + error + "," + callbackJson);
-            if (mlistener != null)
-            {
-                mlistener.failToLoadADSource(placementId, new ATCallbackInfo(callbackJson), code, error);
-            }
+            onAdSourceLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId,callbackJson,code,error));
         }
 
 

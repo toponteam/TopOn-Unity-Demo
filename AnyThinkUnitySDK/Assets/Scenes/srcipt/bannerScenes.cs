@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using AnyThinkAds.ThirdParty.LitJson;
 
 
+
 public class bannerScenes : MonoBehaviour {
 
 
@@ -27,8 +28,42 @@ public class bannerScenes : MonoBehaviour {
     // Use this for initialization
     void Start () {
         this.screenWidth = Screen.width;
+
+        ATBannerAd.Instance.client.onAdAutoRefreshEvent += onAdAutoRefresh;
+        ATBannerAd.Instance.client.onAdAutoRefreshFailureEvent += onAdAutoRefreshFail;
+        ATBannerAd.Instance.client.onAdClickEvent += onAdClick;
+        ATBannerAd.Instance.client.onAdCloseEvent += onAdClose;
+        ATBannerAd.Instance.client.onAdCloseButtonTappedEvent += onAdCloseButtonTapped;
+        ATBannerAd.Instance.client.onAdImpressEvent += onAdImpress;
+        ATBannerAd.Instance.client.onAdLoadEvent += onAdLoad;
+        ATBannerAd.Instance.client.onAdLoadFailureEvent += onAdLoadFail;
+        ATBannerAd.Instance.client.onAdSourceAttemptEvent += startLoadingADSource;
+        ATBannerAd.Instance.client.onAdSourceFilledEvent += finishLoadingADSource;
+        ATBannerAd.Instance.client.onAdSourceLoadFailureEvent += failToLoadADSource;
+        ATBannerAd.Instance.client.onAdSourceBiddingAttemptEvent += startBiddingADSource;
+        ATBannerAd.Instance.client.onAdSourceBiddingFilledEvent += finishBiddingADSource;
+        ATBannerAd.Instance.client.onAdSourceBiddingFailureEvent += failBiddingADSource;
+
 	}
 	
+    
+    void OnDestroy(){
+
+        ATBannerAd.Instance.client.onAdAutoRefreshEvent -= onAdAutoRefresh;
+        ATBannerAd.Instance.client.onAdAutoRefreshFailureEvent -= onAdAutoRefreshFail;
+        ATBannerAd.Instance.client.onAdClickEvent -= onAdClick;
+        ATBannerAd.Instance.client.onAdCloseEvent -= onAdClose;
+        ATBannerAd.Instance.client.onAdCloseButtonTappedEvent -= onAdCloseButtonTapped;
+        ATBannerAd.Instance.client.onAdImpressEvent -= onAdImpress;
+        ATBannerAd.Instance.client.onAdLoadEvent -= onAdLoad;
+        ATBannerAd.Instance.client.onAdLoadFailureEvent -= onAdLoadFail;
+        ATBannerAd.Instance.client.onAdSourceAttemptEvent -= startLoadingADSource;
+        ATBannerAd.Instance.client.onAdSourceFilledEvent -= finishLoadingADSource;
+        ATBannerAd.Instance.client.onAdSourceLoadFailureEvent -= failToLoadADSource;
+        ATBannerAd.Instance.client.onAdSourceBiddingAttemptEvent -= startBiddingADSource;
+        ATBannerAd.Instance.client.onAdSourceBiddingFilledEvent -= finishBiddingADSource;
+        ATBannerAd.Instance.client.onAdSourceBiddingFailureEvent -= failBiddingADSource;
+    }
 	// Update is called once per frame
 	void Update () {
 		
@@ -40,14 +75,14 @@ public class bannerScenes : MonoBehaviour {
 		SceneManager.LoadScene ("demoMainScenes");
 	}
 
-    static BannerCallback bannerCallback ;
+    // static BannerCallback bannerCallback ;
 
     public void loadBannerAd() {
 
-        if(bannerCallback == null){
-            bannerCallback = new BannerCallback();
-            ATBannerAd.Instance.setListener(bannerCallback);
-        }
+        // if(bannerCallback == null){
+        //     bannerCallback = new BannerCallback();
+        //     ATBannerAd.Instance.setListener(bannerCallback);
+        // }
 
         Dictionary<string, object> jsonmap = new Dictionary<string,object>();
 
@@ -65,8 +100,84 @@ public class bannerScenes : MonoBehaviour {
         
         #endif
         ATBannerAd.Instance.loadBannerAd(mPlacementId_banner_all, jsonmap);
-    }
+    
 
+        
+
+    }
+    
+   
+
+    public void onAdAutoRefresh(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdAutoRefresh :" + erg.placementId + "->" + JsonMapper.ToJson(erg.callbackInfo.toDictionary()));
+        }
+
+    public void onAdAutoRefreshFail(object sender,ATAdErrorEventArgs erg )
+        {
+            Debug.Log("Developer callback onAdAutoRefreshFail : "+ erg.placementId + "--erg.errorCode:" + erg.errorCode + "--msg:" + erg.errorMessage);
+        }
+
+    public void onAdClick(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdClick :" +erg.placementId + "->" + JsonMapper.ToJson(erg.callbackInfo.toDictionary()));
+        }
+
+    public void onAdClose(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdClose :" + erg.placementId);
+        }
+
+    public void onAdCloseButtonTapped(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdCloseButtonTapped :" + erg.placementId + "->" + JsonMapper.ToJson(erg.callbackInfo.toDictionary()));
+        }
+
+    public void onAdImpress(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdImpress :" + erg.placementId + "->" + JsonMapper.ToJson(erg.callbackInfo.toDictionary()));
+        }
+
+    public void onAdLoad(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdLoad :" + erg.placementId);
+        }
+
+    public void onAdLoadFail(object sender, ATAdErrorEventArgs erg )
+        {
+            Debug.Log("Developer callback onAdLoadFail : : " + erg.placementId + "--erg.errorCode:" + erg.errorCode + "--msg:" + erg.errorMessage);
+        }
+
+    public void startLoadingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer startLoadingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void finishLoadingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer finishLoadingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void failToLoadADSource(object sender,ATAdErrorEventArgs erg ){
+            Debug.Log("Developer failToLoadADSource------erg.errorCode:" + erg.errorCode + "---erg.errorMessage:" + erg.errorMessage+ "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void startBiddingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer startBiddingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void finishBiddingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer finishBiddingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void failBiddingADSource(object sender,ATAdErrorEventArgs erg ){
+            Debug.Log("Developer failBiddingADSource------erg.errorCode:" + erg.errorCode + "---erg.errorMessage:" + erg.errorMessage+ "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+        
     public void showBannerAd() {
     	Debug.Log ("Developer is banner ready....");
         string adStatus = ATBannerAd.Instance.checkAdStatus(mPlacementId_banner_all);
@@ -77,7 +188,7 @@ public class bannerScenes : MonoBehaviour {
 
 
 
-
+            
         // ATRect arpuRect = new ATRect(0,50, this.screenWidth, 300, true);
         // ATBannerAd.Instance.showBannerAd(mPlacementId_banner_all, arpuRect);
         // ATBannerAd.Instance.showBannerAd(mPlacementId_banner_all, ATBannerAdLoadingExtra.kATBannerAdShowingPisitionBottom);
@@ -107,81 +218,6 @@ public class bannerScenes : MonoBehaviour {
         ATBannerAd.Instance.showBannerAd(mPlacementId_banner_all);
     }
 
-    class BannerCallback : ATBannerAdListener
-    {
-        public void onAdAutoRefresh(string placementId, ATCallbackInfo callbackInfo)
-        {
-            Debug.Log("Developer callback onAdAutoRefresh :" +  placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
-        }
-
-        public void onAdAutoRefreshFail(string placementId, string code, string message)
-        {
-            Debug.Log("Developer callback onAdAutoRefreshFail : "+ placementId + "--code:" + code + "--msg:" + message);
-        }
-
-        public void onAdClick(string placementId, ATCallbackInfo callbackInfo)
-        {
-            Debug.Log("Developer callback onAdClick :" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
-        }
-
-        public void onAdClose(string placementId)
-        {
-            Debug.Log("Developer callback onAdClose :" + placementId);
-        }
-
-        public void onAdCloseButtonTapped(string placementId, ATCallbackInfo callbackInfo)
-        {
-            Debug.Log("Developer callback onAdCloseButtonTapped :" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
-        }
-
-        public void onAdImpress(string placementId, ATCallbackInfo callbackInfo)
-        {
-            Debug.Log("Developer callback onAdImpress :" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
-        }
-
-        public void onAdLoad(string placementId)
-        {
-            Debug.Log("Developer callback onAdLoad :" + placementId);
-        }
-
-        public void onAdLoadFail(string placementId, string code, string message)
-        {
-            Debug.Log("Developer callback onAdLoadFail : : " + placementId + "--code:" + code + "--msg:" + message);
-        }
-
-        public void startLoadingADSource(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer startLoadingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-		public void finishLoadingADSource(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer finishLoadingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-		public void failToLoadADSource(string placementId,ATCallbackInfo callbackInfo,string code, string message){
-            Debug.Log("Developer failToLoadADSource------code:" + code + "---message:" + message+ "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-		public void startBiddingADSource(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer startBiddingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-		public void finishBiddingADSource(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer finishBiddingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-		public void failBiddingADSource(string placementId,ATCallbackInfo callbackInfo,string code, string message){
-            Debug.Log("Developer failBiddingADSource------code:" + code + "---message:" + message+ "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-
-
-    }
 
 
 }

@@ -197,7 +197,7 @@ UIEdgeInsets SafeAreaInsets_ATUnityBanner() {
 }
 
 -(void) clearCache {
-    [[ATAdManager sharedManager] clearCache];
+    
 }
 
 #pragma mark - banner delegate method(s)

@@ -5,6 +5,7 @@ using System;
 using AOT;
 using AnyThinkAds.ThirdParty.LitJson;
 using AnyThinkAds.iOS;
+#pragma warning disable 0109
 public class ATRewardedVideoWrapper:ATAdWrapper {
     static private Dictionary<string, ATRewardedVideoAdClient> clients;
 	static private string CMessageReceiverClass = "ATRewardedVideoWrapper";

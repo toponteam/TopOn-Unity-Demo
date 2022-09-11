@@ -53,8 +53,8 @@ public static class MyBuildPostprocess
 
                 // 获取主 target
                 string mainTarget = pbxProject.GetUnityMainTargetGuid();
-                pbxProject.AddFileToBuild(mainTarget, pbxProject.AddFile("Frameworks/AnyThinkAds/Plugins/iOS/Core/AnyThinkSDK.bundle", "Frameworks/AnyThinkAds/Plugins/iOS/Core/AnyThinkSDK.bundle", PBXSourceTree.Sdk));
-                pbxProject.AddFileToBuild(mainTarget, pbxProject.AddFile("Frameworks/AnyThinkAds/Plugins/iOS/pangle/BUAdSDK.bundle", "Frameworks/AnyThinkAds/Plugins/iOS/pangle/BUAdSDK.bundle", PBXSourceTree.Sdk));
+                // pbxProject.AddFileToBuild(mainTarget, pbxProject.AddFile("Frameworks/AnyThinkAds/Plugins/iOS/Core/AnyThinkSDK.bundle", "Frameworks/AnyThinkAds/Plugins/iOS/Core/AnyThinkSDK.bundle", PBXSourceTree.Sdk));
+                // pbxProject.AddFileToBuild(mainTarget, pbxProject.AddFile("Frameworks/AnyThinkAds/Plugins/iOS/pangle/BUAdSDK.bundle", "Frameworks/AnyThinkAds/Plugins/iOS/pangle/BUAdSDK.bundle", PBXSourceTree.Sdk));
 
 
 

@@ -26,8 +26,40 @@ public class interstitialScenes : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+		ATInterstitialAd.Instance.client.onAdLoadEvent += onAdLoad; 
+        ATInterstitialAd.Instance.client.onAdClickEvent += onAdClick;
+        ATInterstitialAd.Instance.client.onAdCloseEvent += onAdClose;
+        ATInterstitialAd.Instance.client.onAdShowEvent += onShow;
+        ATInterstitialAd.Instance.client.onAdLoadFailureEvent += onAdLoadFail;
+        ATInterstitialAd.Instance.client.onAdShowFailureEvent += onAdShowFail;
+        ATInterstitialAd.Instance.client.onAdVideoStartEvent  += startVideoPlayback;
+        ATInterstitialAd.Instance.client.onAdVideoEndEvent  += endVideoPlayback;
+        ATInterstitialAd.Instance.client.onAdVideoFailureEvent  += failVideoPlayback;
+        ATInterstitialAd.Instance.client.onAdSourceAttemptEvent += startLoadingADSource;
+        ATInterstitialAd.Instance.client.onAdSourceFilledEvent += finishLoadingADSource;
+        ATInterstitialAd.Instance.client.onAdSourceLoadFailureEvent += failToLoadADSource;
+        ATInterstitialAd.Instance.client.onAdSourceBiddingAttemptEvent += startBiddingADSource;
+        ATInterstitialAd.Instance.client.onAdSourceBiddingFilledEvent += finishBiddingADSource;
+        ATInterstitialAd.Instance.client.onAdSourceBiddingFailureEvent += failBiddingADSource;
 	}
+    
+    void OnDestroy(){
+        ATInterstitialAd.Instance.client.onAdLoadEvent -= onAdLoad; 
+        ATInterstitialAd.Instance.client.onAdClickEvent -= onAdClick;
+        ATInterstitialAd.Instance.client.onAdCloseEvent -= onAdClose;
+        ATInterstitialAd.Instance.client.onAdShowEvent -= onShow;
+        ATInterstitialAd.Instance.client.onAdLoadFailureEvent -= onAdLoadFail;
+        ATInterstitialAd.Instance.client.onAdShowFailureEvent -= onAdShowFail;
+        ATInterstitialAd.Instance.client.onAdVideoStartEvent  -= startVideoPlayback;
+        ATInterstitialAd.Instance.client.onAdVideoEndEvent  -= endVideoPlayback;
+        ATInterstitialAd.Instance.client.onAdVideoFailureEvent  -= failVideoPlayback;
+        ATInterstitialAd.Instance.client.onAdSourceAttemptEvent -= startLoadingADSource;
+        ATInterstitialAd.Instance.client.onAdSourceFilledEvent -= finishLoadingADSource;
+        ATInterstitialAd.Instance.client.onAdSourceLoadFailureEvent -= failToLoadADSource;
+        ATInterstitialAd.Instance.client.onAdSourceBiddingAttemptEvent -= startBiddingADSource;
+        ATInterstitialAd.Instance.client.onAdSourceBiddingFilledEvent -= finishBiddingADSource;
+        ATInterstitialAd.Instance.client.onAdSourceBiddingFailureEvent -= failBiddingADSource;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -40,12 +72,10 @@ public class interstitialScenes : MonoBehaviour {
 		SceneManager.LoadScene ("demoMainScenes");
 	}
 
-    static InterstitalCallback callback;
+    // static InterstitalCallback callback;
     public void loadInterstitialAd() {
-        if(callback == null) {
-            callback = new InterstitalCallback();
-            ATInterstitialAd.Instance.setListener(callback);
-        }
+        
+       
 
         Dictionary<string,object> jsonmap = new Dictionary<string, object>();
         jsonmap.Add(AnyThinkAds.Api.ATConst.USE_REWARDED_VIDEO_AS_INTERSTITIAL, AnyThinkAds.Api.ATConst.USE_REWARDED_VIDEO_AS_INTERSTITIAL_NO);
@@ -80,16 +110,103 @@ public class interstitialScenes : MonoBehaviour {
     // auto load
     public void addAutoLoadAdPlacementID()
     {
-        if(callback == null) {
-            callback = new InterstitalCallback();
-            ATInterstitialAutoAd.Instance.setListener(callback);
-        }
+       
+        ATInterstitialAutoAd.Instance.client.onAdLoadEvent += onAdLoad; 
+        ATInterstitialAutoAd.Instance.client.onAdClickEvent += onAdClick;
+        ATInterstitialAutoAd.Instance.client.onAdCloseEvent += onAdClose;
+        ATInterstitialAutoAd.Instance.client.onAdShowEvent += onShow;
+        ATInterstitialAutoAd.Instance.client.onAdLoadFailureEvent += onAdLoadFail;
+        ATInterstitialAutoAd.Instance.client.onAdShowFailureEvent += onAdShowFail;      
+        ATInterstitialAutoAd.Instance.client.onAdVideoStartEvent  += startVideoPlayback;
+        ATInterstitialAutoAd.Instance.client.onAdVideoEndEvent  += endVideoPlayback;
+        ATInterstitialAutoAd.Instance.client.onAdVideoFailureEvent  += failVideoPlayback;
+        //No AdSource Event
 
         string[] jsonList = {mPlacementId_interstitial_all};
 
         ATInterstitialAutoAd.Instance.addAutoLoadAdPlacementID(jsonList);
     }
+    
+    public void onSuccessResponse(object sender,ATAdEventArgs erg){
+        Debug.Log("Developer suceess reponse:"+sender+erg.placementId+"->"+JsonMapper.ToJson(erg.callbackInfo.toDictionary()));
+    }
 
+     public void onFailResponse(object sender,ATAdErrorEventArgs erg){
+       Debug.Log("Developer fail reponse :"+sender+" : " +erg.placementId + "--erg.errorCode:" + erg.errorCode + "--msg:" + erg.errorMessage);
+    }
+  
+  
+    public void onAdClick(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdClick :" +erg.placementId + "->" + JsonMapper.ToJson(erg.callbackInfo.toDictionary()));
+        }
+
+    public void onAdClose(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdClose :" + erg.placementId);
+        }
+
+    public void onAdLoad(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onAdLoad :" + erg.placementId);
+        }
+
+    public void onShow(object sender,ATAdEventArgs erg)
+        {
+            Debug.Log("Developer callback onShow :" + erg.placementId);
+        }
+
+
+    public void onAdLoadFail(object sender,ATAdErrorEventArgs erg )
+        {
+            Debug.Log("Developer callback onAdLoadFail : : " +erg.placementId + "--erg.errorCode:" + erg.errorCode + "--msg:" + erg.errorMessage);
+        }
+
+    public void onAdShowFail(object sender,ATAdErrorEventArgs erg){
+        Debug.Log("Developer callback show fail :" + erg.placementId);
+    }
+    public void startVideoPlayback(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer startVideoPlayback------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+    }
+    public void endVideoPlayback(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer endVideoPlayback------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+    }
+    public void failVideoPlayback(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer failVideoPlayback------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+    }
+
+    public void startLoadingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer startLoadingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void finishLoadingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer finishLoadingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void failToLoadADSource(object sender,ATAdErrorEventArgs erg ){
+            Debug.Log("Developer failToLoadADSource------erg.errorCode:" + erg.errorCode + "---erg.errorMessage:" + erg.errorMessage+ "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void startBiddingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer startBiddingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void finishBiddingADSource(object sender,ATAdEventArgs erg){
+            Debug.Log("Developer finishBiddingADSource------" + "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
+
+	public void failBiddingADSource(object sender,ATAdErrorEventArgs erg ){
+            Debug.Log("Developer failBiddingADSource------erg.errorCode:" + erg.errorCode + "---erg.errorMessage:" + erg.errorMessage+ "->" + JsonMapper.ToJson(erg.callbackInfo.toAdsourceDictionary()));
+
+        }
     public void autoReadyForPlacementID()
     {
         ATInterstitialAutoAd.Instance.setAutoLocalExtra(mPlacementId_interstitial_all,new Dictionary<string, string> { { "placement_custom_key", "placement_custom" } });
@@ -114,91 +231,5 @@ public class interstitialScenes : MonoBehaviour {
         ATInterstitialAutoAd.Instance.removeAutoLoadAdPlacementID(jsonList);
     }
 
-
-
-
-
-
-
-    class InterstitalCallback : ATInterstitialAdListener
-    {
-        public void onInterstitialAdClick(string placementId, ATCallbackInfo callbackInfo)
-        {
-            Debug.Log("Developer callback onInterstitialAdClick :" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
-        }
-
-        public void onInterstitialAdClose(string placementId, ATCallbackInfo callbackInfo)
-        {
-            Debug.Log("Developer callback onInterstitialAdClose :" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
-        }
-
-        public void onInterstitialAdEndPlayingVideo(string placementId, ATCallbackInfo callbackInfo)
-        {
-            Debug.Log("Developer callback onInterstitialAdEndPlayingVideo :" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
-        }
-
-        public void onInterstitialAdFailedToPlayVideo(string placementId, string code, string message)
-        {
-            Debug.Log("Developer callback onInterstitialAdFailedToPlayVideo :" + placementId + "--code:" + code + "--msg:" + message);
-        }
-
-        public void onInterstitialAdLoad(string placementId)
-        {
-            Debug.Log("Developer callback onInterstitialAdLoad :" + placementId);
-        }
-
-        public void onInterstitialAdLoadFail(string placementId, string code, string message)
-        {
-            Debug.Log("Developer callback onInterstitialAdLoadFail :" + placementId + "--code:" + code + "--msg:" + message);
-        }
-
-        public void onInterstitialAdShow(string placementId, ATCallbackInfo callbackInfo)
-        {
-            Debug.Log("Developer callback onInterstitialAdShow :" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
-        }
-
-        public void onInterstitialAdStartPlayingVideo(string placementId, ATCallbackInfo callbackInfo)
-        {
-            Debug.Log("Developer callback onInterstitialAdStartPlayingVideo :" + placementId + "->" + JsonMapper.ToJson(callbackInfo.toDictionary()));
-
-        }
-
-        public void onInterstitialAdFailedToShow(string placementId)
-        {
-            Debug.Log("Developer callback onInterstitialAdFailedToShow :" + placementId);
-
-        }
-
-        public void startLoadingADSource(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer startLoadingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-		public void finishLoadingADSource(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer finishLoadingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-		public void failToLoadADSource(string placementId,ATCallbackInfo callbackInfo,string code, string message){
-            Debug.Log("Developer failToLoadADSource------code:" + code + "---message:" + message+ "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-		public void startBiddingADSource(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer startBiddingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-		public void finishBiddingADSource(string placementId, ATCallbackInfo callbackInfo){
-            Debug.Log("Developer finishBiddingADSource------" + "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-		public void failBiddingADSource(string placementId,ATCallbackInfo callbackInfo,string code, string message){
-            Debug.Log("Developer failBiddingADSource------code:" + code + "---message:" + message+ "->" + JsonMapper.ToJson(callbackInfo.toAdsourceDictionary()));
-
-        }
-
-    }
 
 }
