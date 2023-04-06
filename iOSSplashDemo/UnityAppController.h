@@ -3,14 +3,14 @@
 #import <QuartzCore/CADisplayLink.h>
 
 #include "RenderPluginDelegate.h"
-#import <AnyThinkSplash/AnyThinkSplash.h>
+
 
 @class UnityView;
 @class UnityViewControllerBase;
 @class DisplayConnection;
 
 __attribute__ ((visibility("default")))
-@interface UnityAppController : NSObject<UIApplicationDelegate,ATSplashDelegate>
+@interface UnityAppController : NSObject<UIApplicationDelegate>
 {
     UnityView*          _unityView;
     CADisplayLink*      _displayLink;

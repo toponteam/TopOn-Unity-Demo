@@ -40,6 +40,7 @@
 #include <unistd.h>
 #include <sys/sysctl.h>
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <AnyThinkSplash/AnyThinkSplash.h>
 
 // we assume that app delegate is never changed and we can cache it, instead of re-query UIApplication every time
 UnityAppController* _UnityAppController = nil;
@@ -80,6 +81,10 @@ bool    _supportsMSAA           = false;
 // Required to enable specific orientation for some presentation controllers: see supportedInterfaceOrientationsForWindow below for details
 NSInteger _forceInterfaceOrientationMask = 0;
 #endif
+
+@interface UnityAppController () <ATSplashDelegate>
+
+@end
 
 @implementation UnityAppController
 
@@ -341,12 +346,18 @@ extern "C" void UnityCleanupTrampoline()
         //iOS 14
         [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
             [[ATAPI sharedInstance] startWithAppID:@"a5b0e8491845b3" appKey:@"7eae0567827cfe2b22874061763f30c9" error:nil];// load splash ad
-            [[ATAdManager sharedManager] loadADWithPlacementID:@"b5f33c33431ca0" extra:@{kATSplashExtraTolerateTimeoutKey:@(5.5f)} delegate:self containerView:nil];
+            NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
+            //可选值
+//            [mutableDict setValue:@5.5 forKey:kATSplashExtraTolerateTimeoutKey];
+            [[ATAdManager sharedManager] loadADWithPlacementID:@"b5f33c33431ca0" extra:mutableDict delegate:self containerView:nil];
         }];
     } else {
         // Fallback on earlier versions
         [[ATAPI sharedInstance] startWithAppID:@"a5b0e8491845b3" appKey:@"7eae0567827cfe2b22874061763f30c9" error:nil];// load splash ad
-        [[ATAdManager sharedManager] loadADWithPlacementID:@"b5f33c33431ca0" extra:@{kATSplashExtraTolerateTimeoutKey:@(5.5f)} delegate:self containerView:nil];
+        NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
+        //可选值
+//            [mutableDict setValue:@5.5 forKey:kATSplashExtraTolerateTimeoutKey];
+        [[ATAdManager sharedManager] loadADWithPlacementID:@"b5f33c33431ca0" extra:mutableDict delegate:self containerView:nil];
     }
     
     return YES;
@@ -364,7 +375,7 @@ extern "C" void UnityCleanupTrampoline()
         }else {
             mainWindow = [UIApplication sharedApplication].keyWindow;
         }
-        [[ATAdManager sharedManager] showSplashWithPlacementID:@"b5f33c33431ca0" window:mainWindow delegate:self];
+        [[ATAdManager sharedManager] showSplashWithPlacementID:@"b5f33c33431ca0" scene:@"" window:mainWindow delegate:self];
     }
 }
 
