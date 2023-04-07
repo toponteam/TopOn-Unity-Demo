@@ -4,14 +4,12 @@ import android.app.Activity;
 import android.location.Location;
 import android.text.TextUtils;
 
+import com.anythink.core.api.ATAdConst;
 import com.anythink.core.api.ATAreaCallback;
 import com.anythink.core.api.ATSDK;
-import com.anythink.core.api.ATSDKInitListener;
-import com.anythink.core.api.AreaCode;
 import com.anythink.core.api.NetTrafficeCallback;
 import com.anythink.unitybridge.MsgTools;
 import com.anythink.unitybridge.UnityPluginUtils;
-import com.anythink.unitybridge.utils.Const;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,14 +37,15 @@ public class SDKInitHelper {
 
     public void initAppliction(final String appid, final String appkey) {
 
-        MsgTools.printMsg("initAppliction--> appid:" + appid);
-        if (mActivity == null) {
-            MsgTools.printMsg("initAppliction--> sActivity == null");
+        if (mActivity == null || TextUtils.isEmpty(appid) || TextUtils.isEmpty(appkey)) {
+            MsgTools.printMsg("initAppliction--> sActivity == null || appid == null || appkey == null");
             if (mSDKInitListener != null) {
                 mSDKInitListener.initSDKError(appid, "activity can not be null ");
             }
             return;
         }
+
+        MsgTools.printMsg("initAppliction--> appid:" + appid);
 
         //Deprecated
 //        if (SPUtil.getBoolean(mActivity, mActivity.getPackageName(), SP_KEY_FIRST_RUN, true)) {
@@ -65,22 +64,11 @@ public class SDKInitHelper {
 //            }
 //        }
 
-        ATSDK.init(mActivity, appid, appkey, new ATSDKInitListener() {
-            @Override
-            public void onSuccess() {
-                MsgTools.printMsg("init--> done :" + appid);
-                if (mSDKInitListener != null) {
-                    mSDKInitListener.initSDKSuccess(appid);
-                }
-            }
-
-            @Override
-            public void onFail(String pS) {
-                if (mSDKInitListener != null) {
-                    mSDKInitListener.initSDKError(appid, "init faild [" + pS + "] ");
-                }
-            }
-        });
+        ATSDK.setSystemDevFragmentType(ATAdConst.ATDevFrameworkType.UNITY);
+        ATSDK.init(mActivity, appid, appkey);
+        if (mSDKInitListener != null) {
+            mSDKInitListener.initSDKSuccess(appid);
+        }
 
     }
 
@@ -278,17 +266,18 @@ public class SDKInitHelper {
         }
     }
 
+    @Deprecated
     public void setSDKArea(int area) {
-        MsgTools.printMsg("setSDKArea: " + area);
+        MsgTools.printMsg("（Deprecated）setSDKArea: " + area);
 
-        switch (area) {
-            case Const.AREA_GLOBAL:
-                ATSDK.setSDKArea(AreaCode.GLOBAL);
-                break;
-            case Const.AREA_CHINESE_MAINLAND:
-                ATSDK.setSDKArea(AreaCode.CHINESE_MAINLAND);
-                break;
-        }
+//        switch (area) {
+//            case Const.AREA_GLOBAL:
+//                ATSDK.setSDKArea(AreaCode.GLOBAL);
+//                break;
+//            case Const.AREA_CHINESE_MAINLAND:
+//                ATSDK.setSDKArea(AreaCode.CHINESE_MAINLAND);
+//                break;
+//        }
     }
 
     public void getArea(final AreaCallbackListener listener) {

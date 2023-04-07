@@ -188,7 +188,7 @@ namespace AnyThinkAds.iOS {
 
 	    public void onRewardedVideoAdFailed(string placementId, string code, string error) {
 	        Debug.Log("Unity: ATRewardedVideoAdClient::onRewardedVideoAdFailed()");
-	        onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
+	        onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, code, error));
 	    }
 
         public void onRewardedVideoAdPlayStart(string placementId, string callbackJson) {
@@ -203,7 +203,7 @@ namespace AnyThinkAds.iOS {
 
 	    public void onRewardedVideoAdPlayFailed(string placementId, string code, string error) {
 	        Debug.Log("Unity: ATRewardedVideoAdClient::onRewardedVideoAdPlayFailed()");
-	        onAdVideoFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
+	        onAdVideoFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, code, error));
 	    }
 
         public void onRewardedVideoAdClosed(string placementId, bool isRewarded, string callbackJson) {
@@ -238,7 +238,7 @@ namespace AnyThinkAds.iOS {
 		public void onRewardedVideoAdAgainPlayFailed(string placementId, string code, string error)
 		{
 			Debug.Log("Unity: ATRewardedVideoAdClient::onRewardedVideoAdAgainPlayFailed()");
-			onPlayAgainFailure?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
+			onPlayAgainFailure?.Invoke(this, new ATAdErrorEventArgs(placementId, code, error));
 		}
 
 

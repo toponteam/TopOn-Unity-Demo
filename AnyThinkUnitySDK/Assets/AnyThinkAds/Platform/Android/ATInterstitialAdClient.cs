@@ -213,7 +213,7 @@ namespace AnyThinkAds.Android
         public void onInterstitialAdLoadFail(string placementId,string code, string error)
         {
             Debug.Log("onInterstitialAdFailed...unity3d.");
-             onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
+             onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, code, error));
         }
 
         //开始播放
@@ -234,13 +234,13 @@ namespace AnyThinkAds.Android
         public void onInterstitialAdVideoError(string placementId,string code, string error)
         {
             Debug.Log("onInterstitialAdPlayFailed...unity3d.");
-            onAdVideoFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
+            onAdVideoFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, code, error));
         }
         
         //展示失败
          public void OnInterstitialAdFailedToShow(string placementID) {
 	    	Debug.Log("Unity: ATInterstitialAdClient::OnInterstitialAdFailedToShow()");
-	        onAdShowFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementID, "Failed to show video ad", "-1"));
+	        onAdShowFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementID, "-1", "Failed to show video ad"));
 	    }
 
 

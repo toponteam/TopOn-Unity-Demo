@@ -5,7 +5,7 @@
         </repositories>
         <androidPackage spec="net.nend.android:nend-sdk:7.0.3"/>
         <androidPackage spec="androidx.constraintlayout:constraintlayout:2.0.1"/>
-        <androidPackage spec="com.google.android.gms:play-services-ads-identifier:17.0.0"/>
+        <androidPackage spec="com.google.android.gms:play-services-ads-identifier:18.0.1"/>
         <androidPackage spec="androidx.preference:preference:1.1.1"/>
     </androidPackages>
 </dependencies>

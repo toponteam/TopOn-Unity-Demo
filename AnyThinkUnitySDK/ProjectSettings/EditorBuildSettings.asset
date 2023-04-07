@@ -9,15 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/demoMainScenes.unity
     guid: c957e6ce0028a4151a1a36b0e66d689a
   - enabled: 1
-    path: Assets/Scenes/interstitialMainScenes.unity
-    guid: 0052eb61e314044baaab7bb630024bc2
-  - enabled: 1
     path: Assets/Scenes/bannerMainScenes.unity
     guid: afdd4058d810e41eba5dbef2e9d32024
+  - enabled: 1
+    path: Assets/Scenes/interstitialMainScenes.unity
+    guid: 0052eb61e314044baaab7bb630024bc2
   - enabled: 1
     path: Assets/Scenes/nativeMainScenes.unity
     guid: d15fd6939144e43a88b52bc3723e12ef
   - enabled: 1
     path: Assets/Scenes/videoMainScenes.unity
     guid: 202fc78bc74aa4f138e85f36c50323fb
+  - enabled: 1
+    path: Assets/Scenes/NativeBannerScene.unity
+    guid: 3b67321ef801e449ba5b2917441617cc
   m_configObjects: {}

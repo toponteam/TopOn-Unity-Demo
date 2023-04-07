@@ -111,7 +111,7 @@ public class ViewInfo {
 
                 }
 
-                if(pViewInfo.rootView != null){
+                if (pViewInfo.rootView != null) {
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(pViewInfo.rootView.mWidth, pViewInfo.rootView.mHeight);
 
                     if (parentGravity != -1) {
@@ -121,7 +121,7 @@ public class ViewInfo {
                         layoutParams.topMargin = pViewInfo.rootView.mY;
                     }
 
-                    if(!TextUtils.isEmpty(pViewInfo.rootView.bgcolor)){
+                    if (!TextUtils.isEmpty(pViewInfo.rootView.bgcolor)) {
                         mATNativeAdView.setBackgroundColor(Color.parseColor(pViewInfo.rootView.bgcolor));
                     }
 

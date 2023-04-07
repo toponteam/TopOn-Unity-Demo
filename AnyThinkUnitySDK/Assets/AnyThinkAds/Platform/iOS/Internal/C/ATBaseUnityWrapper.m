@@ -89,12 +89,12 @@
                 NSMutableDictionary *errorDict = [NSMutableDictionary dictionaryWithObject:[NSString stringWithFormat:@"%ld", error.code] forKey:@"code"];
                 
                 if (![ATUnityUtilities isEmpty:error.userInfo[NSLocalizedDescriptionKey]]) {
-                    errorDict[@"desc"] = error.userInfo[NSLocalizedDescriptionKey];
+                    errorDict[@"desc"] = [NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedDescriptionKey]];
                 } else {
                     errorDict[@"desc"] = @"";
                 }
                 if (![ATUnityUtilities isEmpty:error.userInfo[NSLocalizedFailureReasonErrorKey]]) {
-                    errorDict[@"reason"] = error.userInfo[NSLocalizedFailureReasonErrorKey];
+                    errorDict[@"reason"] = [NSString stringWithFormat:@"%@",error.userInfo[NSLocalizedFailureReasonErrorKey]];
                 } else {
                     errorDict[@"reason"] = @"";
                 }

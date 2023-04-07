@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><dependencies>
     <iosPods>
-        <iosPod name="AnyThinkiOS/AnyThinkKuaiShouAdapter" version="5.9.98" />
+        <iosPod name="AnyThinkiOS/AnyThinkKuaiShouAdapter" version="6.1.71" />
         <iosPod name="SDWebImage" />
     </iosPods>
 </dependencies>

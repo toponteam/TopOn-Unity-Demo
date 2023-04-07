@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2019_4_14;UNITY_2019_4;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_IOS;ENABLE_RUNTIME_GI;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;UNITY_IOS;PLATFORM_IPHONE;UNITY_IPHONE;UNITY_IPHONE_API;SUPPORT_MULTIPLE_DISPLAYS;UNITY_HAS_GOOGLEVR;ENABLE_SPATIALTRACKING;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NET_STANDARD_2_0</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2019_4_14;UNITY_2019_4;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_INCLUDE_TESTS;UNITY_ANALYTICS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_IOS;ENABLE_RUNTIME_GI;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;UNITY_IOS;PLATFORM_IPHONE;UNITY_IPHONE;UNITY_IPHONE_API;SUPPORT_MULTIPLE_DISPLAYS;UNITY_HAS_GOOGLEVR;ENABLE_SPATIALTRACKING;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NET_STANDARD_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -40,60 +40,60 @@
      <Compile Include="Assets\AnyThinkPlugin\Editor\ATEditorCoroutines.cs" />
      <Compile Include="Assets\AnyThinkPlugin\Editor\ATMenu.cs" />
      <Compile Include="Assets\Editor\IOS\XcodeProjectSettings.cs" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\maio\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\adcolony\Editor\Dependencies.xml" />
      <None Include="Assets\AnyThinkAds\Plugins\iOS\kuaishou\Editor\Dependencies.xml" />
-     <None Include="Assets\ExternalDependencyManager\Editor\GoogleRegistries.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\startapp\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\vungle\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\chartboost\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\unityads\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\mopub\Editor\Dependencies.xml" />
-     <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.156_manifest.txt" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\tapjoy\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\applovin\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\ogury\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\fyber\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\China\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\inmobi\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\pangle_NonChina\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\kidoz\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\ogury\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\nend\Editor\Dependencies.xml" />
      <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\facebook\Editor\Dependencies.xml" />
-     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.137.0.txt" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\mopub\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\startapp\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\MyTarget\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\baidu\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\gdt\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\applovin\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\China\mediation\kuaishou\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\mintegral\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\sigmob\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\chartboost\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\kidoz\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\admob\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\adcolony\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\pangle\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\pangle_China\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\klevin\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\maio\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\huawei\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\tapjoy\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\unityads\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\inmobi\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\mintegral\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\fyber\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\vungle\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\facebook\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\ironsource\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\iOS\admob\Editor\Dependencies.xml" />
      <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\mytarget\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\chartboost\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\mytarget\Editor\Dependencies.xml" />
+     <None Include="Assets\ExternalDependencyManager\Editor\GoogleRegistries.xml" />
+     <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.171_manifest.txt" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\baidu\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\chartboost\Editor\Dependencies.xml" />
+     <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.156_manifest.txt" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\startapp\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\maio\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\admob\Editor\Dependencies.xml" />
      <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\nend\Editor\Dependencies.xml" />
-     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\appnext\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\vungle\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\yandex\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\yandex\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\ironsource\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\klevin\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\mintegral\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\huawei\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\pangle\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\nend\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\applovin\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\Core\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\China\mediation\kuaishou\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\ogury\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\inmobi\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\ogury\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\kidoz\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\admob\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\inmobi\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\fyber\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\pangle_China\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\unityads\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\mintegral\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\maio\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\adcolony\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\tapjoy\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\startapp\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\facebook\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\tapjoy\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\gdt\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\applovin\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\fyber\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\sigmob\Editor\Dependencies.xml" />
      <None Include="Assets\AnyThinkAds\Plugins\iOS\ironsource\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\pangle_nonChina\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\China\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\unityads\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\vungle\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\iOS\kidoz\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\Editor\Dependencies.xml" />
+     <None Include="Assets\AnyThinkAds\Plugins\Android\NonChina\mediation\adcolony\Editor\Dependencies.xml" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.14f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -292,44 +292,56 @@
     <Reference Include="UnityEditor.iOS.Extensions">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.14f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Google.PackageManagerResolver_v1.2.156">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.156.dll</HintPath>
-    </Reference>
     <Reference Include="Google.VersionHandler">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
     </Reference>
     <Reference Include="Google.IOSResolver_v1.2.156">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.156.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.VersionHandlerImpl_v1.2.156">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.156.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.156.dll</HintPath>
     </Reference>
     <Reference Include="Google.JarResolver_v1.2.156">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/Google.JarResolver_v1.2.156.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/Google.JarResolver_v1.2.156.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Analytics.Tracker">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
+    <Reference Include="Google.PackageManagerResolver_v1.2.156">
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.156.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl_v1.2.156">
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.156.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.IOSResolver">
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/1.2.171/Google.IOSResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver">
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/1.2.171/Google.JarResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.PackageManagerResolver">
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/1.2.171/Google.PackageManagerResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl">
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Assets/ExternalDependencyManager/Editor/1.2.171/Google.VersionHandlerImpl.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/PackageCache/com.unity.collab-proxy@1.8.0/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="unityplastic">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/PackageCache/com.unity.collab-proxy@1.8.0/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/PackageCache/com.unity.collab-proxy@1.8.0/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/PackageCache/com.unity.collab-proxy@1.8.0/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/PackageCache/com.unity.collab-proxy@1.8.0/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/PackageCache/com.unity.collab-proxy@1.8.0/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/PackageCache/com.unity.collab-proxy@1.8.0/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/PackageCache/com.unity.collab-proxy@1.8.0/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.14f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -692,103 +704,94 @@
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.14f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Monetization">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing.Stores">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Purchasing.Stores.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Purchasing.Stores.dll</HintPath>
     </Reference>
     <Reference Include="Purchasing.Common">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Purchasing.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Purchasing.Common.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing.Codeless">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Purchasing.Codeless.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Purchasing.Codeless.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing.SecurityCore">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityCore.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityCore.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Advertisements.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Advertisements.Editor.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing.SecurityStub">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityStub.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityStub.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-        <HintPath>/Users/mac/Desktop/Project/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+        <HintPath>/Volumes/ZX2 512G/topon_unity_sdk_dev/AnyThinkUnitySDK/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

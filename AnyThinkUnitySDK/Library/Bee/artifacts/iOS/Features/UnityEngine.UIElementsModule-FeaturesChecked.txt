@@ -1,0 +1,3 @@
+UnityEngine.Input
+UnityEngine.Touch::get_altitudeAngle
+UnityEngine.Touch::get_azimuthAngle

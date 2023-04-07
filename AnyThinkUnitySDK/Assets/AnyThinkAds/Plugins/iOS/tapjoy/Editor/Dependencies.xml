@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><dependencies>
     <iosPods>
-        <iosPod name="AnyThinkiOS/AnyThinkTapjoyAdapter" version="5.9.98" />
+        <iosPod name="AnyThinkiOS/AnyThinkTapjoyAdapter" version="6.1.71" />
     </iosPods>
 </dependencies>

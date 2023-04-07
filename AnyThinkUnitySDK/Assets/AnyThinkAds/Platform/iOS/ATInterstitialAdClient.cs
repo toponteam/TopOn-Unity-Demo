@@ -82,12 +82,12 @@ namespace AnyThinkAds.iOS {
 
 	    public void OnInterstitialAdLoadFailure(string placementID, string code, string error) {
 	     	Debug.Log("onInterstitialAdFailed...unity3d.");
-            onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementID, error, code));
+            onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementID, code, error));
 	    }
 
 	     public void OnInterstitialAdVideoPlayFailure(string placementID, string code, string error) {
 	    	Debug.Log("Unity: ATInterstitialAdClient::OnInterstitialAdVideoPlayFailure()");
-	        onAdVideoFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementID, error, code));
+	        onAdVideoFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementID, code, error));
 	    }
 
 	    public void OnInterstitialAdVideoPlayStart(string placementID, string callbackJson) {
@@ -107,7 +107,7 @@ namespace AnyThinkAds.iOS {
 
         public void OnInterstitialAdFailedToShow(string placementID) {
 	    	Debug.Log("Unity: ATInterstitialAdClient::OnInterstitialAdFailedToShow()");
-	        onAdShowFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementID, "Failed to show video ad", "-1"));
+	        onAdShowFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementID, "-1", "Failed to show video ad"));
 	    }
 
         public void OnInterstitialAdClick(string placementID, string callbackJson) {

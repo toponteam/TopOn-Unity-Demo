@@ -176,7 +176,7 @@ namespace AnyThinkAds.Android
         public void onRewardedVideoAdFailed(string placementId,string code, string error)
         {
             Debug.Log("onRewardedVideoAdFailed...unity3d.");
-            onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
+            onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, code, error));
         }
 
 
@@ -197,7 +197,7 @@ namespace AnyThinkAds.Android
         public void onRewardedVideoAdPlayFailed(string placementId,string code, string error)
         {
             Debug.Log("onRewardedVideoAdPlayFailed...unity3d.");
-            onAdVideoFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
+            onAdVideoFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, code, error));
         }
 
         public void onRewardedVideoAdClosed(string placementId,bool isRewarded, string callbackJson)
@@ -237,7 +237,7 @@ namespace AnyThinkAds.Android
         public void onRewardedVideoAdAgainPlayFailed(string placementId, string code, string error)
         {
             Debug.Log("onRewardedVideoAdAgainPlayFailed...unity3d.");
-            onPlayAgainFailure?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
+            onPlayAgainFailure?.Invoke(this, new ATAdErrorEventArgs(placementId, code, error));
         }
 
 
@@ -271,7 +271,7 @@ namespace AnyThinkAds.Android
         public void onAdSourceBiddingFail(string placementId, string callbackJson, string code, string error)
         {
             Debug.Log("onAdSourceBiddingFail...unity3d." + placementId + "," + code + "," + error + "," + callbackJson);
-            onAdSourceBiddingFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
+            onAdSourceBiddingFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, code, error));
         }
 
         public void onAdSourceAttempt(string placementId, string callbackJson)
@@ -289,7 +289,7 @@ namespace AnyThinkAds.Android
         public void onAdSourceLoadFail(string placementId, string callbackJson, string code, string error)
         {
             Debug.Log("onAdSourceLoadFail...unity3d." + placementId + "," + code + "," + error + "," + callbackJson);
-            onAdSourceLoadFailureEvent?.Invoke(this,new ATAdErrorEventArgs(placementId, error, code));
+            onAdSourceLoadFailureEvent?.Invoke(this,new ATAdErrorEventArgs(placementId, code, error));
         }
 
 

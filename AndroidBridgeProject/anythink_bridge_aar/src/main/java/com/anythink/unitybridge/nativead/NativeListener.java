@@ -27,7 +27,7 @@ public interface NativeListener {
 
     public void onAdSourceBiddingFail(String unitId, String callbackJson, String code, String error);
 
-    public void onAdSourceAttemp(String unitId, String callbackJson);
+    public void onAdSourceAttempt(String unitId, String callbackJson);
 
     public void onAdSourceLoadFilled(String unitId, String callbackJson);
 

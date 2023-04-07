@@ -213,14 +213,14 @@ public class BannerHelper {
             }
 
             @Override
-            public void onAdSourceAttemp(final ATAdInfo atAdInfo) {
+            public void onAdSourceAttempt(final ATAdInfo atAdInfo) {
                 MsgTools.printMsg("onAdSourceAttemp: " + mPlacementId );
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
                             synchronized (BannerHelper.this) {
-                                mListener.onAdSourceAttemp(mPlacementId, atAdInfo.toString());
+                                mListener.onAdSourceAttempt(mPlacementId, atAdInfo.toString());
                             }
                         }
                     }
@@ -284,13 +284,26 @@ public class BannerHelper {
 
                                 if (mBannerView != null && !TextUtils.isEmpty(banner_ad_size)) {
                                     String[] size = banner_ad_size.split("x");
-                                    MsgTools.printMsg("loadBannerAd, banner_ad_size" + banner_ad_size);
-                                    if (mBannerView.getLayoutParams() == null) {
-                                        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(Integer.parseInt(size[0]), Integer.parseInt(size[1]));
-                                        mBannerView.setLayoutParams(lp);
-                                    } else {
-                                        mBannerView.getLayoutParams().width = Integer.parseInt(size[0]);
-                                        mBannerView.getLayoutParams().height = Integer.parseInt(size[1]);
+                                    try {
+                                        int width = Integer.parseInt(size[0]);
+                                        int height = Integer.parseInt(size[1]);
+                                        MsgTools.printMsg("loadBannerAd, banner_ad_size" + banner_ad_size);
+                                        if (mBannerView.getLayoutParams() == null) {
+                                            FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(width, height);
+                                            mBannerView.setLayoutParams(lp);
+                                        } else {
+                                            mBannerView.getLayoutParams().width = width;
+                                            mBannerView.getLayoutParams().height = height;
+                                        }
+
+                                        if (width > 0 && !jsonObject.has("key_width")) {
+                                            jsonObject.put("key_width", width);
+                                        }
+                                        if (height > 0 && !jsonObject.has("key_height")) {
+                                            jsonObject.put("key_height", height);
+                                        }
+                                    } catch (Throwable e) {
+                                        e.printStackTrace();
                                     }
 
                                 }

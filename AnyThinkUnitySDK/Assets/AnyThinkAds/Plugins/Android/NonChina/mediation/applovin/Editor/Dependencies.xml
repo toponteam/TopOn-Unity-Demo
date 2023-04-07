@@ -1,5 +1,5 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec="com.applovin:applovin-sdk:11.4.4"/>
+        <androidPackage spec="com.applovin:applovin-sdk:11.7.1"/>
     </androidPackages>
 </dependencies>

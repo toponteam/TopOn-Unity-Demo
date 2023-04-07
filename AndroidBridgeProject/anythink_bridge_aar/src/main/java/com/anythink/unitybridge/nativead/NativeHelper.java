@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -19,9 +21,12 @@ import com.anythink.nativead.api.ATNativeAdView;
 import com.anythink.nativead.api.ATNativeDislikeListener;
 import com.anythink.nativead.api.ATNativeEventListener;
 import com.anythink.nativead.api.ATNativeNetworkListener;
+import com.anythink.nativead.api.ATNativePrepareExInfo;
+import com.anythink.nativead.api.ATNativePrepareInfo;
 import com.anythink.nativead.api.NativeAd;
 import com.anythink.rewardvideo.api.ATRewardVideoAd;
 import com.anythink.unitybridge.MsgTools;
+import com.anythink.unitybridge.R;
 import com.anythink.unitybridge.UnityPluginUtils;
 import com.anythink.unitybridge.download.DownloadHelper;
 import com.anythink.unitybridge.utils.CommonUtil;
@@ -50,6 +55,8 @@ public class NativeHelper {
     ATNativeAdView mATNativeAdView;
     ATNative mATNative;
     ImageView mDislikeView;
+
+    ATNativePrepareInfo mNativePrepareInfo;
 
     public NativeHelper(NativeListener pListener) {
         if (pListener == null) {
@@ -142,14 +149,14 @@ public class NativeHelper {
             }
 
             @Override
-            public void onAdSourceAttemp(final ATAdInfo atAdInfo) {
+            public void onAdSourceAttempt(final ATAdInfo atAdInfo) {
                 MsgTools.printMsg("onAdSourceAttemp: " + mPlacementId );
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
                             synchronized (NativeHelper.this) {
-                                mListener.onAdSourceAttemp(mPlacementId, atAdInfo.toString());
+                                mListener.onAdSourceAttempt(mPlacementId, atAdInfo.toString());
                             }
                         }
                     }
@@ -186,10 +193,6 @@ public class NativeHelper {
                 });
             }
         });
-
-        if (mATNativeAdView == null) {
-            mATNativeAdView = new ATNativeAdView(mActivity);
-        }
 
         MsgTools.printMsg("initNative 2 " + mPlacementId);
     }
@@ -481,40 +484,64 @@ public class NativeHelper {
                         }
                     }
 
-
-                    ATUnityRender atUnityRender = new ATUnityRender(mActivity, pViewInfo);
-                    try {
-                        if (pViewInfo.dislikeView != null) {
-                            initDislikeView(pViewInfo.dislikeView);
-
-                            atUnityRender.setDislikeView(mDislikeView);
-                        }
-
-                        nativeAd.renderAdView(mATNativeAdView, atUnityRender);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                    //add dislike button
-                    if (pViewInfo.dislikeView != null && mDislikeView != null) {
-                        if (mDislikeView.getParent() != null) {
-                            ((ViewGroup) mDislikeView.getParent()).removeView(mDislikeView);
-                        }
-
-                        mATNativeAdView.addView(mDislikeView);
-                    }
-
-                    if (pViewInfo.adLogoView != null) {
-                        FrameLayout.LayoutParams adLogoLayoutParams = new FrameLayout.LayoutParams(pViewInfo.adLogoView.mWidth, pViewInfo.adLogoView.mHeight);
-                        adLogoLayoutParams.leftMargin = pViewInfo.adLogoView.mX;
-                        adLogoLayoutParams.topMargin = pViewInfo.adLogoView.mY;
-                        nativeAd.prepare(mATNativeAdView, atUnityRender.getClickViews(), adLogoLayoutParams);
-                        MsgTools.printMsg("prepare native ad with logo:" + mPlacementId);
+                    if (mATNativeAdView == null) {
+                        mATNativeAdView = new ATNativeAdView(mActivity);
                     } else {
-                        nativeAd.prepare(mATNativeAdView, atUnityRender.getClickViews(), null);
-                        MsgTools.printMsg("prepare native ad:" + mPlacementId);
+                        mATNativeAdView.removeAllViews();
                     }
 
+                    mNativePrepareInfo = null;
+
+                    try {
+                        if (nativeAd.isNativeExpress()) {
+                            nativeAd.renderAdContainer(mATNativeAdView,null);
+                        } else {
+                            SelfRenderViewUtil selfRenderViewUtil = new SelfRenderViewUtil(mActivity,pViewInfo,mNativeAd.getAdInfo().getNetworkFirmId());
+//                            View selfRenderView = LayoutInflater.from(mActivity).inflate(R.layout.native_ad_item, null);
+                            mNativePrepareInfo = new ATNativePrepareExInfo();
+
+                            View selfRenderView = selfRenderViewUtil.bindSelfRenderView(mNativeAd.getAdMaterial(), mNativePrepareInfo, pViewInfo);
+
+                            mNativeAd.renderAdContainer(mATNativeAdView, selfRenderView);
+                        }
+                    } catch (Throwable e) {
+
+                    }
+
+                    mNativeAd.prepare(mATNativeAdView, mNativePrepareInfo);
+
+//                    ATUnityRender atUnityRender = new ATUnityRender(mActivity, pViewInfo);
+//                    try {
+//                        if (pViewInfo.dislikeView != null) {
+//                            initDislikeView(pViewInfo.dislikeView);
+//
+//                            atUnityRender.setDislikeView(mDislikeView);
+//                        }
+//
+//                        nativeAd.renderAdView(mATNativeAdView, atUnityRender);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                    //add dislike button
+//                    if (pViewInfo.dislikeView != null && mDislikeView != null) {
+//                        if (mDislikeView.getParent() != null) {
+//                            ((ViewGroup) mDislikeView.getParent()).removeView(mDislikeView);
+//                        }
+//
+//                        mATNativeAdView.addView(mDislikeView);
+//                    }
+//
+//                    if (pViewInfo.adLogoView != null) {
+//                        FrameLayout.LayoutParams adLogoLayoutParams = new FrameLayout.LayoutParams(pViewInfo.adLogoView.mWidth, pViewInfo.adLogoView.mHeight);
+//                        adLogoLayoutParams.leftMargin = pViewInfo.adLogoView.mX;
+//                        adLogoLayoutParams.topMargin = pViewInfo.adLogoView.mY;
+//                        nativeAd.prepare(mATNativeAdView, atUnityRender.getClickViews(), adLogoLayoutParams);
+//                        MsgTools.printMsg("prepare native ad with logo:" + mPlacementId);
+//                    } else {
+//                        nativeAd.prepare(mATNativeAdView, atUnityRender.getClickViews(), null);
+//                        MsgTools.printMsg("prepare native ad:" + mPlacementId);
+//                    }
                     ViewInfo.addNativeAdView2Activity(mActivity, pViewInfo, mATNativeAdView, nativeAd.isNativeExpress() ? parentGravity : -1);
                 } else {
                     MsgTools.printMsg("No Cache:" + mPlacementId);

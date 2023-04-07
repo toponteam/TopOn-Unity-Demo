@@ -1,12 +1,7 @@
 fileFormatVersion: 2
-guid: 35a6726adf03479eb04b8c082346d551
-labels:
-- gvh
-- gvh_version-1.2.156
-- gvhp_exportpath-ExternalDependencyManager/Editor/LICENSE
-timeCreated: 1584567712
-licenseType: Pro
-TextScriptImporter:
-  userData:
-  assetBundleName:
-  assetBundleVariant:
+guid: e198a9de351b347fcae386a21ca86ab6
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

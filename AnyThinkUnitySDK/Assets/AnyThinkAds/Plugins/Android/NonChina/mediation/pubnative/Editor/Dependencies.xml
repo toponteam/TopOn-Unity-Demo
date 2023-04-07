@@ -1,0 +1,8 @@
+<dependencies>
+    <androidPackages>
+        <repositories>
+            <repository>https://verve.jfrog.io/artifactory/verve-gradle-release</repository>
+        </repositories>
+        <androidPackage spec="net.pubnative:hybid.sdk:2.16.0"/>
+    </androidPackages>
+</dependencies>

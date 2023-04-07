@@ -224,14 +224,14 @@ public class InterstitialHelper {
             }
 
             @Override
-            public void onAdSourceAttemp(final ATAdInfo atAdInfo) {
+            public void onAdSourceAttempt(final ATAdInfo atAdInfo) {
                 MsgTools.printMsg("onAdSourceAttemp: " + mPlacementId );
                 TaskManager.getInstance().run_proxy(new Runnable() {
                     @Override
                     public void run() {
                         if (mListener != null) {
                             synchronized (InterstitialHelper.this) {
-                                mListener.onAdSourceAttemp(mPlacementId, atAdInfo.toString());
+                                mListener.onAdSourceAttempt(mPlacementId, atAdInfo.toString());
                             }
                         }
                     }

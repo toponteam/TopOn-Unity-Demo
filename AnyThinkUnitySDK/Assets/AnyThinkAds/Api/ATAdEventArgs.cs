@@ -29,14 +29,14 @@ namespace AnyThinkAds.Api
         public String errorMessage { get; }
         public String errorCode { get; }
 
-        public ATAdErrorEventArgs(String placementId, String message, String code)
+        public ATAdErrorEventArgs(String placementId, String code, String message)
             : base(placementId)
         {
             errorMessage = message;
             errorCode = code;
         }
 
-        public ATAdErrorEventArgs(String placementId, String callbackJson, String message, String code)
+        public ATAdErrorEventArgs(String placementId, String callbackJson, String code, String message)
             : base(placementId, callbackJson)
         {
             errorMessage = message;

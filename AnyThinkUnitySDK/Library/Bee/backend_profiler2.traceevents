@@ -1,0 +1,576 @@
+{ "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
+,{ "pid":12345, "tid":0, "ts":1680772479438760, "dur":16798, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1680772479455560, "dur":214, "ph":"X", "name": "RemoveStaleOutputs",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1680772479455847, "dur":67, "ph":"X", "name": "BuildQueueInit",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1680772479455919, "dur":1510, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1680772479457431, "dur":22892, "ph":"X", "name": "WaitForBuildFinished", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1680772479480557, "dur":1074, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
+,{ "pid":12345, "tid":1, "ts":1680772479455865, "dur":1569, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479457436, "dur":6478, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479464077, "dur":60, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/Variations/il2cpp/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479465771, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/PlayerScriptAssemblies/UnityEngine.SpatialTracking.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479466117, "dur":65, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/PlayerScriptAssemblies/UnityEngine.Purchasing.Codeless.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479467040, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.ComponentModel.Primitives.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479467912, "dur":79, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.IO.Compression.ZipFile.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479467992, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.IO.FileSystem.AccessControl.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479468047, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.IO.FileSystem.DriveInfo.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479468103, "dur":68, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.IO.FileSystem.Primitives.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479468171, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.IO.FileSystem.Watcher.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479469900, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Claims.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470005, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Cryptography.Cng.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470183, "dur":57, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Cryptography.Encryption.ECDiffieHellman.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470241, "dur":53, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Cryptography.Encryption.ECDsa.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470364, "dur":60, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Cryptography.Hashing.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470455, "dur":61, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Cryptography.Pkcs.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470516, "dur":57, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Cryptography.Primitives.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470573, "dur":73, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Cryptography.ProtectedData.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470646, "dur":50, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Cryptography.RSA.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470697, "dur":57, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Cryptography.RandomNumberGenerator.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470755, "dur":57, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Cryptography.X509Certificates.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470813, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Security.Principal.Windows.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479470977, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.ServiceModel.Http.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479471108, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.ServiceModel.Security.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479471161, "dur":76, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.ServiceProcess.ServiceController.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479471238, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Text.Encoding.CodePages.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479471294, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Text.Encoding.Extensions.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479471346, "dur":57, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Text.Encoding.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479471404, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Text.RegularExpressions.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479471457, "dur":50, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityaot-macos/Facades/System.Threading.AccessControl.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479463915, "dur":7851, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"UnityLinker Library/Bee/artifacts/iOS/ManagedStripped" }}
+,{ "pid":12345, "tid":1, "ts":1680772479471767, "dur":91, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479472540, "dur":68, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479472989, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/Mono.Security.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479473051, "dur":68, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/System.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479473193, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/System.Xml.dll" }}
+,{ "pid":12345, "tid":1, "ts":1680772479472483, "dur":850, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"IL2CPP_CodeGen /Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/il2cpp_conv_qzi3.traceevents" }}
+,{ "pid":12345, "tid":1, "ts":1680772479473333, "dur":2386, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479478828, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib11.cpp" }}
+,{ "pid":12345, "tid":1, "ts":1680772479478828, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib11.cpp" }}
+,{ "pid":12345, "tid":1, "ts":1680772479478884, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479478985, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479040, "dur":54, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics45.cpp" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479040, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics45.cpp" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479095, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479148, "dur":58, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib10.cpp" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479147, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib10.cpp" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479206, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479261, "dur":50, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics25.cpp" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479260, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics25.cpp" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479385, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479498, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479595, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479652, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Il2CppRgctxTable.c" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479652, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Il2CppRgctxTable.c" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479760, "dur":54, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.TextCoreFontEngineModule_CodeGen.c" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479759, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.TextCoreFontEngineModule_CodeGen.c" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479900, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479964, "dur":53, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics7.cpp" }}
+,{ "pid":12345, "tid":1, "ts":1680772479479963, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics7.cpp" }}
+,{ "pid":12345, "tid":1, "ts":1680772479480018, "dur":237, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479455872, "dur":1566, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479457497, "dur":6422, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479465789, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479466097, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479467100, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479467474, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479467924, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479467987, "dur":53, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/os/SocketBridge.h" }}
+,{ "pid":12345, "tid":2, "ts":1680772479467987, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/os/SocketBridge.h" }}
+,{ "pid":12345, "tid":2, "ts":1680772479468040, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479468096, "dur":70, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/gc/WriteBarrierValidation.h" }}
+,{ "pid":12345, "tid":2, "ts":1680772479468096, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/gc/WriteBarrierValidation.h" }}
+,{ "pid":12345, "tid":2, "ts":1680772479468166, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479469896, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Unity/CVTextureCache.mm" }}
+,{ "pid":12345, "tid":2, "ts":1680772479469997, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Unity/OnDemandResources.mm" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470174, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470232, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/Trampoline/Classes/UnityAppController.h" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470231, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/UnityAppController.h" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470360, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470450, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470511, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/external/baselib/Include/Cpp/Internal/Compiler/Msvc/AlgorithmMsvc.inl.h" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470510, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/external/baselib/Include/Cpp/Internal/Compiler/Msvc/AlgorithmMsvc.inl.h" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470567, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470619, "dur":70, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470689, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/LaunchScreen-iPad.storyboard" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470745, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479470846, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479471101, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479471152, "dur":76, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Assets/AnyThinkAds/Platform/iOS/Internal/C/ATRewardedVideoWrapper.h" }}
+,{ "pid":12345, "tid":2, "ts":1680772479471152, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/AnyThinkAds/Platform/iOS/Internal/C/ATRewardedVideoWrapper.h" }}
+,{ "pid":12345, "tid":2, "ts":1680772479471228, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479471281, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":2, "ts":1680772479471335, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479471390, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/resources.assets" }}
+,{ "pid":12345, "tid":2, "ts":1680772479471443, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479471556, "dur":928, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479472488, "dur":734, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ClassRegistrationGenerator /Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/UnityClassRegistration.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479473325, "dur":216, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.UnityWebRequestModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":2, "ts":1680772479473827, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/Tools/BuildPipeline/BeeBuildProgramCommon.dll" }}
+,{ "pid":12345, "tid":2, "ts":1680772479473563, "dur":399, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.SharedInternalsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":2, "ts":1680772479473962, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479474039, "dur":766, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.UI-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":2, "ts":1680772479474822, "dur":552, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/System.Configuration-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":2, "ts":1680772479475396, "dur":2525, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479478452, "dur":63, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479478785, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479478846, "dur":58, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics38.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479478845, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics38.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479478951, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics36.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479478951, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics36.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479002, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479060, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics19.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479060, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics19.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479164, "dur":60, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib13.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479163, "dur":61, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib13.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479224, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479279, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.CoreModule.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479278, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.CoreModule.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479407, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479518, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479610, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479672, "dur":65, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.TilemapModule_CodeGen.c" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479671, "dur":66, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.TilemapModule_CodeGen.c" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479783, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.InputLegacyModule_CodeGen.c" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479782, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.InputLegacyModule_CodeGen.c" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479916, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479983, "dur":226, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics1.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479479982, "dur":227, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics1.cpp" }}
+,{ "pid":12345, "tid":2, "ts":1680772479480209, "dur":63, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1680772479480274, "dur":70, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479455880, "dur":1597, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479457482, "dur":51, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479457533, "dur":6442, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479464087, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479465778, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479466086, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479467914, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479467976, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/os/Debug.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479467976, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/os/Debug.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479468032, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479468088, "dur":67, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/os/Time.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479468088, "dur":67, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/os/Time.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479468155, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479469980, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/Trampoline/Classes/Unity/UnityForwardDecls.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479469980, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Unity/UnityForwardDecls.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470166, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470223, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/Trampoline/Classes/UnityAppController+Rendering.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470222, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/UnityAppController+Rendering.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470352, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470443, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470503, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/external/baselib/Include/C/Internal/Compiler/Baselib_Atomic_Msvc.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470502, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/external/baselib/Include/C/Internal/Compiler/Baselib_Atomic_Msvc.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470559, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470613, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470682, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/LaunchScreen-iPhoneLandscape.png" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470737, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470793, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Unity-iPhone/Images.xcassets/AppIcon.appiconset/Icon-iPad-167.png" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470984, "dur":65, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Assets/AnyThinkAds/Platform/iOS/Internal/C/ATNativeAdWrapper.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479470983, "dur":67, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/AnyThinkAds/Platform/iOS/Internal/C/ATNativeAdWrapper.h" }}
+,{ "pid":12345, "tid":3, "ts":1680772479471162, "dur":73, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":3, "ts":1680772479471284, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/sharedassets2.assets" }}
+,{ "pid":12345, "tid":3, "ts":1680772479471338, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479471396, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/level4" }}
+,{ "pid":12345, "tid":3, "ts":1680772479471496, "dur":992, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479472538, "dur":76, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/UnityEngine.AnimationModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1680772479472660, "dur":80, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1680772479472773, "dur":77, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1680772479472866, "dur":74, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/UnityEngine.UIElementsNativeModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1680772479472490, "dur":664, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ICallRegistrationGenerator /Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/UnityICallRegistration.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479473154, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479473460, "dur":53, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/Tools/BuildPipeline/Unity.IL2CPP.Bee.BuildLogic.dll" }}
+,{ "pid":12345, "tid":3, "ts":1680772479473242, "dur":577, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/System.Numerics-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":3, "ts":1680772479473832, "dur":197, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.TextRenderingModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":3, "ts":1680772479474030, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479474100, "dur":668, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.GridModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":3, "ts":1680772479474803, "dur":652, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/Mono.Security-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":3, "ts":1680772479475467, "dur":2455, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479478459, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479478780, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479478836, "dur":50, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics37.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479478835, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics37.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479478886, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479478941, "dur":50, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics15.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479478940, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics15.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479478991, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479045, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics11.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479044, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics11.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479100, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479151, "dur":61, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics16.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479150, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics16.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479213, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479270, "dur":50, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics27.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479269, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics27.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479394, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479510, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479604, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479665, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.IMGUIModule1.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479664, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.IMGUIModule1.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479775, "dur":53, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/System.Configuration.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479774, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/System.Configuration.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479912, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479976, "dur":224, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib2.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479479975, "dur":225, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib2.cpp" }}
+,{ "pid":12345, "tid":3, "ts":1680772479480200, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1680772479480267, "dur":95, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479455887, "dur":1611, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479457499, "dur":6476, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479464083, "dur":58, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/external/baselib/Include/C/Internal/Baselib_EventSemaphore_FutexBased.inl.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479464083, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/external/baselib/Include/C/Internal/Baselib_EventSemaphore_FutexBased.inl.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479465774, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/icalls/mscorlib/System/RuntimeType.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479465774, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/icalls/mscorlib/System/RuntimeType.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479466083, "dur":67, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/icalls/mscorlib/System.Globalization/RegionInfo.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479466082, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/icalls/mscorlib/System.Globalization/RegionInfo.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479467497, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479467591, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479467943, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479468009, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/os/Error.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479468009, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/os/Error.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479468065, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479468133, "dur":54, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/gc/AppendOnlyGCHashMap.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479468132, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/gc/AppendOnlyGCHashMap.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479468656, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479469905, "dur":59, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/Trampoline/Classes/Unity/InternalProfiler.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479469904, "dur":60, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Unity/InternalProfiler.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479470011, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Unity/UnityWebRequest.mm" }}
+,{ "pid":12345, "tid":4, "ts":1680772479470205, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479470478, "dur":61, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479470588, "dur":75, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479470665, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479470743, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479470796, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479470982, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479471110, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Assets/AnyThinkAds/Platform/iOS/Internal/C/ATBannerAdWrapper.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479471110, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/AnyThinkAds/Platform/iOS/Internal/C/ATBannerAdWrapper.h" }}
+,{ "pid":12345, "tid":4, "ts":1680772479471166, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479471240, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/globalgamemanagers.assets" }}
+,{ "pid":12345, "tid":4, "ts":1680772479471291, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479471349, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/PlayerDataCache/iOS/Data/ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":4, "ts":1680772479471348, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":4, "ts":1680772479471401, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479471534, "dur":960, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479472533, "dur":78, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/UnityEngine.TilemapModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1680772479472533, "dur":631, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.TilemapModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1680772479473204, "dur":65, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/System.Core.dll" }}
+,{ "pid":12345, "tid":4, "ts":1680772479473203, "dur":377, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/System.Core-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1680772479473825, "dur":58, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/Tools/BuildPipeline/Bee.Toolchain.LLVM.dll" }}
+,{ "pid":12345, "tid":4, "ts":1680772479473667, "dur":687, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.AnimationModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1680772479474380, "dur":575, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.AndroidJNIModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1680772479474955, "dur":75, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479475034, "dur":2850, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479478454, "dur":80, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/System.Xml3.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479478453, "dur":81, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/System.Xml3.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479478831, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479478890, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics43.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479478889, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics43.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479478941, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479478996, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics34.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479478996, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics34.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479052, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479158, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479220, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics20.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479219, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics20.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479273, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479398, "dur":64, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/System_CodeGen.c" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479397, "dur":65, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/System_CodeGen.c" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479507, "dur":53, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Il2CppGenericAdjustorThunkTable.c" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479507, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Il2CppGenericAdjustorThunkTable.c" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479601, "dur":54, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib_CodeGen.c" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479601, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib_CodeGen.c" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479656, "dur":63, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479767, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479910, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib3.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479909, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib3.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479479972, "dur":224, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1680772479480197, "dur":65, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics9.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479480197, "dur":65, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics9.cpp" }}
+,{ "pid":12345, "tid":4, "ts":1680772479480291, "dur":77, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479455894, "dur":1635, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479457529, "dur":6447, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479464092, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479465780, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479466088, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479467045, "dur":54, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/os/Posix/ThreadImpl.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479467044, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/os/Posix/ThreadImpl.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479467469, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479467566, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479467917, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479467983, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/os/MarshalStringAlloc.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479467982, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/os/MarshalStringAlloc.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479468038, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479468098, "dur":66, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/gc/Allocator.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479468098, "dur":66, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/gc/Allocator.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479468164, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479469892, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/Trampoline/Classes/Unity/UnityMetalSupport.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479469892, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Unity/UnityMetalSupport.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479469990, "dur":60, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/Trampoline/Classes/Unity/IUnityInterface.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479469990, "dur":60, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Unity/IUnityInterface.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470173, "dur":61, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470234, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/UnityAppController+Rendering.mm" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470355, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470447, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470506, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/external/baselib/Include/C/Internal/Compiler/Baselib_Atomic_Gcc.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470506, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/external/baselib/Include/C/Internal/Compiler/Baselib_Atomic_Gcc.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470610, "dur":69, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/Trampoline/Libraries/RegisterFeatures.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470610, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/RegisterFeatures.h" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470680, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470740, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Unity-iPhone/Images.xcassets/AppIcon.appiconset/Icon-iPhone-120.png" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470841, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479470996, "dur":75, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479471104, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479471155, "dur":75, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Assets/StreamingAssets/UnityServicesProjectConfiguration.json" }}
+,{ "pid":12345, "tid":5, "ts":1680772479471154, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/Raw/UnityServicesProjectConfiguration.json" }}
+,{ "pid":12345, "tid":5, "ts":1680772479471230, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479471286, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/sharedassets0.assets.resS" }}
+,{ "pid":12345, "tid":5, "ts":1680772479471341, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479471394, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/level3" }}
+,{ "pid":12345, "tid":5, "ts":1680772479471446, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479471498, "dur":1018, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479472887, "dur":54, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/Tools/BuildPipeline/Unity.Options.dll" }}
+,{ "pid":12345, "tid":5, "ts":1680772479473029, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/Tools/BuildPipeline/Bee.CSharpSupport.dll" }}
+,{ "pid":12345, "tid":5, "ts":1680772479472521, "dur":703, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.UnityAnalyticsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1680772479473225, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479473303, "dur":277, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/mscorlib-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1680772479473598, "dur":279, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.UIElementsNativeModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1680772479473893, "dur":626, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.SpriteShapeModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1680772479474519, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479474587, "dur":777, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.UIElementsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1680772479475383, "dur":2538, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479478450, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479478783, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479478839, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics29.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479478839, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics29.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479478892, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479478993, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479050, "dur":53, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/System.Xml.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479049, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/System.Xml.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479103, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479155, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics10.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479155, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics10.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479211, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479266, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics21.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479265, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics21.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479390, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479504, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479602, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479661, "dur":63, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Mono.Security1.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479660, "dur":64, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Mono.Security1.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479770, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.UIModule.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479769, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.UIModule.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479906, "dur":63, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479972, "dur":50, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib8.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479479971, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib8.cpp" }}
+,{ "pid":12345, "tid":5, "ts":1680772479480022, "dur":237, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479455902, "dur":1608, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479457510, "dur":6413, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479465785, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479466093, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479466998, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479467467, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479467561, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479467772, "dur":50, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/os/Encoding.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479467772, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/os/Encoding.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479467908, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479467964, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/os/Messages.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479467963, "dur":64, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/os/Messages.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479468027, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479468083, "dur":68, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/os/Semaphore.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479468083, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/os/Semaphore.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479468151, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479468663, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/vm/StackTrace.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479468663, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/vm/StackTrace.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479469970, "dur":63, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/Trampoline/Classes/Unity/ObjCRuntime.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479469970, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Unity/ObjCRuntime.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470163, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470215, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/Trampoline/Classes/UnityTrampolineConfigure.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470215, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/UnityTrampolineConfigure.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470346, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470437, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470495, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/external/baselib/Include/C/Internal/Compiler/Baselib_Atomic_Gcc_Apple_LLVM_Patch_PostInclude.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470494, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/external/baselib/Include/C/Internal/Compiler/Baselib_Atomic_Gcc_Apple_LLVM_Patch_PostInclude.h" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470600, "dur":71, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470600, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/Managed/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470671, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470729, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470829, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479470987, "dur":70, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479471123, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/AnyThinkAds/Platform/iOS/Internal/C/ATNativeSelfRenderView.m" }}
+,{ "pid":12345, "tid":6, "ts":1680772479471194, "dur":75, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479471269, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/sharedassets4.assets" }}
+,{ "pid":12345, "tid":6, "ts":1680772479471323, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479471378, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/level2" }}
+,{ "pid":12345, "tid":6, "ts":1680772479471429, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479471549, "dur":949, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479472506, "dur":656, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.PhysicsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1680772479473191, "dur":478, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1680772479473688, "dur":487, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.Physics2DModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1680772479474217, "dur":662, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/System.Xml-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1680772479474880, "dur":70, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479474954, "dur":517, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.UIModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1680772479475477, "dur":2446, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479478169, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479478457, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479478843, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics40.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479478842, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics40.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479478945, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib17.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479478944, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib17.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479478998, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479051, "dur":54, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics17.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479050, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics17.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479157, "dur":58, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib22.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479156, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib22.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479215, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479271, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics14.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479270, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics14.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479404, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479515, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479613, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479669, "dur":66, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.TextRenderingModule.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479668, "dur":67, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.TextRenderingModule.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479782, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.UIElementsModule10.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479781, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.UIElementsModule10.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479917, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479980, "dur":226, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib5.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479479980, "dur":227, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib5.cpp" }}
+,{ "pid":12345, "tid":6, "ts":1680772479480207, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1680772479480270, "dur":86, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479455909, "dur":1610, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479457520, "dur":6434, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479465782, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479466090, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479467463, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479467556, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479467910, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479467979, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/os/FastReaderReaderWriterLockImpl.h" }}
+,{ "pid":12345, "tid":7, "ts":1680772479467978, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/os/FastReaderReaderWriterLockImpl.h" }}
+,{ "pid":12345, "tid":7, "ts":1680772479468034, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479468090, "dur":68, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/gc/WriteBarrier.h" }}
+,{ "pid":12345, "tid":7, "ts":1680772479468090, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/gc/WriteBarrier.h" }}
+,{ "pid":12345, "tid":7, "ts":1680772479468158, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479469972, "dur":64, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/Trampoline/Classes/Unity/CMVideoSampling.h" }}
+,{ "pid":12345, "tid":7, "ts":1680772479469972, "dur":65, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Unity/CMVideoSampling.h" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470161, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470212, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/UnityAppController.mm" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470343, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470432, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470487, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/external/baselib/Include/C/Internal/Compiler/Baselib_Atomic_LLSC_Gcc.inl.h" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470486, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/external/baselib/Include/C/Internal/Compiler/Baselib_Atomic_LLSC_Gcc.inl.h" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470543, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470596, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470668, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/LaunchScreen-iPhone.storyboard" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470726, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470826, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479470989, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479471117, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/AnyThinkAds/Platform/iOS/Internal/C/ATBaseUnityWrapper.m" }}
+,{ "pid":12345, "tid":7, "ts":1680772479471171, "dur":75, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479471246, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/level1" }}
+,{ "pid":12345, "tid":7, "ts":1680772479471300, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479471353, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/level5" }}
+,{ "pid":12345, "tid":7, "ts":1680772479471408, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479471543, "dur":989, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479472536, "dur":88, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1680772479472533, "dur":687, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.IMGUIModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1680772479473256, "dur":418, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/Assembly-CSharp-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1680772479473718, "dur":380, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.JSONSerializeModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1680772479474119, "dur":544, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.CoreModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1680772479474663, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479474727, "dur":605, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.TextCoreFontEngineModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1680772479475361, "dur":2538, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479478463, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479478463, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479478772, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics24.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479478822, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479478880, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib15.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479478879, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib15.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479478978, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics30.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479478977, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics30.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479033, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479139, "dur":61, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479202, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib18.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479202, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib18.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479254, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479383, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.AudioModule_CodeGen.c" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479382, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.AudioModule_CodeGen.c" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479493, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Il2CppMetadataUsage.c" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479492, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Il2CppMetadataUsage.c" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479592, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/GenericMethods.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479591, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/GenericMethods.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479644, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479751, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479895, "dur":60, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics2.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479894, "dur":61, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics2.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479479955, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1680772479480009, "dur":240, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics4.cpp" }}
+,{ "pid":12345, "tid":7, "ts":1680772479480009, "dur":240, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics4.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479455915, "dur":1605, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479457521, "dur":6451, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479464080, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/external/baselib/Include/C/Internal/Baselib_EnumSizeCheck.h" }}
+,{ "pid":12345, "tid":8, "ts":1680772479464079, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/external/baselib/Include/C/Internal/Baselib_EnumSizeCheck.h" }}
+,{ "pid":12345, "tid":8, "ts":1680772479465793, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479466100, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479467568, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479467919, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479467985, "dur":57, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/os/Console.h" }}
+,{ "pid":12345, "tid":8, "ts":1680772479467985, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/os/Console.h" }}
+,{ "pid":12345, "tid":8, "ts":1680772479468042, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479468094, "dur":68, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/libil2cpp/include/gc/GCHandle.h" }}
+,{ "pid":12345, "tid":8, "ts":1680772479468094, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/libil2cpp/include/gc/GCHandle.h" }}
+,{ "pid":12345, "tid":8, "ts":1680772479468162, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479469894, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Unity/DeviceSettings.mm" }}
+,{ "pid":12345, "tid":8, "ts":1680772479469993, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Unity/AVCapture.mm" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470168, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470225, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/CrashReporter.mm" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470350, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470441, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470500, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/PlaybackEngines/iOSSupport/il2cpp/external/baselib/Include/C/Internal/Compiler/Baselib_Atomic_Gcc_Apple_LLVM_Patch.h" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470499, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/external/baselib/Include/C/Internal/Compiler/Baselib_Atomic_Gcc_Apple_LLVM_Patch.h" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470556, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470608, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470676, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/LaunchScreen-iPhonePortrait.png" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470735, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470836, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479470993, "dur":71, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479471146, "dur":75, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Assets/AnyThinkAds/Platform/iOS/Internal/C/ATAutolayoutCategories.h" }}
+,{ "pid":12345, "tid":8, "ts":1680772479471146, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Libraries/AnyThinkAds/Platform/iOS/Internal/C/ATAutolayoutCategories.h" }}
+,{ "pid":12345, "tid":8, "ts":1680772479471221, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479471277, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/level0" }}
+,{ "pid":12345, "tid":8, "ts":1680772479471329, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479471385, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Data/sharedassets5.assets" }}
+,{ "pid":12345, "tid":8, "ts":1680772479471437, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479471551, "dur":970, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479472522, "dur":66, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library/Bee/artifacts/iOS/ManagedStripped/UnityEngine.AudioModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1680772479472887, "dur":55, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Applications/Unity/Unity.app/Contents/Tools/BuildPipeline/PlayerBuildProgramLibrary.pdb" }}
+,{ "pid":12345, "tid":8, "ts":1680772479472522, "dur":673, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.AudioModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1680772479473195, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479473263, "dur":556, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/System-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1680772479473839, "dur":136, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.InputLegacyModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1680772479474010, "dur":604, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.TextCoreTextEngineModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1680772479474615, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479474687, "dur":539, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/iOS/Features/UnityEngine.GameCenterModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1680772479475255, "dur":2631, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479477956, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479478461, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479478899, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479478959, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/mscorlib14.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479478958, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/mscorlib14.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479010, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479066, "dur":54, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics33.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479065, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics33.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479169, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics23.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479169, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics23.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479231, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479284, "dur":53, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.GridModule.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479284, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.GridModule.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479416, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479523, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479620, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479678, "dur":65, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.PhysicsModule_CodeGen.c" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479677, "dur":67, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.PhysicsModule_CodeGen.c" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479789, "dur":57, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/UnityEngine.SharedInternalsModule.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479789, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/UnityEngine.SharedInternalsModule.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479922, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479989, "dur":226, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"/Users/lix/Documents/TopOn-Unity-Demo/AnyThinkUnitySDK/Library/Bee/artifacts/iOS/il2cppOutput/cpp/Generics6.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479479988, "dur":227, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/lix/Documents/Unity_iOS_internal_Demo/Classes/Native/Generics6.cpp" }}
+,{ "pid":12345, "tid":8, "ts":1680772479480216, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1680772479480278, "dur":98, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1680772479482619, "dur":344, "ph":"X", "name": "ProfilerWriteOutput" }
+,

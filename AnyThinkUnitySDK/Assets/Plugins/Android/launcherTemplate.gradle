@@ -4,7 +4,11 @@ apply plugin: 'com.android.application'
 
 dependencies {
     implementation project(':unityLibrary')
-    }
+}
+
+configurations.all {
+    resolutionStrategy.force 'androidx.core:core:1.6.0'
+}
 
 android {
     compileSdkVersion **APIVERSION**
@@ -34,6 +38,12 @@ android {
 
     lintOptions {
         abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+        exclude 'META-INF/com.android.tools/proguard/coroutines.pro'
+        exclude "META-INF/*.kotlin_module"
     }
 
     buildTypes {

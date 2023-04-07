@@ -103,7 +103,7 @@ namespace AnyThinkAds.iOS {
 	    
 	    public void OnBannerAdLoadFail(string placementId, string code, string message) {
 			Debug.Log("Unity: HBBannerAdWrapper::OnBannerAdLoadFail()");
-	        onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, message, code));
+	        onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, code, message));
 	    }
 	    
 	    public void OnBannerAdImpress(string placementId, string callbackJson) {
@@ -123,7 +123,7 @@ namespace AnyThinkAds.iOS {
 	    
 	    public void OnBannerAdAutoRefreshFail(string placementId, string code, string message) {
 			Debug.Log("Unity: HBBannerAdWrapper::OnBannerAdAutoRefreshFail()");
-	        onAdAutoRefreshFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, message, code));
+	        onAdAutoRefreshFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, code, message));
 	    }
 
 	    public void OnBannerAdClose(string placementId) {

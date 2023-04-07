@@ -8,6 +8,10 @@ using System.Runtime.InteropServices;
 
 #if UNITY_IPHONE || UNITY_ANDROID
 
+#if UNITY_IPHONE
+
+
+
 #elif UNITY_ANDROID
 
 using MSGTOOLS 		= ATMsgTools;
@@ -60,4 +64,4 @@ namespace AnyThinkAds.Demo
 }
 
 
-
+#endif

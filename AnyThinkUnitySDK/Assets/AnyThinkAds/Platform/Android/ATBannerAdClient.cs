@@ -232,7 +232,7 @@ namespace AnyThinkAds.Android
         public void onBannerFailed(string placementId,string code, string error)
         {
             Debug.Log("onBannerFailed...unity3d.");
-            onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, error, code));
+            onAdLoadFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, code, error));
         }
 
         //广告点击
@@ -265,7 +265,7 @@ namespace AnyThinkAds.Android
         public void onBannerAutoRefreshFail(string placementId, string code, string msg)
         {
             Debug.Log("onBannerAutoRefreshFail...unity3d.");
-            onAdAutoRefreshFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, msg, code));
+            onAdAutoRefreshFailureEvent?.Invoke(this, new ATAdErrorEventArgs(placementId, code, msg));
         }
 
         // Adsource Listener

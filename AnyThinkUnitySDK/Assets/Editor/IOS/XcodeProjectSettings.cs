@@ -52,7 +52,7 @@ public static class MyBuildPostprocess
                 pbxProject.AddFileToBuild(target, pbxProject.AddFile("usr/lib/libbz2.1.0.tbd", "Libraries/libbz2.1.0.tbd", PBXSourceTree.Sdk));
 
                 // 获取主 target
-                string mainTarget = pbxProject.GetUnityMainTargetGuid();
+                // string mainTarget = pbxProject.GetUnityMainTargetGuid();
                 // pbxProject.AddFileToBuild(mainTarget, pbxProject.AddFile("Frameworks/AnyThinkAds/Plugins/iOS/Core/AnyThinkSDK.bundle", "Frameworks/AnyThinkAds/Plugins/iOS/Core/AnyThinkSDK.bundle", PBXSourceTree.Sdk));
                 // pbxProject.AddFileToBuild(mainTarget, pbxProject.AddFile("Frameworks/AnyThinkAds/Plugins/iOS/pangle/BUAdSDK.bundle", "Frameworks/AnyThinkAds/Plugins/iOS/pangle/BUAdSDK.bundle", PBXSourceTree.Sdk));
 
